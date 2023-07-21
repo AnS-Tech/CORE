@@ -1,7 +1,10 @@
 "use client";
 import { useCallback } from "react";
 import { useRouter } from "next/navigation";
-import { api } from "src/libs/api";
+import { signInEmail } from "src/libs/firebase/auth/signin";
+import { signUpEmail } from "src/libs/firebase/auth/signup";
+import { signOutFirebase } from "src/libs/firebase/auth/signout";
+import { signInGoogle } from "src/libs/firebase/auth/googleAuth";
 
 interface Credentials {
   email: string;
@@ -13,20 +16,11 @@ export const useAuth = () => {
   const signIn = useCallback(async (credentials: Credentials) => {
     const { email, password } = credentials;
 
-    return await api
-      .post("public/auth/login", {
-        email,
-        password,
-      })
+    return await signInEmail(email, password)
       .then((res) => {
-        const { data } = res;
-
-        localStorage.setItem(
-          "token",
-          data.res.user.stsTokenManager.accessToken
-        );
-        localStorage.setItem("name", data.res.user.providerData[0].displayName);
-        localStorage.setItem("email", data.res.user.providerData[0].email);
+        if (res?.error)
+          return alert("Erro ao logar, verifique suas credenciais");
+        alert("Login realizado com sucesso");
         router.push("/");
         return res;
       })
@@ -39,16 +33,10 @@ export const useAuth = () => {
   const signUp = useCallback(async (credentials: Credentials) => {
     const { email, password } = credentials;
 
-    return await api
-      .post("public/auth/signin", {
-        email,
-        password,
-      })
+    return await signUpEmail(email, password)
       .then((res) => {
-        const { data } = res;
-        const { user } = data;
-
-        localStorage.setItem("token", user.stsTokenManager.accessToken);
+        if (res?.error) return alert(res.error);
+        alert("Cadastro realizado com sucesso");
         router.push("/");
         return res;
       })
@@ -58,8 +46,33 @@ export const useAuth = () => {
       });
   }, []);
 
+  const signOut = useCallback(async () => {
+    return await signOutFirebase()
+      .then((res) => {
+        if (res?.error) return alert(res.error);
+        alert("Logout realizado com sucesso");
+        router.push("/login");
+      })
+      .catch((err) => {
+        alert(err);
+      });
+  }, []);
+
+  const signInWithGoogle = useCallback(async () => {
+    return await signInGoogle()
+      .then(() => {
+        alert("Login realizado com sucesso");
+        router.push("/");
+      })
+      .catch((err) => {
+        alert(err);
+      });
+  }, []);
+
   return {
     signIn,
     signUp,
+    signOut,
+    signInWithGoogle,
   };
 };

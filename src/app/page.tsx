@@ -1,14 +1,32 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
+import { useAuthContext } from "src/contexts/AuthContext";
+import { useAuth } from "src/hooks/useAuth";
 
 export default function Page() {
-  const [userName, setUserName] = useState("");
-  useEffect(() => {
-    const name = localStorage.getItem("user");
-    const email = localStorage.getItem("email");
-    setUserName(email || name);
-  }, []);
+  const { user } = useAuthContext();
+  const { signOut } = useAuth();
+  const userName = user?.displayName ?? user?.email ?? "User";
 
-  return <h1>Olá, {userName}</h1>;
+  return (
+    <div>
+      <h1>Olá, {userName}!</h1>
+
+      <button
+        onClick={signOut}
+        style={{
+          padding: "1rem",
+          borderRadius: "0.5rem",
+          border: "none",
+          background: "red",
+          color: "white",
+          cursor: "pointer",
+          fontWeight: "bold",
+        }}
+      >
+        SAIR
+      </button>
+    </div>
+  );
 }
