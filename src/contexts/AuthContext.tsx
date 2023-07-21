@@ -21,7 +21,7 @@ export const AuthContextProvider = ({ children }) => {
   const [loading, setLoading] = useState(false);
   const router = useRouter();
   useEffect(() => {
-    onAuthStateChanged(auth, (user) => {
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
       if (user) {
         setUser(user);
       } else {
@@ -30,8 +30,10 @@ export const AuthContextProvider = ({ children }) => {
       }
       setLoading(false);
     });
+
+    return () => unsubscribe();
   }, []);
-  console.log(user);
+
   return (
     <AuthContext.Provider value={{ user }}>
       {loading ? <LoadingPage /> : children}

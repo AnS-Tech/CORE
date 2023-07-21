@@ -4,8 +4,10 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { useAuth } from "src/hooks/useAuth";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
+import { useAuthContext } from "src/contexts/AuthContext";
+import { useRouter } from "next/navigation";
 
 interface IFormInputs {
   email: string;
@@ -14,7 +16,8 @@ interface IFormInputs {
 
 const LoginPage = () => {
   const [isLoading, setIsLoading] = useState(false);
-
+  const { user } = useAuthContext();
+  const router = useRouter();
   const {
     register,
     handleSubmit,
@@ -22,8 +25,8 @@ const LoginPage = () => {
   } = useForm<IFormInputs>({
     resolver: zodResolver(
       z.object({
-        email: z.string().email(),
-        password: z.string().min(6),
+        email: z.string().email("Email inválido"),
+        password: z.string().min(6, "Senha deve ter no mínimo 6 caracteres"),
       })
     ),
   });
@@ -39,6 +42,11 @@ const LoginPage = () => {
     }
   };
 
+  useEffect(() => {
+    if (user) {
+      router.push("/");
+    }
+  }, [user]);
   return (
     <div
       style={{
@@ -74,7 +82,9 @@ const LoginPage = () => {
         >
           <label>Email *</label>
           <input {...register("email", { required: true })} />
-          {errors.email && <span>Este campo é obrigatório</span>}
+          {errors.email && (
+            <p style={{ color: "red" }}>{errors.email.message}</p>
+          )}
         </div>
 
         <div
@@ -85,7 +95,9 @@ const LoginPage = () => {
         >
           <label>Senha *</label>
           <input {...register("password", { required: true })} />
-          {errors.password && <span>Este campo é obrigatório</span>}
+          {errors.password && (
+            <p style={{ color: "red" }}>{errors.password.message}</p>
+          )}
         </div>
 
         <button type="submit">{!isLoading ? "Entrar" : "Entrando..."} </button>
