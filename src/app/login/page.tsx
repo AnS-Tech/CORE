@@ -8,6 +8,17 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { useAuthContext } from "src/contexts/AuthContext";
 import { useRouter } from "next/navigation";
+import {
+  CredentialsCardForm,
+  LinkContainer,
+  LoginContainer,
+  OptionsContainer,
+} from "./styles";
+import { Heading } from "src/components/Heading";
+import { Button } from "src/components/Button";
+import { LoadingPage } from "src/components/LoadingPage";
+import { Input } from "src/components/Input";
+import { ButtonGoogle } from "src/components/ButtonGooggle";
 
 interface IFormInputs {
   email: string;
@@ -16,6 +27,7 @@ interface IFormInputs {
 
 const LoginPage = () => {
   const [isLoading, setIsLoading] = useState(false);
+  const [loadingPage, setLoadingPage] = useState(true);
   const { user } = useAuthContext();
   const router = useRouter();
   const {
@@ -46,81 +58,58 @@ const LoginPage = () => {
     if (user) {
       router.push("/");
     }
+    setTimeout(() => {
+      setLoadingPage(false);
+    }, 500);
   }, [user]);
+
+  if (loadingPage) return <LoadingPage />;
+
   return (
-    <div
-      style={{
-        color: "white !important",
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-        flexDirection: "column",
-        minHeight: "100%",
-        backgroundImage:
-          "url(https://images.hdqwalls.com/download/stock-chart-minimal-4k-8c-1920x1080.jpg)",
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-      }}
-    >
-      <h1>Login</h1>
-      <form
-        onSubmit={handleSubmit(onSubmit)}
-        style={{
-          display: "flex",
-          gap: "1rem",
-          flexDirection: "column",
-          background: "black",
-          padding: "5rem 3rem",
-          borderRadius: "0.5rem",
-        }}
-      >
-        <div
-          style={{
-            display: "flex",
-            flexDirection: "column",
-          }}
+    <LoginContainer>
+      <Heading>Login</Heading>
+      <CredentialsCardForm onSubmit={handleSubmit(onSubmit)}>
+        <Input
+          label={"Email *"}
+          register={register("email", { required: true })}
+          errors={errors.email}
+          style={{ marginBottom: "1rem" }}
+        />
+
+        <Input
+          label={"Senha *"}
+          register={register("password", { required: true })}
+          errors={errors.password}
+          style={{ marginBottom: "2.5rem" }}
+        />
+
+        <Button
+          type="submit"
+          loading={isLoading}
+          disabled={isLoading}
+          style={{ width: "100%", marginBottom: "1rem" }}
         >
-          <label>Email *</label>
-          <input {...register("email", { required: true })} />
-          {errors.email && (
-            <p style={{ color: "red" }}>{errors.email.message}</p>
-          )}
-        </div>
+          Entrar
+        </Button>
 
         <div
           style={{
             display: "flex",
-            flexDirection: "column",
+            width: "100%",
+            justifyContent: "space-between",
+            alignItems: "center",
           }}
         >
-          <label>Senha *</label>
-          <input {...register("password", { required: true })} />
-          {errors.password && (
-            <p style={{ color: "red" }}>{errors.password.message}</p>
-          )}
+          <ButtonGoogle type="button" onClick={signInWithGoogle} />
+          <OptionsContainer>
+            <LinkContainer href={"/redefinir-senha"}>
+              Esqueci minha senha
+            </LinkContainer>
+            <LinkContainer href={"/cadastro"}>Criar conta</LinkContainer>
+          </OptionsContainer>
         </div>
-
-        <button type="submit">{!isLoading ? "Entrar" : "Entrando..."} </button>
-
-        <button
-          type="button"
-          onClick={signInWithGoogle}
-          style={{
-            padding: "1rem",
-            borderRadius: "0.5rem",
-            border: "none",
-            background: "red",
-            color: "white",
-            cursor: "pointer",
-            fontWeight: "bold",
-          }}
-        >
-          GOOGLE
-        </button>
-
-        <Link href={"/cadastro"}>Criar conta</Link>
-      </form>
-    </div>
+      </CredentialsCardForm>
+    </LoginContainer>
   );
 };
 

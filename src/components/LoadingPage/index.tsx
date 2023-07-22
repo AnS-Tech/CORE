@@ -1,15 +1,13 @@
+import { LoadingContainer } from "./styles";
+
 export const LoadingPage = () => {
   return (
-    <div
-      style={{
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-        flexDirection: "column",
-        minHeight: "100%",
-      }}
-    >
-      <h1>Loading...</h1>
-    </div>
+    <LoadingContainer>
+      <div className="lds-facebook">
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+    </LoadingContainer>
   );
 };

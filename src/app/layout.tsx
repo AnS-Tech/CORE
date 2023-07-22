@@ -12,28 +12,30 @@ export default function RootLayout({
   const queryClient = new QueryClient();
 
   return (
-    <AuthContextProvider>
-      <QueryClientProvider client={queryClient}>
-        <html
-          lang="pt-br"
+    <QueryClientProvider client={queryClient}>
+      <html
+        lang="pt-br"
+        style={{
+          height: "100%",
+          width: "100%",
+        }}
+      >
+        <body
           style={{
             height: "100%",
             width: "100%",
+            padding: 0,
+            margin: 0,
+            color: "#d8d3cf",
+            backgroundColor: "#272c30",
           }}
         >
-          <body
-            style={{
-              height: "100%",
-              width: "100%",
-              padding: 0,
-              margin: 0,
-            }}
-          >
+          <AuthContextProvider>
             {children}
             <ReactQueryDevtools initialIsOpen={false} />
-          </body>
-        </html>
-      </QueryClientProvider>
-    </AuthContextProvider>
+          </AuthContextProvider>
+        </body>
+      </html>
+    </QueryClientProvider>
   );
 }

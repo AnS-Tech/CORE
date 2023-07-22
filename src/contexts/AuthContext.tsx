@@ -1,3 +1,5 @@
+"use client";
+
 import { onAuthStateChanged, getAuth } from "firebase/auth";
 import firebaseApp from "src/libs/firebase";
 import { createContext, useContext, useEffect, useState } from "react";
@@ -18,9 +20,10 @@ export const AuthContext = createContext({ ...defaultValues });
 
 export const AuthContextProvider = ({ children }) => {
   const [user, setUser] = useState(null);
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
   const router = useRouter();
   useEffect(() => {
+    setLoading(true);
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       if (user) {
         setUser(user);

@@ -1,6 +1,8 @@
 "use client";
 
 import { useEffect } from "react";
+import { Button } from "src/components/Button";
+import { Heading } from "src/components/Heading";
 import ProtectedRoute from "src/components/ProtectedRoutes";
 import { useAuthContext } from "src/contexts/AuthContext";
 import { useAuth } from "src/hooks/useAuth";
@@ -13,22 +15,9 @@ export default function Page() {
   return (
     <ProtectedRoute>
       <div>
-        <h1>Olá, {userName}!</h1>
+        <Heading>Olá, {userName}!</Heading>
 
-        <button
-          onClick={signOut}
-          style={{
-            padding: "1rem",
-            borderRadius: "0.5rem",
-            border: "none",
-            background: "red",
-            color: "white",
-            cursor: "pointer",
-            fontWeight: "bold",
-          }}
-        >
-          SAIR
-        </button>
+        <Button onClick={signOut}>SAIR</Button>
       </div>
     </ProtectedRoute>
   );
