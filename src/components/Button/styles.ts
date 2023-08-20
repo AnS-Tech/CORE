@@ -1,23 +1,33 @@
-import { styled } from "styled-components";
+import { css, styled } from "styled-components";
+import { ButtonStyledProps } from "./interfaces";
 
-export const ButtonContainer = styled.button`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 5px;
-  background-color: #272c30;
-  color: white;
-  font-size: 1em;
-  font-weight: 400;
-  cursor: pointer;
-  transition: all 0.3s ease-in-out;
+const paddingSmall = "0.5rem 1.5rem";
+const paddingMedium = "0.8rem 2rem";
+const paddingLarge = "1rem 2.5rem";
 
-  :disabled {
-    cursor: not-allowed;
-  }
-  &:hover {
-    background-color: #464a4e;
-  }
+const fontSizeSmall = "0.8rem";
+const fontSizeMedium = "1.2rem";
+const fontSizeLarge = "1.5rem";
+
+export const ButtonStyled = styled.button<ButtonStyledProps>`
+  ${({ textColor, backgroundColor, size, bordered }) => css`
+    color: ${textColor};
+    background-color: ${backgroundColor};
+    border: ${bordered ? `2px solid ${textColor}` : "none"};
+
+    cursor: pointer;
+    border-radius: 2rem;
+
+    ${size === "small" && `padding: ${paddingSmall}`};
+    ${size === "medium" && `padding: ${paddingMedium}`};
+    ${size === "large" && `padding: ${paddingLarge}`};
+
+    ${size === "small" && `font-size: ${fontSizeSmall}`};
+    ${size === "medium" && `font-size: ${fontSizeMedium}`};
+    ${size === "large" && `font-size: ${fontSizeLarge}`};
+
+    &:hover {
+      opacity: 0.9;
+    }
+  `}
 `;

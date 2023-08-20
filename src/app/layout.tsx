@@ -3,6 +3,7 @@
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { AuthContextProvider } from "src/contexts/AuthContext";
+import GlobalStyles from "src/styles/globalStyles";
 
 export default function RootLayout({
   children,
@@ -33,6 +34,7 @@ export default function RootLayout({
           <AuthContextProvider>
             {children}
             <ReactQueryDevtools initialIsOpen={false} />
+            <GlobalStyles />
           </AuthContextProvider>
         </body>
       </html>

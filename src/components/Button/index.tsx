@@ -1,10 +1,26 @@
+import { colors } from "src/styles/tokens";
 import { LoadingSpin } from "../LoadingSpin";
-import { ButtonContainer } from "./styles";
+import { ButtonProps } from "./interfaces";
+import { ButtonStyled } from "./styles";
 
-export const Button = ({ children, ...props }) => {
+export const Button: React.FC<ButtonProps> = ({
+  children,
+  textColor = colors.white,
+  backgroundColor = colors.lightGreen,
+  size = "medium",
+  loading = false,
+  bordered,
+  ...rest
+}) => {
   return (
-    <ButtonContainer type={props?.type} {...props}>
-      {!props?.loading ? children : <LoadingSpin />}
-    </ButtonContainer>
+    <ButtonStyled
+      bordered={bordered}
+      size={size}
+      textColor={textColor}
+      backgroundColor={backgroundColor}
+      {...rest}
+    >
+      {loading ? <LoadingSpin /> : children}
+    </ButtonStyled>
   );
 };
