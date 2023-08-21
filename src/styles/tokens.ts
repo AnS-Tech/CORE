@@ -1,6 +1,10 @@
 interface Colors {
   darkGreen: string;
   lightGreen: string;
+  success: string;
+  warning: string;
+  error: string;
+  border: string;
   pink: string;
   beige: string;
   lightPink: string;
@@ -11,6 +15,10 @@ interface Colors {
 export const colors: Colors = {
   darkGreen: "#365028",
   lightGreen: "#697928",
+  success: "#00B207",
+  warning: "#FF8A00",
+  error: "#EA4B48",
+  border: "#E6E6E6",
   pink: "#f139ee",
   lightPink: "#d5919f",
   black: "#000000",

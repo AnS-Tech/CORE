@@ -1,16 +1,17 @@
+type size = "small" | "medium" | "large";
 export interface ButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   children: React.ReactNode;
   textColor?: string;
   backgroundColor?: string;
-  size?: "small" | "medium" | "large";
+  size?: size;
   loading?: boolean;
   bordered?: boolean;
 }
 
 export interface ButtonStyledProps {
-  textColor?: string;
-  backgroundColor?: string;
-  size?: "small" | "medium" | "large";
-  bordered?: boolean;
+  textColor: string;
+  backgroundColor: string;
+  size: size;
+  bordered: boolean;
 }
