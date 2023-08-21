@@ -1,4 +1,3 @@
-import Image from "next/image";
 import { InputProps } from "./interfaces";
 import {
   InputContainer,

@@ -8,7 +8,6 @@ export const InputStyled = styled.input<InputStyledProps>`
     css`
       border: 1px solid;
       border-color: ${colors[status]};
-
       border-radius: 6px;
       padding: 10px 16px;
 
