@@ -7,6 +7,7 @@ export const InputStyled = styled.input<InputStyledProps>`
     css`
       border: 1px solid;
       border-color: ${colors[status]};
+
       border-radius: 6px;
       padding: 10px 16px;
 
@@ -18,13 +19,11 @@ export const InputStyled = styled.input<InputStyledProps>`
 
 export const InputContainer = styled.div`
   .div {
-    
   }
 `;
 
 export const SpanStyled = styled.span<SpanStyledProps>`
   ${({ status }) => css`
     color: ${colors[status]};
-
   `}
 `;
