@@ -1,12 +1,13 @@
 type status = "Promoção 50%" | "Novidade" | "Mais vendido" | "Sem estoque";
 
 export interface ProductProps {
-  children: React.ReactNode;
   backgroundColor?: string;
   status?: status;
   tag?: string;
   textColor?: string;
   productName?: string;
+  priceColor: string;
+  productPrice?: string;
 }
 
 export interface ProductPropsStyled {
@@ -21,4 +22,9 @@ export interface TagStyledProps {
 export interface ProductNameProps {
   textColor: string;
   productName?: string;
+}
+
+export interface ProductPriceProps {
+  priceColor: string;
+  productPrice?: string;
 }

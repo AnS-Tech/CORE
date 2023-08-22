@@ -1,5 +1,6 @@
 import { Meta, StoryObj } from "@storybook/react";
 import { Product } from ".";
+import { colors } from "src/styles/tokens";
 
 const meta = {
   title: "components/Product",
@@ -13,8 +14,12 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   args: {
-    children: "",
     status: "Promoção 50%",
     productName: "",
+    productPrice: "",
+    tag: "",
+    priceColor: colors.grayScale900,
+    textColor: colors.grayScale700,
+    backgroundColor: colors.white,
   },
 };

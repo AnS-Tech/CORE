@@ -12,6 +12,7 @@ interface Colors {
   white: string;
   grayScale100: string;
   grayScale700: string;
+  grayScale900: string;
 }
 
 export const colors: Colors = {
@@ -28,6 +29,7 @@ export const colors: Colors = {
   beige: "#f4ebd8",
   grayScale100: "#E6E6E6",
   grayScale700: "#4D4D4D",
+  grayScale900: "#1A1A1A",
 };
 
 export const theme = {
