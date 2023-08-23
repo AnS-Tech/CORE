@@ -1,5 +1,6 @@
 import { css, styled } from "styled-components";
 import {
+  CartContainerProps,
   ProductNameProps,
   ProductPriceProps,
   ProductPropsStyled,
@@ -9,8 +10,7 @@ import { colors } from "src/styles/tokens";
 
 export const ProductStyled = styled.div<ProductPropsStyled>`
   ${({ backgroundColor }) => css`
-    width: 264px;
-    display: flex;
+    display: inline-flex;
     flex-direction: column;
     background-color: ${backgroundColor};
     border: 1px solid ${colors.grayScale100};
@@ -25,18 +25,12 @@ export const ProductImage = styled(Image)`
 export const TagStyled = styled.span``;
 
 export const ProductInfo = styled.div`
-  display: inline-flex;
-  padding: 12px;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
-  gap: 6px;
+  position: relative;
+  padding: 0 12px;
 `;
 
 export const InfoWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
+  display: block;
 `;
 
 export const ProductName = styled.p<ProductNameProps>`
@@ -50,9 +44,26 @@ export const ProductName = styled.p<ProductNameProps>`
 
 export const ProductPrice = styled.h3<ProductPriceProps>`
   ${({ priceColor }) => css`
-    display: flex;
-    align-items: flex-start;
     color: ${priceColor};
-    gap: 4px;
   `}
 `;
+
+export const CartContainer = styled.div<CartContainerProps>`
+  ${({ cartContainerColor }) => css`
+    position: absolute;
+    bottom: 0.7rem;
+    right: 1rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 40px;
+    height: 40px;
+    border-radius: 2rem;
+
+    background-color: ${cartContainerColor};
+  `}
+`;
+
+export const CartIcon = styled(Image)``;

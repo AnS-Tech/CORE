@@ -29,6 +29,7 @@ export default function RootLayout({
             margin: 0,
             color: "#d8d3cf",
             backgroundColor: "#272c30",
+            boxSizing: "border-box",
           }}
         >
           <AuthContextProvider>

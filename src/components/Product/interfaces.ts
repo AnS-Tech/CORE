@@ -8,6 +8,7 @@ export interface ProductProps {
   productName?: string;
   priceColor: string;
   productPrice?: string;
+  cartContainerColor?: string;
 }
 
 export interface ProductPropsStyled {
@@ -27,4 +28,8 @@ export interface ProductNameProps {
 export interface ProductPriceProps {
   priceColor: string;
   productPrice?: string;
+}
+
+export interface CartContainerProps {
+  cartContainerColor?: string;
 }

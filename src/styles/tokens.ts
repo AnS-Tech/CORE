@@ -10,6 +10,7 @@ interface Colors {
   lightPink: string;
   black: string;
   white: string;
+  grayScale50: string;
   grayScale100: string;
   grayScale700: string;
   grayScale900: string;
@@ -27,6 +28,7 @@ export const colors: Colors = {
   black: "#000000",
   white: "#ffffff",
   beige: "#f4ebd8",
+  grayScale50: "#F2F2F2",
   grayScale100: "#E6E6E6",
   grayScale700: "#4D4D4D",
   grayScale900: "#1A1A1A",
