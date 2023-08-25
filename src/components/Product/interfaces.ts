@@ -30,6 +30,7 @@ export interface ProductPriceProps {
   productPrice?: string;
 }
 
-export interface CartContainerProps {
+export interface CartContainerProps
+  extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   cartContainerColor?: string;
 }

@@ -7,6 +7,7 @@ import {
 } from "./interfaces";
 import Image from "next/image";
 import { colors } from "src/styles/tokens";
+import grayStarRating from "src/styles/svgs/grayStarRating.svg";
 
 export const ProductStyled = styled.div<ProductPropsStyled>`
   ${({ backgroundColor }) => css`
@@ -48,7 +49,7 @@ export const ProductPrice = styled.h3<ProductPriceProps>`
   `}
 `;
 
-export const CartContainer = styled.div<CartContainerProps>`
+export const CartContainer = styled.button<CartContainerProps>`
   ${({ cartContainerColor }) => css`
     position: absolute;
     bottom: 0.7rem;
@@ -63,7 +64,20 @@ export const CartContainer = styled.div<CartContainerProps>`
     border-radius: 2rem;
 
     background-color: ${cartContainerColor};
+    border: none;
+    cursor: pointer;
   `}
 `;
 
 export const CartIcon = styled(Image)``;
+
+export const RatingContainer = styled.div`
+  display: flex;
+  padding: 0 0 15px 0;
+`;
+
+export const StarRating = styled(Image)`
+  &:hover {
+    src: url(${grayStarRating});
+  }
+`;
