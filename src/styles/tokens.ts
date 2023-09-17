@@ -4,6 +4,7 @@ interface Colors {
   success: string;
   warning: string;
   error: string;
+  rating: string;
   border: string;
   pink: string;
   beige: string;
@@ -22,6 +23,7 @@ export const colors: Colors = {
   success: "#00B207",
   warning: "#FF8A00",
   error: "#EA4B48",
+  rating: "orange",
   border: "#E6E6E6",
   pink: "#f139ee",
   lightPink: "#d5919f",

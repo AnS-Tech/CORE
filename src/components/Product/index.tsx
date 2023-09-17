@@ -10,13 +10,14 @@ import {
   ProductName,
   ProductPrice,
   ProductStyled,
-  RatingContainer,
   StarRating,
 } from "./styles";
 
 import product5n from "src/styles/images/Product-5n.png";
 import cartIcon from "src/styles/svgs/cartIcon.svg";
 import starRating from "src/styles/svgs/starRating.svg";
+import { RatingContainer } from "../Rating/styles";
+import { Rating } from "../Rating";
 
 export const Product: React.FC<ProductProps> = ({
   backgroundColor = colors.white,
@@ -40,18 +41,7 @@ export const Product: React.FC<ProductProps> = ({
           </CartContainer>
         </InfoWrapper>
 
-        <RatingContainer>
-          <StarRating src={starRating} alt="..." width={12} height={12} />
-          <StarRating
-            src={starRating}
-            alt="..."
-            width={12}
-            height={12}
-          />
-          <StarRating src={starRating} alt="..." width={12} height={12} />
-          <StarRating src={starRating} alt="..." width={12} height={12} />
-          <StarRating src={starRating} alt="..." width={12} height={12} />
-        </RatingContainer>
+        <Rating />
       </ProductInfo>
     </ProductStyled>
   );

@@ -71,11 +71,6 @@ export const CartContainer = styled.button<CartContainerProps>`
 
 export const CartIcon = styled(Image)``;
 
-export const RatingContainer = styled.div`
-  display: flex;
-  padding: 0 0 15px 0;
-`;
-
 export const StarRating = styled(Image)`
   &:hover {
     src: url(${grayStarRating});
