@@ -1,18 +1,36 @@
+import { useState } from "react";
 import {
   RatingContainer,
   RatingStyled,
   RatingUnistyled,
+  RatingWrapper,
 } from "../Rating/styles";
 import { RatingProps } from "./interfaces";
 
-const ratings: number[] = [...(new Array(5).keys() as any)];
-
 export const Rating: React.FC<RatingProps> = ({ status = false }) => {
+  const [hoverIndex, setHoverIndex] = useState<number>();
+  const [clickIndex, setClickIndex] = useState<number>();
+
   return (
     <RatingContainer>
-      {ratings.map((index) =>
-        status ? <RatingStyled key={`star_${index}`} /> : <RatingUnistyled />
-      )}
+      {[...(Array(5).keys() as any)].map((index) => (
+        <RatingWrapper
+          key={index}
+          onMouseEnter={() => setHoverIndex(index)}
+          onMouseLeave={() => setHoverIndex(undefined)}
+          onClick={() =>
+            setClickIndex((oldState) =>
+              oldState === index ? undefined : index
+            )
+          }
+        >
+          {index <= hoverIndex || index <= clickIndex || status ? (
+            <RatingStyled />
+          ) : (
+            <RatingUnistyled />
+          )}
+        </RatingWrapper>
+      ))}
     </RatingContainer>
   );
 };

@@ -5,11 +5,6 @@ const meta = {
   title: "components/Rating",
   component: Rating,
   tags: ["autodocs"],
-  argTypes: {
-    status: {
-      control: "boolean",
-    },
-  },
 } satisfies Meta<typeof Rating>;
 
 export default meta;
