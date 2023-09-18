@@ -5,6 +5,10 @@ interface Colors {
   warning: string;
   error: string;
   rating: string;
+  Promoção: string;
+  Novidade: string;
+  MaisVendido: string;
+  SemEstoque: string;
   border: string;
   pink: string;
   beige: string;
@@ -24,6 +28,10 @@ export const colors: Colors = {
   warning: "#FF8A00",
   error: "#EA4B48",
   rating: "orange",
+  Promoção: "#EA4B48",
+  Novidade: "#FF8A00",
+  MaisVendido: "#2388FF",
+  SemEstoque: "#1A1A1A",
   border: "#E6E6E6",
   pink: "#f139ee",
   lightPink: "#d5919f",

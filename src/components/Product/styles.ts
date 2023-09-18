@@ -7,7 +7,6 @@ import {
 } from "./interfaces";
 import Image from "next/image";
 import { colors } from "src/styles/tokens";
-import grayStarRating from "src/styles/svgs/grayStarRating.svg";
 
 export const ProductStyled = styled.div<ProductPropsStyled>`
   ${({ backgroundColor }) => css`
@@ -17,7 +16,9 @@ export const ProductStyled = styled.div<ProductPropsStyled>`
     border: 1px solid ${colors.grayScale100};
   `}
 `;
-export const ProductImageWrapper = styled.div``;
+export const ProductImageWrapper = styled.div`
+  position: relative;
+`;
 
 export const ProductImage = styled(Image)`
   padding: 5px;
@@ -36,15 +37,19 @@ export const InfoWrapper = styled.div`
 
 export const ProductName = styled.p<ProductNameProps>`
   ${({ textColor }) => css`
-    font-size: 14px;
+    font-size: 16px;
     font-style: normal;
     font-weight: 400;
+    line-height: 10px;
     color: ${textColor};
   `}
 `;
 
 export const ProductPrice = styled.h3<ProductPriceProps>`
   ${({ priceColor }) => css`
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 10px;
     color: ${priceColor};
   `}
 `;
@@ -71,8 +76,9 @@ export const CartContainer = styled.button<CartContainerProps>`
 
 export const CartIcon = styled(Image)``;
 
-export const StarRating = styled(Image)`
-  &:hover {
-    src: url(${grayStarRating});
-  }
+export const WrapperTag = styled.div`
+  position: absolute;
+  top: 10px;
+  left: 15px;
+  display: flex;
 `;

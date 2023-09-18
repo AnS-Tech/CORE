@@ -10,19 +10,23 @@ import {
   ProductName,
   ProductPrice,
   ProductStyled,
-  StarRating,
+  WrapperTag,
 } from "./styles";
 
 import product5n from "src/styles/images/Product-5n.png";
 import cartIcon from "src/styles/svgs/cartIcon.svg";
-import starRating from "src/styles/svgs/starRating.svg";
-import { RatingContainer } from "../Rating/styles";
 import { Rating } from "../Rating";
+import { TagStyled } from "../Tag/styled";
+import { Tag } from "../Tag";
+import { stat } from "fs";
 
 export const Product: React.FC<ProductProps> = ({
   backgroundColor = colors.white,
   textColor = colors.grayScale700,
   productName = null,
+  span = "",
+  status = null,
+  promoStatus = null,
   priceColor = colors.grayScale900,
   productPrice = null,
   cartContainerColor = colors.grayScale50,
@@ -31,6 +35,9 @@ export const Product: React.FC<ProductProps> = ({
     <ProductStyled backgroundColor={backgroundColor}>
       <ProductImageWrapper>
         <ProductImage src={product5n} alt="..." width={254} height={222} />
+        <WrapperTag>
+          {<Tag status={status} promoStatus={promoStatus} />}
+        </WrapperTag>
       </ProductImageWrapper>
       <ProductInfo>
         <InfoWrapper>

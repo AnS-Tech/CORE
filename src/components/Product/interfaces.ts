@@ -1,8 +1,11 @@
-type status = "Promoção 50%" | "Novidade" | "Mais vendido" | "Sem estoque";
+type status = "" | "Promoção" | "Novidade" | "MaisVendido" | "SemEstoque";
+type promoStatus = "" | "5%" | "10%" | "25%" | "50%";
 
 export interface ProductProps {
   backgroundColor?: string;
   status?: status;
+  promoStatus?: promoStatus;
+  span?: string;
   tag?: string;
   textColor?: string;
   productName?: string;
@@ -14,10 +17,12 @@ export interface ProductProps {
 export interface ProductPropsStyled {
   backgroundColor: string;
   status?: status;
+  promoStatus?: promoStatus;
 }
 
 export interface TagStyledProps {
   status: status;
+  promoStatus?: promoStatus;
 }
 
 export interface ProductNameProps {
