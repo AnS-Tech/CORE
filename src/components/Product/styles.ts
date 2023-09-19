@@ -32,7 +32,7 @@ export const ProductInfo = styled.div`
 `;
 
 export const InfoWrapper = styled.div`
-  display: block;
+  padding: 20px 0 0 0;
 `;
 
 export const ProductName = styled.p<ProductNameProps>`
@@ -42,30 +42,38 @@ export const ProductName = styled.p<ProductNameProps>`
     font-weight: 400;
     line-height: 10px;
     color: ${textColor};
+    margin: 0;
   `}
 `;
 
 export const ProductPrice = styled.h3<ProductPriceProps>`
+  display: inline-block;
   ${({ priceColor }) => css`
     font-size: 20px;
     font-weight: 700;
-    line-height: 10px;
+    line-height: 5px;
     color: ${priceColor};
   `}
+`;
+
+export const ProductPriceDotted = styled(ProductPrice)<ProductPriceProps>`
+  text-decoration: line-through;
+  opacity: 0.5;
+  margin: 0;
 `;
 
 export const CartContainer = styled.button<CartContainerProps>`
   ${({ cartContainerColor }) => css`
     position: absolute;
-    bottom: 0.7rem;
+    bottom: 2.2rem;
     right: 1rem;
 
     display: flex;
     align-items: center;
     justify-content: center;
 
-    width: 40px;
-    height: 40px;
+    width: 43px;
+    height: 43px;
     border-radius: 2rem;
 
     background-color: ${cartContainerColor};

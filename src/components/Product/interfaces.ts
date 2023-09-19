@@ -1,16 +1,16 @@
 type status = "" | "Promoção" | "Novidade" | "MaisVendido" | "SemEstoque";
-type promoStatus = "" | "5%" | "10%" | "25%" | "50%";
+type promoStatus = "" | "5" | "10" | "25" | "50";
 
 export interface ProductProps {
   backgroundColor?: string;
   status?: status;
   promoStatus?: promoStatus;
-  span?: string;
   tag?: string;
   textColor?: string;
   productName?: string;
   priceColor: string;
   productPrice?: string;
+  productOffer?: number;
   cartContainerColor?: string;
 }
 
@@ -33,6 +33,7 @@ export interface ProductNameProps {
 export interface ProductPriceProps {
   priceColor: string;
   productPrice?: string;
+  productOffer?: number;
 }
 
 export interface CartContainerProps

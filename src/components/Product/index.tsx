@@ -9,6 +9,7 @@ import {
   ProductInfo,
   ProductName,
   ProductPrice,
+  ProductPriceDotted,
   ProductStyled,
   WrapperTag,
 } from "./styles";
@@ -16,21 +17,23 @@ import {
 import product5n from "src/styles/images/Product-5n.png";
 import cartIcon from "src/styles/svgs/cartIcon.svg";
 import { Rating } from "../Rating";
-import { TagStyled } from "../Tag/styled";
 import { Tag } from "../Tag";
-import { stat } from "fs";
 
 export const Product: React.FC<ProductProps> = ({
   backgroundColor = colors.white,
   textColor = colors.grayScale700,
   productName = null,
-  span = "",
   status = null,
   promoStatus = null,
   priceColor = colors.grayScale900,
   productPrice = null,
+  productOffer = null,
   cartContainerColor = colors.grayScale50,
 }) => {
+  productOffer =
+    parseFloat(productPrice) -
+    parseFloat(productPrice) * (parseInt(promoStatus) / 100);
+
   return (
     <ProductStyled backgroundColor={backgroundColor}>
       <ProductImageWrapper>
@@ -42,7 +45,18 @@ export const Product: React.FC<ProductProps> = ({
       <ProductInfo>
         <InfoWrapper>
           <ProductName textColor={textColor}>{productName}</ProductName>
-          <ProductPrice priceColor={priceColor}>{productPrice}</ProductPrice>
+          {!promoStatus ? (
+            <ProductPrice priceColor={priceColor}>
+              R${productPrice}
+            </ProductPrice>
+          ) : (
+            <ProductPrice priceColor={priceColor}>
+              R${productOffer.toFixed(2)}&nbsp;
+              <ProductPriceDotted priceColor={priceColor}>
+                R${productPrice}
+              </ProductPriceDotted>
+            </ProductPrice>
+          )}
           <CartContainer cartContainerColor={cartContainerColor}>
             <CartIcon src={cartIcon} width={20} height={20} alt="..." />
           </CartContainer>

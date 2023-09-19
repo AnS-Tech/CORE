@@ -10,7 +10,7 @@ export const Tag: React.FC<TagStyledProps> = ({
     <TagStyled status={status}>{status}</TagStyled>
   ) : (
     <TagStyled status={status}>
-      {status}_{promoStatus}
+      {status}_{promoStatus}%
     </TagStyled>
   );
 };
