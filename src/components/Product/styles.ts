@@ -1,6 +1,5 @@
 import { css, styled } from "styled-components";
 import {
-  CartContainerProps,
   ProductNameProps,
   ProductPriceProps,
   ProductPropsStyled,
@@ -17,6 +16,7 @@ export const ProductStyled = styled.div<ProductPropsStyled>`
   `}
 `;
 export const ProductImageWrapper = styled.div`
+  display: flex;
   position: relative;
 `;
 
@@ -24,7 +24,12 @@ export const ProductImage = styled(Image)`
   padding: 5px;
 `;
 
-export const TagStyled = styled.span``;
+export const ActionButtonWrapper = styled.div`
+  flex-direction: column;
+  position: absolute;
+  top: 0.8rem;
+  right: 0.8rem;
+`;
 
 export const ProductInfo = styled.div`
   position: relative;
@@ -61,28 +66,6 @@ export const ProductPriceDotted = styled(ProductPrice)<ProductPriceProps>`
   opacity: 0.5;
   margin: 0;
 `;
-
-export const CartContainer = styled.button<CartContainerProps>`
-  ${({ cartContainerColor }) => css`
-    position: absolute;
-    bottom: 2.2rem;
-    right: 1rem;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    width: 43px;
-    height: 43px;
-    border-radius: 2rem;
-
-    background-color: ${cartContainerColor};
-    border: none;
-    cursor: pointer;
-  `}
-`;
-
-export const CartIcon = styled(Image)``;
 
 export const WrapperTag = styled.div`
   position: absolute;

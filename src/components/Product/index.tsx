@@ -1,8 +1,7 @@
 import { colors } from "src/styles/tokens";
 import { ProductProps } from "./interfaces";
 import {
-  CartContainer,
-  CartIcon,
+  ActionButtonWrapper,
   InfoWrapper,
   ProductImage,
   ProductImageWrapper,
@@ -15,9 +14,10 @@ import {
 } from "./styles";
 
 import product5n from "src/styles/images/Product-5n.png";
-import cartIcon from "src/styles/svgs/cartIcon.svg";
 import { Rating } from "../Rating";
 import { Tag } from "../Tag";
+import { ActionButton } from "../ActionButton";
+import { useState } from "react";
 
 export const Product: React.FC<ProductProps> = ({
   backgroundColor = colors.white,
@@ -28,38 +28,55 @@ export const Product: React.FC<ProductProps> = ({
   priceColor = colors.grayScale900,
   productPrice = null,
   productOffer = null,
-  cartContainerColor = colors.grayScale50,
 }) => {
-  productOffer =
-    parseFloat(productPrice) -
-    parseFloat(productPrice) * (parseInt(promoStatus) / 100);
+  let nProductPrice = parseFloat(productPrice);
+  const [showActionButton, setShowActionButton] = useState<boolean>();
+
+  productOffer = nProductPrice - nProductPrice * (parseInt(promoStatus) / 100);
 
   return (
     <ProductStyled backgroundColor={backgroundColor}>
-      <ProductImageWrapper>
+      <ProductImageWrapper
+        onMouseEnter={() => setShowActionButton(true)}
+        onMouseLeave={() => setShowActionButton(false)}
+      >
         <ProductImage src={product5n} alt="..." width={254} height={222} />
         <WrapperTag>
           {<Tag status={status} promoStatus={promoStatus} />}
         </WrapperTag>
+        {showActionButton && (
+          <ActionButtonWrapper>
+            <ActionButton status="wishList" />
+            <ActionButton status="quickView" />
+          </ActionButtonWrapper>
+        )}
       </ProductImageWrapper>
       <ProductInfo>
         <InfoWrapper>
           <ProductName textColor={textColor}>{productName}</ProductName>
-          {!promoStatus ? (
+          {status !== "Promoção" ? (
             <ProductPrice priceColor={priceColor}>
-              R${productPrice}
+              {nProductPrice.toLocaleString("pt-BR", {
+                style: "currency",
+                currency: "BRL",
+              })}
             </ProductPrice>
           ) : (
             <ProductPrice priceColor={priceColor}>
-              R${productOffer.toFixed(2)}&nbsp;
+              {productOffer.toLocaleString("pt-BR", {
+                style: "currency",
+                currency: "BRL",
+              })}
+              &nbsp;
               <ProductPriceDotted priceColor={priceColor}>
-                R${productPrice}
+                {nProductPrice.toLocaleString("pt-BR", {
+                  style: "currency",
+                  currency: "BRL",
+                })}
               </ProductPriceDotted>
             </ProductPrice>
           )}
-          <CartContainer cartContainerColor={cartContainerColor}>
-            <CartIcon src={cartIcon} width={20} height={20} alt="..." />
-          </CartContainer>
+          <ActionButton status="cartIcon" />
         </InfoWrapper>
 
         <Rating />

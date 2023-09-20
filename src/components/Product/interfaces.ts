@@ -1,5 +1,5 @@
 type status = "" | "Promoção" | "Novidade" | "MaisVendido" | "SemEstoque";
-type promoStatus = "" | "5" | "10" | "25" | "50";
+type promoStatus = "5" | "10" | "25" | "50";
 
 export interface ProductProps {
   backgroundColor?: string;
@@ -11,7 +11,6 @@ export interface ProductProps {
   priceColor: string;
   productPrice?: string;
   productOffer?: number;
-  cartContainerColor?: string;
 }
 
 export interface ProductPropsStyled {
@@ -34,9 +33,4 @@ export interface ProductPriceProps {
   priceColor: string;
   productPrice?: string;
   productOffer?: number;
-}
-
-export interface CartContainerProps
-  extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  cartContainerColor?: string;
 }

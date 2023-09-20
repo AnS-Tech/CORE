@@ -27,7 +27,7 @@ export const Input: React.FC<InputProps> = ({
         {showSpan && (
           <StatusIcon
             src={icon[status]}
-            alt="warning icon"
+            alt={`${status} icon`}
             width={20}
             height={20}
           />
