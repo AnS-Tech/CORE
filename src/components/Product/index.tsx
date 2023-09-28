@@ -19,6 +19,7 @@ import { Tag } from "../Tag";
 import { ActionButton } from "../ActionButton";
 import { useState } from "react";
 import { CartButton } from "../CartButton";
+import { WishList } from "../WishList";
 
 export const Product: React.FC<ProductProps> = ({
   backgroundColor = colors.white,
@@ -53,7 +54,7 @@ export const Product: React.FC<ProductProps> = ({
         </WrapperTag>
         {showActionButton && (
           <ActionButtonWrapper>
-            <ActionButton status="wishList" />
+            <WishList />
             <ActionButton status="quickView" />
           </ActionButtonWrapper>
         )}

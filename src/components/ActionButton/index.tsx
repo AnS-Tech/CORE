@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { CartContainer, CartContainerWithHover, CartIcon } from "./styles";
 import { ActionButtonProps } from "./interfaces";
-import wishList from "src/styles/svgs/wishList.svg";
 import quickView from "src/styles/svgs/quickView.svg";
 import { colors } from "src/styles/tokens";
 
@@ -10,7 +9,6 @@ export const ActionButton: React.FC<ActionButtonProps> = ({
   cartContainerColor = colors.grayScale100,
 }) => {
   const icon = {
-    wishList,
     quickView,
   };
 
