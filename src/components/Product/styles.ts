@@ -2,6 +2,7 @@ import { css, styled } from "styled-components";
 import {
   ProductNameProps,
   ProductPriceProps,
+  ProductProps,
   ProductPropsStyled,
 } from "./interfaces";
 import Image from "next/image";

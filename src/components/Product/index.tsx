@@ -1,4 +1,4 @@
-import { colors } from "src/styles/tokens";
+import { colors, size, theme } from "src/styles/tokens";
 import { ProductProps } from "./interfaces";
 import {
   ActionButtonWrapper,
@@ -18,16 +18,18 @@ import { Rating } from "../Rating";
 import { Tag } from "../Tag";
 import { ActionButton } from "../ActionButton";
 import { useState } from "react";
+import { CartButton } from "../CartButton";
 
 export const Product: React.FC<ProductProps> = ({
   backgroundColor = colors.white,
   textColor = colors.grayScale700,
   productName = null,
   status = null,
-  promoStatus = null,
+  promoStatus = "5",
   priceColor = colors.grayScale900,
   productPrice = null,
   productOffer = null,
+  sizeStatus = null,
 }) => {
   let nProductPrice = parseFloat(productPrice);
   const [showActionButton, setShowActionButton] = useState<boolean>();
@@ -40,7 +42,12 @@ export const Product: React.FC<ProductProps> = ({
         onMouseEnter={() => setShowActionButton(true)}
         onMouseLeave={() => setShowActionButton(false)}
       >
-        <ProductImage src={product5n} alt="..." width={254} height={222} />
+        <ProductImage
+          src={product5n}
+          alt={`${ProductName}`}
+          width={size.imageProduct.width[sizeStatus]}
+          height={size.imageProduct.height[sizeStatus]}
+        />
         <WrapperTag>
           {<Tag status={status} promoStatus={promoStatus} />}
         </WrapperTag>
@@ -76,7 +83,11 @@ export const Product: React.FC<ProductProps> = ({
               </ProductPriceDotted>
             </ProductPrice>
           )}
-          <ActionButton status="cartIcon" />
+          <div
+            style={{ position: "absolute", bottom: "2.2rem", right: "1rem" }}
+          >
+            <CartButton />
+          </div>
         </InfoWrapper>
 
         <Rating />

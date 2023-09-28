@@ -58,4 +58,17 @@ export const theme = {
   },
 };
 
-export const size = {};
+export const size = {
+  imageProduct: {
+    width: {
+      small: 254,
+      medium: 527,
+      large: 556,
+    },
+    height: {
+      small: 222,
+      medium: 446,
+      large: 556,
+    },
+  },
+};

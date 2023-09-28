@@ -18,9 +18,6 @@ export const CartContainer = styled.button`
 `;
 
 export const CartContainerWithHover = styled(CartContainer)<CartContainerProps>`
-  position: absolute;
-  bottom: 2.2rem;
-  right: 1rem;
   ${({ cartContainerColor }) => css`
     background-color: ${cartContainerColor};
   `}
