@@ -20,6 +20,7 @@ import { ActionButton } from "../ActionButton";
 import { useState } from "react";
 import { CartButton } from "../CartButton";
 import { WishList } from "../WishList";
+import { QuickView } from "../QuickView";
 
 export const Product: React.FC<ProductProps> = ({
   backgroundColor = colors.white,
@@ -54,8 +55,10 @@ export const Product: React.FC<ProductProps> = ({
         </WrapperTag>
         {showActionButton && (
           <ActionButtonWrapper>
-            <WishList />
-            <ActionButton status="quickView" />
+            <div style={{ marginBottom: "6px" }}>
+              <WishList />
+            </div>
+            <QuickView />
           </ActionButtonWrapper>
         )}
       </ProductImageWrapper>
