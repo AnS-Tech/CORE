@@ -1,11 +1,11 @@
 import { Meta, StoryObj } from "@storybook/react";
-import { CartButton } from ".";
+import { BigProduct } from ".";
 
 const meta = {
-  title: "components/CartButton",
-  component: CartButton,
+  title: "components/BigProduct",
+  component: BigProduct,
   tags: ["autodocs"],
-} satisfies Meta<typeof CartButton>;
+} satisfies Meta<typeof BigProduct>;
 
 export default meta;
 
@@ -13,6 +13,7 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   args: {
-    children: "",
+    priceColor: "",
+    sizeStatus: "medium",
   },
 };

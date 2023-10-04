@@ -18,6 +18,7 @@ export const ProductStyled = styled.div<ProductPropsStyled>`
 `;
 export const ProductImageWrapper = styled.div`
   display: flex;
+  justify-content: center;
   position: relative;
 `;
 
@@ -27,9 +28,6 @@ export const ProductImage = styled(Image)`
 
 export const ActionButtonWrapper = styled.div`
   flex-direction: column;
-  position: absolute;
-  top: 0.8rem;
-  right: 0.8rem;
 `;
 
 export const ProductInfo = styled.div`

@@ -16,7 +16,6 @@ import {
 import product5n from "src/styles/images/Product-5n.png";
 import { Rating } from "../Rating";
 import { Tag } from "../Tag";
-import { ActionButton } from "../ActionButton";
 import { useState } from "react";
 import { CartButton } from "../CartButton";
 import { WishList } from "../WishList";
@@ -54,12 +53,14 @@ export const Product: React.FC<ProductProps> = ({
           {<Tag status={status} promoStatus={promoStatus} />}
         </WrapperTag>
         {showActionButton && (
-          <ActionButtonWrapper>
-            <div style={{ marginBottom: "6px" }}>
-              <WishList />
-            </div>
-            <QuickView />
-          </ActionButtonWrapper>
+          <div style={{ position: "absolute", top: "0.8rem", right: "0.8rem" }}>
+            <ActionButtonWrapper>
+              <div style={{ marginBottom: "6px" }}>
+                <WishList />
+              </div>
+              <QuickView />
+            </ActionButtonWrapper>
+          </div>
         )}
       </ProductImageWrapper>
       <ProductInfo>
