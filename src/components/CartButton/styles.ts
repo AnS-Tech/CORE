@@ -16,6 +16,7 @@ export const CartContainer = styled.button<CartButtonProps>`
   align-items: center;
   justify-content: center;
 
+  min-width: 43px;
   height: 43px;
   border-radius: 2rem;
 
