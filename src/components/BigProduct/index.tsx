@@ -3,17 +3,26 @@ import { ProductProps } from "../Product/interfaces";
 import {
   BigActionButtonWrapper,
   BigProductImage,
+  BigProductInfo,
   BigProductStyled,
 } from "./styles";
-import { ProductImageWrapper, WrapperTag } from "../Product/styles";
+import {
+  InfoWrapper,
+  ProductImageWrapper,
+  ProductInfo,
+  ProductName,
+  ProductPrice,
+  ProductPriceDotted,
+  WrapperTag,
+} from "../Product/styles";
 
 import product5n from "src/styles/images/Product-5n.png";
 import { Tag } from "../Tag";
 import { useState } from "react";
 import { WishList } from "../WishList";
 import { QuickView } from "../QuickView";
-import { CartButton } from "../CartButton";
-import { CartContainer } from "../CartButton/styles";
+import { BigCartButton } from "../BigCartButton";
+import { Rating } from "../Rating";
 
 export const BigProduct: React.FC<ProductProps> = ({
   backgroundColor = colors.white,
@@ -26,6 +35,9 @@ export const BigProduct: React.FC<ProductProps> = ({
   productOffer = null,
   sizeStatus = null,
 }) => {
+  let nProductPrice = parseFloat(productPrice);
+  productOffer = nProductPrice - nProductPrice * (parseInt(promoStatus) / 100);
+
   return (
     <BigProductStyled backgroundColor={backgroundColor}>
       <ProductImageWrapper>
@@ -41,10 +53,47 @@ export const BigProduct: React.FC<ProductProps> = ({
 
         <BigActionButtonWrapper>
           <WishList />
-          <CartButton children={"Adicionar ao Carrinho"} />
+          <BigCartButton children={"Adicionar ao Carrinho"} />
           <QuickView />
         </BigActionButtonWrapper>
       </ProductImageWrapper>
+      <BigProductInfo>
+        <InfoWrapper>
+          <ProductName sizeStatus={sizeStatus} textColor={textColor}>
+            {productName}
+          </ProductName>
+          {status !== "Promoção" ? (
+            <ProductPrice sizeStatus={sizeStatus} priceColor={priceColor}>
+              {nProductPrice.toLocaleString("pt-BR", {
+                style: "currency",
+                currency: "BRL",
+              })}
+            </ProductPrice>
+          ) : (
+            <ProductPrice sizeStatus={sizeStatus} priceColor={priceColor}>
+              {productOffer.toLocaleString("pt-BR", {
+                style: "currency",
+                currency: "BRL",
+              })}
+              &nbsp;
+              <ProductPriceDotted
+                sizeStatus={sizeStatus}
+                priceColor={priceColor}
+              >
+                {nProductPrice.toLocaleString("pt-BR", {
+                  style: "currency",
+                  currency: "BRL",
+                })}
+              </ProductPriceDotted>
+            </ProductPrice>
+          )}
+          <div
+            style={{ position: "absolute", bottom: "2.2rem", right: "1rem" }}
+          ></div>
+        </InfoWrapper>
+
+        <Rating />
+      </BigProductInfo>
     </BigProductStyled>
   );
 };

@@ -6,7 +6,7 @@ import {
   ProductPropsStyled,
 } from "./interfaces";
 import Image from "next/image";
-import { colors } from "src/styles/tokens";
+import { colors, size, theme } from "src/styles/tokens";
 
 export const ProductStyled = styled.div<ProductPropsStyled>`
   ${({ backgroundColor }) => css`
@@ -40,8 +40,8 @@ export const InfoWrapper = styled.div`
 `;
 
 export const ProductName = styled.p<ProductNameProps>`
-  ${({ textColor }) => css`
-    font-size: 16px;
+  ${({ textColor, sizeStatus }) => css`
+    font-size: ${size.textSize.fontSize[sizeStatus]}
     font-style: normal;
     font-weight: 400;
     line-height: 10px;
@@ -52,10 +52,10 @@ export const ProductName = styled.p<ProductNameProps>`
 
 export const ProductPrice = styled.h3<ProductPriceProps>`
   display: inline-block;
-  ${({ priceColor }) => css`
-    font-size: 20px;
-    font-weight: 700;
-    line-height: 5px;
+  ${({ priceColor, sizeStatus }) => css`
+    font-size: ${size.priceSize.fontSize[sizeStatus]}
+    font-weight: ${size.priceSize.fontWeight[sizeStatus]}
+    line-height: ${size.priceSize.lineHeight[sizeStatus]}
     color: ${priceColor};
   `}
 `;

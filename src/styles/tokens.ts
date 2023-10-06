@@ -71,4 +71,38 @@ export const size = {
       large: 556,
     },
   },
+  textSize: {
+    fontSize: {
+      small: 16,
+      medium: 24,
+      large: 24,
+    },
+    fontWeight: {
+      small: 400,
+      medium: 400,
+      large: 400,
+    },
+    lineHeight: {
+      small: 10,
+      medium: 36,
+      large: 36,
+    },
+  },
+  priceSize: {
+    fontSize: {
+      small: 20,
+      medium: 24,
+      large: 24,
+    },
+    fontWeight: {
+      small: 700,
+      medium: 700,
+      large: 700,
+    },
+    lineHeight: {
+      small: 5,
+      medium: 36,
+      large: 36,
+    },
+  },
 };

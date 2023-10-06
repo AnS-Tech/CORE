@@ -65,22 +65,27 @@ export const Product: React.FC<ProductProps> = ({
       </ProductImageWrapper>
       <ProductInfo>
         <InfoWrapper>
-          <ProductName textColor={textColor}>{productName}</ProductName>
+          <ProductName sizeStatus={sizeStatus} textColor={textColor}>
+            {productName}
+          </ProductName>
           {status !== "Promoção" ? (
-            <ProductPrice priceColor={priceColor}>
+            <ProductPrice sizeStatus={sizeStatus} priceColor={priceColor}>
               {nProductPrice.toLocaleString("pt-BR", {
                 style: "currency",
                 currency: "BRL",
               })}
             </ProductPrice>
           ) : (
-            <ProductPrice priceColor={priceColor}>
+            <ProductPrice sizeStatus={sizeStatus} priceColor={priceColor}>
               {productOffer.toLocaleString("pt-BR", {
                 style: "currency",
                 currency: "BRL",
               })}
               &nbsp;
-              <ProductPriceDotted priceColor={priceColor}>
+              <ProductPriceDotted
+                sizeStatus={sizeStatus}
+                priceColor={priceColor}
+              >
                 {nProductPrice.toLocaleString("pt-BR", {
                   style: "currency",
                   currency: "BRL",

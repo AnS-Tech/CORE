@@ -26,3 +26,12 @@ export const BigActionButtonWrapper = styled(ActionButtonWrapper)`
   position: absolute;
   bottom: 1.8rem;
 `;
+
+export const BigProductInfo = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  text-align: center;
+`;

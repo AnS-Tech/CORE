@@ -29,10 +29,12 @@ export interface TagStyledProps {
 export interface ProductNameProps {
   textColor: string;
   productName?: string;
+  sizeStatus?: sizeStatus;
 }
 
 export interface ProductPriceProps {
   priceColor: string;
   productPrice?: string;
   productOffer?: number;
+  sizeStatus?: sizeStatus;
 }
