@@ -4,7 +4,7 @@ import { Button } from ".";
 const meta = {
   title: "components/Button",
   component: Button,
-  tags: ["autodocs"],
+
   argTypes: {
     children: {
       control: "text",
