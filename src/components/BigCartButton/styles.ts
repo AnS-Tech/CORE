@@ -9,15 +9,21 @@ export const BigCartContainer = styled(CartContainer)<CartButtonProps>`
   align-items: center;
   gap: 12px;
 
-  ${({clickButton}) => css`
-  ${clickButton && css`
-  
-  background-color: ${colors.success};
-  color: ${colors.white};
-  &:hover {
-    background-color: ${theme.dark.green};
+  #bag-icon {
+    :hover {
+      cursor: pointer;
+      color: ${colors.white};
+    }
   }
-  `}
 
-`}
+  ${({ clickButton, cartContainerColor }) => css`
+    ${clickButton &&
+    css`
+      background-color: ${colors.success};
+      color: ${colors.white};
+      &:hover {
+        background-color: ${theme.dark.green};
+      }
+    `}
+  `}
 `;
