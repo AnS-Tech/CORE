@@ -5,7 +5,6 @@ import { colors } from "src/styles/tokens";
 const meta = {
   title: "components/Product",
   component: Product,
-  tags: ["autodocs"],
 } satisfies Meta<typeof Product>;
 
 export default meta;

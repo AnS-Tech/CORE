@@ -4,7 +4,6 @@ import { BigProduct } from ".";
 const meta = {
   title: "components/BigProduct",
   component: BigProduct,
-  tags: ["autodocs"],
 } satisfies Meta<typeof BigProduct>;
 
 export default meta;

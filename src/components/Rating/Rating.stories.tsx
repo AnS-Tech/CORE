@@ -4,7 +4,6 @@ import { Rating } from ".";
 const meta = {
   title: "components/Rating",
   component: Rating,
-  tags: ["autodocs"],
 } satisfies Meta<typeof Rating>;
 
 export default meta;

@@ -4,7 +4,6 @@ import { Close } from ".";
 const meta = {
   title: "components/Close",
   component: Close,
-  tags: ["autodocs"],
 } satisfies Meta<typeof Close>;
 
 export default meta;

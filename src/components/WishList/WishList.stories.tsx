@@ -4,7 +4,6 @@ import { WishList } from ".";
 const meta = {
   title: "components/WishList",
   component: WishList,
-  tags: ["autodocs"],
 } satisfies Meta<typeof WishList>;
 
 export default meta;
