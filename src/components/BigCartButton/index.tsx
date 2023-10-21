@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { BigCartContainer, BigCartContainerSelected } from "./styles";
+import { BigCartContainer } from "./styles";
 import whiteCartIcon from "src/styles/svgs/whiteCartIcon.svg";
 import cartIcon from "src/styles/svgs/cartIcon.svg";
 import { CartButtonProps } from "../CartButton/interfaces";
@@ -19,29 +19,28 @@ export const BigCartButton: React.FC<CartButtonProps> = ({
     toggleCartButton(cartIcon);
   };
 
-  return clickButton ? (
-    <BigCartContainerSelected
-      cartContainerColor={cartContainerColor}
-      onClick={() => {
-        setClickButton(!clickButton);
-      }}
-    >
-      {children}
-      <CartIcon
-        src={whiteCartIcon}
-        alt={`${whiteCartIcon}`}
-        width={20}
-        height={20}
-      />
-    </BigCartContainerSelected>
-  ) : (
+
+  // <BigCartContainerSelected
+  //     cartContainerColor={cartContainerColor}
+  //     onClick={() => {
+  //       setClickButton(!clickButton);
+  //     }}
+  //   >
+  //     {children}
+  //     <CartIcon
+  //       src={whiteCartIcon}
+  //       alt={`${whiteCartIcon}`}
+  //       width={20}
+  //       height={20}
+  //     />
+  //   </BigCartContainerSelected>
+
+  return (
     <BigCartContainer
-      onMouseEnter={onMouseEnter}
-      onMouseLeave={onMouseLeave}
+      {...{onMouseEnter, onMouseLeave, cartContainerColor, clickButton}}
       onClick={() => {
         setClickButton(!clickButton);
       }}
-      cartContainerColor={cartContainerColor}
     >
       {children}
       <CartIcon src={cartButton} alt={`${cartButton}`} width={20} height={20} />
