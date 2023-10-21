@@ -8,12 +8,16 @@ export const BigCartContainer = styled(CartContainer)<CartButtonProps>`
   justify-content: center;
   align-items: center;
   gap: 12px;
-`;
 
-export const BigCartContainerSelected = styled(BigCartContainer)`
+  ${({clickButton}) => css`
+  ${clickButton && css`
+  
   background-color: ${colors.success};
   color: ${colors.white};
   &:hover {
     background-color: ${theme.dark.green};
   }
+  `}
+
+`}
 `;
