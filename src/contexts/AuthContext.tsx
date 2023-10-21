@@ -1,12 +1,6 @@
 "use client";
 
-import { onAuthStateChanged, getAuth } from "firebase/auth";
-import firebaseApp from "src/libs/firebase";
-import { createContext, useContext, useEffect, useState } from "react";
-import { LoadingPage } from "src/components/LoadingPage";
-import { useRouter } from "next/navigation";
-
-const auth = getAuth(firebaseApp);
+import { createContext, useContext, useState } from "react";
 
 interface IAuthContext {
   user: any;
