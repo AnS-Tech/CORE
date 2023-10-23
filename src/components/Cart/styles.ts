@@ -7,7 +7,7 @@ export const CartStyled = styled.div`
     
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
     gap: 8px;
 
