@@ -50,7 +50,7 @@ export const Product: React.FC<ProductProps> = ({
           height={size.imageProduct.height[sizeStatus]}
         />
         <WrapperTag>
-          {<Tag status={status} promoStatus={promoStatus} />}
+          {<Tag {...{status, promoStatus}} />}
         </WrapperTag>
         {showActionButton && (
           <div style={{ position: "absolute", top: "0.8rem", right: "0.8rem" }}>
@@ -68,31 +68,25 @@ export const Product: React.FC<ProductProps> = ({
           <ProductName sizeStatus={sizeStatus} textColor={textColor}>
             {productName}
           </ProductName>
-          {status !== "Promoção" ? (
-            <ProductPrice sizeStatus={sizeStatus} priceColor={priceColor}>
+          
+            <ProductPrice {...{sizeStatus, priceColor}}>
               {nProductPrice.toLocaleString("pt-BR", {
                 style: "currency",
                 currency: "BRL",
               })}
-            </ProductPrice>
-          ) : (
-            <ProductPrice sizeStatus={sizeStatus} priceColor={priceColor}>
-              {productOffer.toLocaleString("pt-BR", {
-                style: "currency",
-                currency: "BRL",
-              })}
+
               &nbsp;
+              {status == "Promoção" &&
               <ProductPriceDotted
-                sizeStatus={sizeStatus}
-                priceColor={priceColor}
+                {...{sizeStatus, priceColor}}
               >
                 {nProductPrice.toLocaleString("pt-BR", {
                   style: "currency",
                   currency: "BRL",
                 })}
-              </ProductPriceDotted>
+              </ProductPriceDotted>}
             </ProductPrice>
-          )}
+        
           <div
             style={{ position: "absolute", bottom: "2.2rem", right: "1rem" }}
           >

@@ -35,3 +35,39 @@ export const BigProductInfo = styled.div`
 
   text-align: center;
 `;
+
+export const BigProductSpan = styled.span`
+display: flex;`
+
+export const PromoCountdown = styled.div`
+  display: flex;
+  flex-direction: column;
+`
+export const DateContent = styled.div`
+  display: flex;
+  justify-content: center;
+
+  padding-top: 15px;
+  
+  font-size: x-large;
+  
+`
+export const DateWrapper = styled.div`
+  width: 60px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  gap: 5px;
+
+  font-size: large;
+  font-weight: 800;
+
+    span{
+    font-size: xx-small;
+    font-weight: 400;
+  }
+`
+
