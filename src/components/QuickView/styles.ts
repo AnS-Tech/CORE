@@ -1,8 +1,14 @@
 import styled from "styled-components";
 import { WishListContainer } from "../WishList/styles";
-import Image from "next/image";
+import { colors } from "src/styles/tokens";
 
 export const QuickViewStyled = styled(WishListContainer)`
-`;
+    #eye-icon{
+        width: 20px;
+        height: 20px;
+    }
+    &:hover{
+            color: ${colors.white};
+        }
+    `;
 
-export const ViewIcon = styled(Image)``;
