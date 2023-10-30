@@ -4,6 +4,7 @@ import { CartProps } from "./interfaces"
 
 export const Cart: React.FC<CartProps> = () => {
     return <CartStyled>
+        
         <InfoBuyCart>
             <span>2 Produtos</span>
             <span>$ 26,99</span>

@@ -38,14 +38,14 @@ export const Product: React.FC<ProductProps> = ({
   productOffer = nProductPrice - nProductPrice * (parseInt(promoStatus) / 100);
 
   return (
-    <ProductStyled backgroundColor={backgroundColor}>
+    <ProductStyled {...{backgroundColor}}>
       <ProductImageWrapper
         onMouseEnter={() => setShowActionButton(true)}
         onMouseLeave={() => setShowActionButton(false)}
       >
         <ProductImage
           src={product5n}
-          alt={`${ProductName}`}
+          alt={productName}
           width={size.imageProduct.width[sizeStatus]}
           height={size.imageProduct.height[sizeStatus]}
         />
@@ -65,7 +65,7 @@ export const Product: React.FC<ProductProps> = ({
       </ProductImageWrapper>
       <ProductInfo>
         <InfoWrapper>
-          <ProductName sizeStatus={sizeStatus} textColor={textColor}>
+          <ProductName {...{sizeStatus, textColor}}>
             {productName}
           </ProductName>
           
