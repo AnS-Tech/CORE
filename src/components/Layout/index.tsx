@@ -1,3 +1,4 @@
+import { Footer } from "../Footer";
 import { Header } from "../Header";
 import * as S from "./styles";
 
@@ -6,7 +7,7 @@ export const Layout = ({ children }) => {
     <S.Container>
       <Header />
       <div>{children}</div>
-      <div>Footer</div>
+      <Footer />
     </S.Container>
   );
 };
