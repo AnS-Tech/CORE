@@ -4,7 +4,7 @@ import styled from "styled-components";
 export const DownFooterStyled = styled.div`
   max-width: 1320px;
   width: 100%;
-  padding: 24px 0;
+  padding: 24px 2%;
 
   display: flex;
   justify-content: space-between;
