@@ -5,8 +5,43 @@ import {
   MainFooterStyled,
 } from "./styles";
 import Link from "next/link";
+import { MainContent } from "./content";
 
 export const MainFooter = () => {
+  const Content = [
+    {
+      index: 1,
+      title: "My Account",
+      link1: "My Account",
+      link2: "Order History",
+      link3: "Shoping Cart",
+      link4: "Wishlist",
+    },
+    {
+      index: 2,
+      title: "Helps",
+      link1: "Contact",
+      link2: "Faqs",
+      link3: "Terms & Condition",
+      link4: "Privacy Policy",
+    },
+    {
+      index: 3,
+      title: "Proxy",
+      link1: "About",
+      link2: "Shop",
+      link3: "Product",
+      link4: "Track Order",
+    },
+    {
+      index: 4,
+      title: "Categories",
+      link1: "Fruit & Vegetables",
+      link2: "Meat & Fish",
+      link3: "Bread & Bakery",
+      link4: "Beauty & Health",
+    },
+  ];
   return (
     <MainFooterStyled>
       <MainContentFooter>
@@ -22,70 +57,18 @@ export const MainFooter = () => {
           </strong>
         </ContentMainFooter>
       </MainContentFooter>
-
-      <MainContentFooter>
-        <h5>My Account</h5>
-        <ContentMainFooter>
-          <Link href="/">My Account</Link>
-        </ContentMainFooter>
-        <ContentMainFooter>
-          <Link href="/">Order History</Link>
-        </ContentMainFooter>
-        <ContentMainFooter>
-          <Link href="/">Shoping Cart</Link>
-        </ContentMainFooter>
-        <ContentMainFooter>
-          <Link href="/">Wishlist</Link>
-        </ContentMainFooter>
-      </MainContentFooter>
-
-      <MainContentFooter>
-        <h5>Helps</h5>
-        <ContentMainFooter>
-          <Link href="/">Contact</Link>
-        </ContentMainFooter>
-        <ContentMainFooter>
-          <Link href="/">Faqs</Link>
-        </ContentMainFooter>
-        <ContentMainFooter>
-          <Link href="/">Terms & Condition</Link>
-        </ContentMainFooter>
-        <ContentMainFooter>
-          <Link href="/">Privacy Policy</Link>
-        </ContentMainFooter>
-      </MainContentFooter>
-
-      <MainContentFooter>
-        <h5>Proxy</h5>
-        <ContentMainFooter>
-          <Link href="/">About</Link>
-        </ContentMainFooter>
-        <ContentMainFooter>
-          <Link href="/">Shop</Link>
-        </ContentMainFooter>
-        <ContentMainFooter>
-          <Link href="/">Product</Link>
-        </ContentMainFooter>
-        <ContentMainFooter>
-          <Link href="/">Track Order</Link>
-        </ContentMainFooter>
-      </MainContentFooter>
-
-      <MainContentFooter>
-        <h5>Categories</h5>
-        <ContentMainFooter>
-          <Link href="/">Fruit & Vegetables</Link>
-        </ContentMainFooter>
-        <ContentMainFooter>
-          <Link href="/">Meat & Fish</Link>
-        </ContentMainFooter>
-        <ContentMainFooter>
-          <Link href="/">Bread & Bakery</Link>
-        </ContentMainFooter>
-        <ContentMainFooter>
-          <Link href="/">Beauty & Health</Link>
-        </ContentMainFooter>
-      </MainContentFooter>
+      {Content.map((content) => {
+        return (
+          <MainContent
+            key={content.index}
+            title={content.title}
+            link1={content.link1}
+            link2={content.link2}
+            link3={content.link3}
+            link4={content.link4}
+          />
+        );
+      })}
     </MainFooterStyled>
   );
 };
