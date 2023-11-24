@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const MainFooterStyled = styled.div`
   max-width: 1320px;
-  width: 100%;
+  width: inherit;
   padding: 60px 2% 60px 2%;
 
   display: flex;
@@ -10,9 +10,8 @@ export const MainFooterStyled = styled.div`
 `;
 
 export const MainContentFooter = styled.div`
-  max-width: 340px;
-
   display: flex;
+  flex: 340px;
   flex-direction: column;
   justify-content: center;
   align-items: start;

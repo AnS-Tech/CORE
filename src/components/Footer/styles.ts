@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { FaApplePay } from "react-icons/fa";
 
 export const FooterContent = styled.section`
-  width: 100%;
+  width: inherit;
   background-color: ${colors.grayScale900};
 
   display: flex;
