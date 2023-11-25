@@ -1,9 +1,9 @@
 import styled from "styled-components";
 
 export const MainFooterStyled = styled.div`
+  width: 96%;
   max-width: 1320px;
-  width: inherit;
-  padding: 60px 2% 60px 2%;
+  /* padding: 60px 2% 60px 2%; */
 
   display: flex;
   justify-content: space-between;
@@ -11,14 +11,22 @@ export const MainFooterStyled = styled.div`
 
 export const MainContentFooter = styled.div`
   display: flex;
-  flex: 340px;
+  max-width: 340px;
   flex-direction: column;
   justify-content: center;
   align-items: start;
   gap: 16px;
 `;
 
-export const ContentMainFooter = styled.span`
+export const ContentFooter = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
+  gap: 16px;
+`;
+
+export const ContentMainFooter = styled.div`
   font-size: 14px;
   line-height: 21px;
 

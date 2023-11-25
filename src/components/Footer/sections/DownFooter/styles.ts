@@ -2,12 +2,31 @@ import { colors } from "src/styles/tokens";
 import styled from "styled-components";
 
 export const DownFooterStyled = styled.div`
-  width: inherit;
-  padding: 24px 2%;
+  width: 96%;
+  max-width: 1320px;
+  padding: 24px 0;
 
   display: flex;
+  flex-flow: wrap;
   justify-content: space-between;
   align-items: center;
+
+  #logo {
+    display: none;
+  }
+
+  @media (max-width: 730px) {
+    justify-content: center;
+    gap: 20px;
+
+    #logo {
+      display: flex;
+    }
+
+    span {
+      display: none;
+    }
+  }
 `;
 
 export const PaymentContainer = styled.div`
@@ -19,5 +38,11 @@ export const PaymentContainer = styled.div`
     padding: 0 10px;
     border: 1px solid ${colors.grayScale700};
     border-radius: 10px;
+  }
+
+  @media (max-width: 500px) {
+    font-size: 30px;
+    flex-wrap: wrap;
+    justify-content: center;
   }
 `;
