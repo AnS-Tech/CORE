@@ -7,7 +7,6 @@ export const DownFooterStyled = styled.div`
   padding: 24px 0;
 
   display: flex;
-  flex-flow: wrap;
   justify-content: space-between;
   align-items: center;
 
@@ -15,7 +14,8 @@ export const DownFooterStyled = styled.div`
     display: none;
   }
 
-  @media (max-width: 730px) {
+  @media (max-width: 720px) {
+    flex-flow: wrap;
     justify-content: center;
     gap: 20px;
 

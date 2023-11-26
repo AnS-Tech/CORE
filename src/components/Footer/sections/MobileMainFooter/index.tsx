@@ -1,34 +1,21 @@
-import Link from "next/link";
-import { LineBorder, MobileMainFooterStyled } from "./styles";
-import { ContentMainFooter } from "../MainFooter/styles";
-import { FaChevronRight } from "react-icons/fa";
+import { MobileMainContent } from "./mobileContent";
+import { Content } from "../content";
 
 export const MobileMainFooter = () => {
   return (
-    <MobileMainFooterStyled>
-      <ContentMainFooter>
-        <Link href="/">My Account</Link>
-        <FaChevronRight />
-      </ContentMainFooter>
-      <LineBorder />
-
-      <ContentMainFooter>
-        <Link href="/">Helps</Link>
-        <FaChevronRight />
-      </ContentMainFooter>
-      <LineBorder />
-
-      <ContentMainFooter>
-        <Link href="/">Proxy</Link>
-        <FaChevronRight />
-      </ContentMainFooter>
-      <LineBorder />
-
-      <ContentMainFooter>
-        <Link href="/">Categories</Link>
-        <FaChevronRight />
-      </ContentMainFooter>
-      <LineBorder />
-    </MobileMainFooterStyled>
+    <>
+      {Content.map((content) => {
+        return (
+          <MobileMainContent
+            key={content.index}
+            title={content.title}
+            link1={content.link1}
+            link2={content.link2}
+            link3={content.link3}
+            link4={content.link4}
+          />
+        );
+      })}
+    </>
   );
 };

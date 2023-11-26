@@ -1,23 +1,42 @@
 import styled from "styled-components";
+import { ContentMainFooter } from "../MainFooter/styles";
+import { colors } from "src/styles/tokens";
 
 export const MobileMainFooterStyled = styled.section`
   width: 96%;
-  padding-top: 45px;
 
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: stretch;
-  gap: 20px;
+`;
+
+export const ContentMobileFooter = styled.button`
+  background-color: inherit;
+  border: none;
+  color: inherit;
+  cursor: pointer;
+
+  width: inherit;
+  padding: 0;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  font-style: bold;
+`;
+
+export const ContentMobileMenus = styled.div`
+  width: inherit;
+
+  display: inherit;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
 
   div {
-    width: inherit;
-
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-
-    font-style: bold;
+    font-size: 11px;
   }
 `;
 
