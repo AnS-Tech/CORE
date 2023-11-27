@@ -14,6 +14,7 @@ export const Button: React.FC<ButtonProps> = ({
 }) => {
   return (
     <ButtonStyled
+      id="button"
       bordered={bordered}
       size={size}
       textColor={textColor}
