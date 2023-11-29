@@ -1,27 +1,45 @@
 import Link from "next/link";
 import * as S from "./styles";
 import { FaPhoneVolume } from "react-icons/fa6";
+import { BContent } from "./content";
 
 export const Bottom = () => {
+  const MenuContent = [
+    {
+      index: 1,
+      href: "/",
+      menu: "Flores",
+    },
+    {
+      index: 2,
+      href: "/",
+      menu: "Buquês",
+    },
+    {
+      index: 3,
+      href: "/",
+      menu: "Ocasiões",
+    },
+    {
+      index: 4,
+      href: "/",
+      menu: "Ofertas",
+    },
+    {
+      index: 5,
+      href: "/",
+      menu: "Monte seu Arranjo",
+    },
+  ];
   return (
     <S.Container>
       <S.Body>
         <S.MenuList>
-          <S.MenuOption>
-            <Link href="/">Flores</Link>
-          </S.MenuOption>
-          <S.MenuOption>
-            <Link href="/">Buquês</Link>
-          </S.MenuOption>
-          <S.MenuOption>
-            <Link href="/">Ocasiões</Link>
-          </S.MenuOption>
-          <S.MenuOption>
-            <Link href="/">Ofertas</Link>
-          </S.MenuOption>
-          <S.MenuOption>
-            <Link href="/">Monte seu Arranjo</Link>
-          </S.MenuOption>
+          {MenuContent.map(({ href, index, menu }) => {
+            return (
+              <BContent index={index} key={index} href={href} menu={menu} />
+            );
+          })}
         </S.MenuList>
 
         <S.CallNow>
