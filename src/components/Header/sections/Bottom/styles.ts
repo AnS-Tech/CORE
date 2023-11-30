@@ -29,12 +29,12 @@ export const MenuOption = styled.li`
   gap: 4px;
 
   * {
-    opacity: 0.5;
+    opacity: 1;
     color: inherit;
     text-decoration: none;
 
     &:hover {
-      opacity: 1;
+      opacity: 0.5;
     }
   }
 `;
