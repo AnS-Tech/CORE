@@ -10,29 +10,17 @@ export const DownFooterStyled = styled.div`
   justify-content: space-between;
   align-items: center;
 
-  #logo {
-    display: none;
-  }
-
   @media (max-width: 720px) {
     flex-flow: wrap;
     justify-content: center;
     gap: 20px;
-
-    #logo {
-      display: flex;
-    }
-
-    span {
-      display: none;
-    }
   }
 `;
 
 export const PaymentContainer = styled.div`
   display: flex;
   gap: 8px;
-  font-size: 40px;
+  font-size: 38px;
 
   * {
     padding: 0 10px;

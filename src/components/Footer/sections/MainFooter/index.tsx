@@ -5,7 +5,7 @@ import {
   MainFooterStyled,
 } from "./styles";
 import Link from "next/link";
-import { MainContent } from "./content";
+//import { MainContent } from "./content";
 import { Content } from "../content";
 
 export const MainFooter = () => {
@@ -24,7 +24,7 @@ export const MainFooter = () => {
           </strong>
         </ContentMainFooter>
       </MainContentFooter>
-      {Content.map((content) => {
+      {/* {Content.map((content) => {
         return (
           <MainContent
             key={content.index}
@@ -35,7 +35,7 @@ export const MainFooter = () => {
             link4={content.link4}
           />
         );
-      })}
+      })} */}
     </MainFooterStyled>
   );
 };

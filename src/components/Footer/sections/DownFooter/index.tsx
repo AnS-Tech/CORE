@@ -6,13 +6,11 @@ import {
   RiSecurePaymentFill,
 } from "react-icons/ri";
 import { DownFooterStyled, PaymentContainer } from "./styles";
-import { Logo } from "src/components/Logo";
 
 export const DownFooter = () => {
   return (
     <DownFooterStyled>
       <span>Vivenda Natureza © 2023. All Rights Reserved</span>
-      <Logo />
       <PaymentContainer>
         <FaApplePay />
         <RiVisaLine />

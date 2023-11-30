@@ -1,3 +1,4 @@
+import { colors } from "src/styles/tokens";
 import styled from "styled-components";
 
 export const MainFooterStyled = styled.div`
@@ -6,7 +7,8 @@ export const MainFooterStyled = styled.div`
   /* padding: 60px 2% 60px 2%; */
 
   display: flex;
-  justify-content: space-between;
+  align-items: center;
+  justify-content: center;
 `;
 
 export const MainContentFooter = styled.div`
@@ -14,7 +16,7 @@ export const MainContentFooter = styled.div`
   max-width: 340px;
   flex-direction: column;
   justify-content: center;
-  align-items: start;
+  align-items: center;
   gap: 16px;
 `;
 
@@ -22,7 +24,7 @@ export const ContentFooter = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: start;
+  align-items: center;
   gap: 16px;
 `;
 
@@ -36,6 +38,7 @@ export const ContentMainFooter = styled.div`
   }
 
   :hover {
-    opacity: 0.4;
+    color: ${colors.success};
+    border-bottom: 2px solid ${colors.success};
   }
 `;
