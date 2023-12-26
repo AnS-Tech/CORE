@@ -14,7 +14,7 @@ export const Middle = () => {
         <Logo />
         <S.SearchComponent>
           <CiSearch />
-          <Input type="search" status="border" placeholder="Pesquisar" />
+          <Input type="search" placeholder="Pesquisar" />
           <Button size="small">Pesquisar</Button>
         </S.SearchComponent>
         <S.UserServices>
