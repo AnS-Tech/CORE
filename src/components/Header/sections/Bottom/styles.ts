@@ -13,7 +13,6 @@ export const Container = styled.div`
 export const Body = styled.div`
   width: 96%;
   max-width: 1320px;
-  height: inherit;
 
   display: flex;
   align-items: center;
@@ -21,8 +20,6 @@ export const Body = styled.div`
 `;
 
 export const MenuList = styled.ul`
-  height: inherit;
-
   display: flex;
   align-items: center;
   gap: 32px;
@@ -31,19 +28,17 @@ export const MenuList = styled.ul`
 `;
 
 export const MenuOption = styled.li`
-  height: inherit;
-
-  position: relative;
-
   display: flex;
   align-items: center;
   gap: 4px;
 
   * {
+    opacity: 1;
     color: inherit;
     text-decoration: none;
 
     &:hover {
+      opacity: 0.5;
     }
   }
 `;

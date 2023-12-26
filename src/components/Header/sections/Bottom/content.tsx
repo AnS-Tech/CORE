@@ -1,7 +1,5 @@
 import Link from "next/link";
 import * as S from "./styles";
-import { MenuBottonProps } from "./interfaces";
-import { useState } from "react";
 
 export const MenuContent: Array<MenuBottonProps> = [
   {

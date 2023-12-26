@@ -110,8 +110,12 @@ export const UserServices = styled.div`
     cursor: pointer;
   }
 
-  @media (max-width: 920px) {
-    display: none;
+  @media (max-width: 720px) {
+    width: auto;
+    .icon:first-child,
+    div {
+      display: none;
+    }
   }
 `;
 
