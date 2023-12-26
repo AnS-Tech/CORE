@@ -19,7 +19,8 @@ export const Container = styled.div`
 `;
 
 export const Body = styled.div`
-  width: 70%;
+  width: 96%;
+  max-width: 1320px;
   display: flex;
   align-items: center;
   justify-content: space-between;
