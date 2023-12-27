@@ -5,6 +5,7 @@ import { Button } from "src/components/Button";
 import { CiSearch } from "react-icons/ci";
 import { BsHandbag } from "react-icons/bs";
 import { GoHeart } from "react-icons/go";
+import { GiHamburgerMenu } from "react-icons/gi";
 
 export const Middle = () => {
   return (
@@ -25,6 +26,7 @@ export const Middle = () => {
             <span>R$ 129,90</span>
           </S.InfoCart>
         </S.UserServices>
+        <GiHamburgerMenu id="hamburguer" />
       </S.Body>
     </S.Container>
   );

@@ -18,6 +18,7 @@ export const InputStyled = styled.input<InputStyledProps>`
 `;
 
 export const InputContainer = styled.div`
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -25,6 +26,7 @@ export const InputContainer = styled.div`
 
 export const InputWrapper = styled.div`
   position: relative;
+  width: 100%;
   display: flex;
   flex-flow: column;
   justify-content: center;

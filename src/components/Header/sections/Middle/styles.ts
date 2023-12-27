@@ -18,6 +18,10 @@ export const Body = styled.div`
   justify-content: space-between;
   gap: 15px;
 
+  #hamburguer {
+    display: none;
+  }
+
   #logo {
     flex-wrap: nowrap;
   }
@@ -33,15 +37,24 @@ export const Body = styled.div`
 
     white-space: nowrap;
   }
+  @media (max-width: 920px) {
+    #hamburguer {
+      display: initial;
 
-  @media (max-width: 1250px) {
-    #logo h1 {
-      font-size: 28px;
+      font-size: 26px;
+
+      color: ${colors.grayScale700};
+      cursor: pointer;
     }
   }
   @media (max-width: 1024px) {
     #logo h1 {
       display: none;
+    }
+    @media (max-width: 1250px) {
+      #logo h1 {
+        font-size: 28px;
+      }
     }
   }
 `;
