@@ -5,7 +5,6 @@ import {
   MainFooterStyled,
 } from "./styles";
 import Link from "next/link";
-import { Content } from "../content";
 
 export const MainFooter = () => {
   return (

@@ -12,6 +12,7 @@ export const DownFooterStyled = styled.div`
 
   @media (max-width: 720px) {
     flex-flow: wrap;
+    flex-direction: column-reverse;
     justify-content: center;
     gap: 20px;
   }
