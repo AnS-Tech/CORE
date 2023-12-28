@@ -12,14 +12,17 @@ export const ProductStyled = styled.div<ProductPropsStyled>`
     display: inline-flex;
     flex-direction: column;
     background-color: ${backgroundColor};
-    border: 1px solid ${colors.grayScale100};
+    border: 1px solid ${colors.white};
   `}
 `;
 export const ProductImageWrapper = styled.div`
   padding-inline: 5px;
   position: relative;
-  width: 96.5%;
   height: 280px;
+
+  @media (max-width: 920px) {
+    height: 350px;
+  }
 `;
 
 export const ProductImage = styled(Image)`

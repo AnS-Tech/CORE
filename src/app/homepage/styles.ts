@@ -1,26 +1,43 @@
 import styled from "styled-components";
-import { colors } from "src/styles/tokens";
 
 export const Homepage = styled.main`
-  padding: 30px 5px;
-  height: inherit;
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 16px;
+  max-width: 1320px;
+  height: 100%;
 
-  @media (max-width: 1550px) {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 12px;
+  .content-loading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50vh;
+    width: 100%;
   }
 
-  @media (max-width: 1140px) {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 8px;
+  .list {
+    padding: 0px 0 100px 0;
+    height: inherit;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 5px;
+
+    @media (max-width: 1550px) {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    @media (max-width: 1140px) {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    @media (max-width: 770px) {
+      grid-template-columns: repeat(1, minmax(0, 1fr));
+      padding: 0px 5px 30px 5px;
+      gap: 20px;
+    }
   }
 
   @media (max-width: 770px) {
-    padding: 30px 1px;
-    grid-template-columns: repeat(1, minmax(0, 1fr));
-    gap: 6px;
+    h1 {
+      margin-left: 8px;
+      font-size: 24px;
+    }
   }
 `;

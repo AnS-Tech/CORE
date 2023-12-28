@@ -7,7 +7,7 @@ export const Container = styled.div`
     ${colors.vivendaColors.c4} 0%,
     ${colors.vivendaColors.c3} 80%
   );
-  height: 100%;
+  min-height: 100vh;
   width: 100%;
   display: flex;
   flex-direction: column;

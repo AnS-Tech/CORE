@@ -7,7 +7,7 @@ const GlobalStyles = createGlobalStyle`
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'DM Sans Display', sans-serif;
+    font-family: 'Poppins', sans-serif;
   }
 `;
 

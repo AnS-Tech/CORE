@@ -1,8 +1,8 @@
 import { LoadingContainer } from "./styles";
 
-export const LoadingSpin = () => {
+export const LoadingSpin = ({ sizeMultiplicator = 1 }) => {
   return (
-    <LoadingContainer>
+    <LoadingContainer {...{ sizeMultiplicator }}>
       <div></div>
       <div></div>
       <div></div>

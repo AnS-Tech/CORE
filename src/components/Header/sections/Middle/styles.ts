@@ -28,13 +28,11 @@ export const Body = styled.div`
 
   #logo h1 {
     display: inline-block;
-    font-family: Poppins;
+
     font-size: 32px;
     font-style: normal;
     font-weight: 500;
     line-height: 38px;
-    color: ${colors.vivendaColors.c2};
-
     white-space: nowrap;
   }
   @media (max-width: 920px) {
@@ -82,12 +80,16 @@ export const SearchComponent = styled.div`
     border: none;
     background-color: ${colors.vivendaColors.c7};
   }
+
+  @media (max-width: 920px) {
+    display: none;
+  }
 `;
 
 export const Devider = styled.div`
   width: 1px;
   height: 24px;
-  background-color: ${colors.grayScale100};
+  background-color: ${colors.vivendaColors.c6}20;
 `;
 
 export const UserServices = styled.div`
@@ -110,12 +112,8 @@ export const UserServices = styled.div`
     cursor: pointer;
   }
 
-  @media (max-width: 720px) {
-    width: auto;
-    .icon:first-child,
-    div {
-      display: none;
-    }
+  @media (max-width: 920px) {
+    display: none;
   }
 `;
 
