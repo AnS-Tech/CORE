@@ -1,6 +1,5 @@
 import { colors } from "src/styles/tokens";
 import styled from "styled-components";
-import { FaApplePay } from "react-icons/fa";
 
 export const FooterContent = styled.section`
   width: inherit;

@@ -5,6 +5,7 @@ import { RatingProps } from "./interfaces";
 export const RatingContainer = styled.div`
   display: flex;
   padding: 0 0 15px 0;
+  opacity: 0; // TODO - RESOLVER ESTE PROBLEMA DA AVALIAÇÃO
 `;
 
 export const RatingWrapper = styled.div``;

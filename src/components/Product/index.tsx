@@ -1,4 +1,4 @@
-import { colors, size, theme } from "src/styles/tokens";
+import { colors, size } from "src/styles/tokens";
 import { ProductProps } from "./interfaces";
 import {
   ActionButtonWrapper,
@@ -13,7 +13,6 @@ import {
   WrapperTag,
 } from "./styles";
 
-import product5n from "src/styles/images/Product-5n.png";
 import { Rating } from "../Rating";
 import { Tag } from "../Tag";
 import { useState } from "react";
@@ -24,18 +23,21 @@ import { QuickView } from "../QuickView";
 export const Product: React.FC<ProductProps> = ({
   backgroundColor = colors.white,
   textColor = colors.grayScale700,
-  productName = null,
   status = null,
   promoStatus = "5",
-  priceColor = colors.grayScale900,
-  productPrice = null,
+  priceColor = colors.black,
   productOffer = null,
   sizeStatus = null,
+  product,
 }) => {
-  let nProductPrice = parseFloat(productPrice);
+  let nProductPrice = parseFloat(product.price);
   const [showActionButton, setShowActionButton] = useState<boolean>();
 
   productOffer = nProductPrice - nProductPrice * (parseInt(promoStatus) / 100);
+
+  const convertCentsToReal = (value: number) => {
+    return value / 100;
+  };
 
   return (
     <ProductStyled backgroundColor={backgroundColor}>
@@ -44,14 +46,12 @@ export const Product: React.FC<ProductProps> = ({
         onMouseLeave={() => setShowActionButton(false)}
       >
         <ProductImage
-          src={product5n}
-          alt={`${ProductName}`}
-          width={size.imageProduct.width[sizeStatus]}
-          height={size.imageProduct.height[sizeStatus]}
+          src={product.image[0]}
+          alt={product.name}
+          layout="fill"
+          objectFit="cover"
         />
-        <WrapperTag>
-          {<Tag {...{status, promoStatus}} />}
-        </WrapperTag>
+        <WrapperTag>{<Tag {...{ status, promoStatus }} />}</WrapperTag>
         {showActionButton && (
           <div style={{ position: "absolute", top: "0.8rem", right: "0.8rem" }}>
             <ActionButtonWrapper>
@@ -66,27 +66,25 @@ export const Product: React.FC<ProductProps> = ({
       <ProductInfo>
         <InfoWrapper>
           <ProductName sizeStatus={sizeStatus} textColor={textColor}>
-            {productName}
+            {product.name}
           </ProductName>
-          
-            <ProductPrice {...{sizeStatus, priceColor}}>
-              {nProductPrice.toLocaleString("pt-BR", {
-                style: "currency",
-                currency: "BRL",
-              })}
 
-              &nbsp;
-              {status == "Promoção" &&
-              <ProductPriceDotted
-                {...{sizeStatus, priceColor}}
-              >
+          <ProductPrice {...{ sizeStatus, priceColor }}>
+            {nProductPrice.toLocaleString("pt-BR", {
+              style: "currency",
+              currency: "BRL",
+            })}
+            &nbsp;
+            {status == "Promoção" && (
+              <ProductPriceDotted {...{ sizeStatus, priceColor }}>
                 {nProductPrice.toLocaleString("pt-BR", {
                   style: "currency",
                   currency: "BRL",
                 })}
-              </ProductPriceDotted>}
-            </ProductPrice>
-        
+              </ProductPriceDotted>
+            )}
+          </ProductPrice>
+
           <div
             style={{ position: "absolute", bottom: "2.2rem", right: "1rem" }}
           >

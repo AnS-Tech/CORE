@@ -30,15 +30,14 @@ import { Rating } from "../Rating";
 export const BigProduct: React.FC<ProductProps> = ({
   backgroundColor = colors.white,
   textColor = colors.grayScale700,
-  productName = null,
   status = null,
   promoStatus = "5",
   priceColor = colors.grayScale900,
-  productPrice = null,
   productOffer = null,
   sizeStatus = null,
+  product
 }) => {
-  let nProductPrice = parseFloat(productPrice);
+  let nProductPrice = parseFloat(product.price);
   productOffer = nProductPrice - nProductPrice * (parseInt(promoStatus) / 100);
 
   return (
@@ -63,7 +62,7 @@ export const BigProduct: React.FC<ProductProps> = ({
       <BigProductInfo>
         <InfoWrapper>
           <ProductName {...{sizeStatus, textColor}}>
-            {productName}
+            {product.name}
           </ProductName>
           {status !== "Promoção" ? (
             <ProductPrice {...{sizeStatus, priceColor}}>
