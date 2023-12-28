@@ -3,8 +3,8 @@ type status =
   | "Promoção"
   | "Novidade"
   | "MaisVendido"
-  | "SemEstoque"
-  | "EmEstoque";
+  | "Sem Estoque"
+  | "Em Estoque";
 type promoStatus = "5" | "10" | "25" | "50";
 type sizeStatus = "small" | "medium" | "large";
 

@@ -9,6 +9,7 @@ interface Colors {
   Novidade: string;
   MaisVendido: string;
   SemEstoque: string;
+  EmEstoque: string;
   border: string;
   pink: string;
   beige: string;
@@ -40,7 +41,8 @@ export const colors: Colors = {
   Promoção: "#EA4B48",
   Novidade: "#FF8A00",
   MaisVendido: "#2388FF",
-  SemEstoque: "#1A1A1A",
+  SemEstoque: "#3c3028",
+  EmEstoque: "#89934c",
   border: "#E6E6E6",
   pink: "#f139ee",
   lightPink: "#d5919f",

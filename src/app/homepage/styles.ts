@@ -19,7 +19,7 @@ export const Homepage = styled.main`
     grid-template-columns: repeat(4, minmax(0, 1fr));
     gap: 5px;
 
-    @media (max-width: 1550px) {
+    @media (max-width: 1300px) {
       grid-template-columns: repeat(3, minmax(0, 1fr));
     }
 

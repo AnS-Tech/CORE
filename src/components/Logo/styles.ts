@@ -26,4 +26,27 @@ export const LogoStyled = styled.div`
 
 export const TextLogo = styled.h1`
   color: ${colors.vivendaColors.c7};
+  display: inline-block;
+  flex-wrap: nowrap;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 38px;
+  white-space: nowrap;
+  
+  @media (max-width: 920px) {
+    font-size: 26px;
+  }
+
+  @media (max-width: 720px) {
+    font-size: 22px;
+  }
+
+  @media (max-width: 520px) {
+    font-size: 18px;
+  }
+
+  @media (max-width: 420px) {
+    font-size: 16px;
+  }
 `;

@@ -22,19 +22,6 @@ export const Body = styled.div`
     display: none;
   }
 
-  #logo {
-    flex-wrap: nowrap;
-  }
-
-  #logo h1 {
-    display: inline-block;
-
-    font-size: 32px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: 38px;
-    white-space: nowrap;
-  }
   @media (max-width: 920px) {
     #hamburguer {
       display: initial;
@@ -43,16 +30,6 @@ export const Body = styled.div`
 
       color: ${colors.grayScale700};
       cursor: pointer;
-    }
-  }
-  @media (max-width: 1024px) {
-    #logo h1 {
-      display: none;
-    }
-    @media (max-width: 1250px) {
-      #logo h1 {
-        font-size: 28px;
-      }
     }
   }
 `;
