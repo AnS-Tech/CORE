@@ -21,7 +21,6 @@ import {
 
 import product5n from "../../styles/images/Product-5n.png";
 import { Tag } from "../Tag";
-import { useState } from "react";
 import { WishList } from "../WishList";
 import { QuickView } from "../QuickView";
 import { BigCartButton } from "../BigCartButton";
@@ -35,7 +34,7 @@ export const BigProduct: React.FC<ProductProps> = ({
   priceColor = colors.grayScale900,
   productOffer = null,
   sizeStatus = null,
-  product
+  product,
 }) => {
   let nProductPrice = parseFloat(product.price);
   productOffer = nProductPrice - nProductPrice * (parseInt(promoStatus) / 100);
@@ -49,9 +48,7 @@ export const BigProduct: React.FC<ProductProps> = ({
           width={size.imageProduct.width[sizeStatus]}
           height={size.imageProduct.height[sizeStatus]}
         />
-        <WrapperTag>
-          {<Tag {...{status, promoStatus}} />}
-        </WrapperTag>
+        <WrapperTag>{<Tag {...{ status, promoStatus }} />}</WrapperTag>
 
         <BigActionButtonWrapper>
           <WishList />
@@ -61,26 +58,24 @@ export const BigProduct: React.FC<ProductProps> = ({
       </ProductImageWrapper>
       <BigProductInfo>
         <InfoWrapper>
-          <ProductName {...{sizeStatus, textColor}}>
+          <ProductName {...{ sizeStatus, textColor }}>
             {product.name}
           </ProductName>
           {status !== "Promoção" ? (
-            <ProductPrice {...{sizeStatus, priceColor}}>
+            <ProductPrice {...{ sizeStatus, priceColor }}>
               {nProductPrice.toLocaleString("pt-BR", {
                 style: "currency",
                 currency: "BRL",
               })}
             </ProductPrice>
           ) : (
-            <ProductPrice {...{sizeStatus, priceColor}}>
+            <ProductPrice {...{ sizeStatus, priceColor }}>
               {productOffer.toLocaleString("pt-BR", {
                 style: "currency",
                 currency: "BRL",
               })}
               &nbsp;
-              <ProductPriceDotted
-                {...{sizeStatus, priceColor}}
-              >
+              <ProductPriceDotted {...{ sizeStatus, priceColor }}>
                 {nProductPrice.toLocaleString("pt-BR", {
                   style: "currency",
                   currency: "BRL",
@@ -93,30 +88,36 @@ export const BigProduct: React.FC<ProductProps> = ({
           ></div>
         </InfoWrapper>
 
-        <BigProductSpan><Rating />&nbsp; (554 avaliações)</BigProductSpan>
+        <BigProductSpan>
+          <Rating />
+          &nbsp; (554 avaliações)
+        </BigProductSpan>
 
-        {status == "Promoção" && <PromoCountdown>
-                <span>Aproveite! A promoção acaba em:</span>
-                <DateContent>
-                  <DateWrapper>
-                    01
-                    <span>DIAS</span>
-                  </DateWrapper>
-                  <DateWrapper>
-                    23
-                    <span>HORAS</span>
-                  </DateWrapper>:
-                  <DateWrapper>
-                    34
-                    <span>MINUTOS</span>
-                  </DateWrapper>:
-                  <DateWrapper>
-                    57
-                    <span>SEGUNDOS</span>
-                  </DateWrapper>
-                </DateContent>
-        </PromoCountdown>}
-
+        {status == "Promoção" && (
+          <PromoCountdown>
+            <span>Aproveite! A promoção acaba em:</span>
+            <DateContent>
+              <DateWrapper>
+                01
+                <span>DIAS</span>
+              </DateWrapper>
+              <DateWrapper>
+                23
+                <span>HORAS</span>
+              </DateWrapper>
+              :
+              <DateWrapper>
+                34
+                <span>MINUTOS</span>
+              </DateWrapper>
+              :
+              <DateWrapper>
+                57
+                <span>SEGUNDOS</span>
+              </DateWrapper>
+            </DateContent>
+          </PromoCountdown>
+        )}
       </BigProductInfo>
     </BigProductStyled>
   );

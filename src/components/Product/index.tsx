@@ -1,4 +1,4 @@
-import { colors, size } from "src/styles/tokens";
+import { colors } from "src/styles/tokens";
 import { ProductProps } from "./interfaces";
 import {
   ActionButtonWrapper,
@@ -13,12 +13,11 @@ import {
   WrapperTag,
 } from "./styles";
 
-import { Rating } from "../Rating";
 import { Tag } from "../Tag";
 import { useState } from "react";
 import { CartButton } from "../CartButton";
 import { WishList } from "../WishList";
-import { QuickView } from "../QuickView";
+import { ProductModal } from "../ProductModal";
 
 export const Product: React.FC<ProductProps> = ({
   backgroundColor = colors.white,
@@ -34,10 +33,6 @@ export const Product: React.FC<ProductProps> = ({
   const [showActionButton, setShowActionButton] = useState<boolean>();
 
   productOffer = nProductPrice - nProductPrice * (parseInt(promoStatus) / 100);
-
-  const convertCentsToReal = (value: number) => {
-    return value / 100;
-  };
 
   return (
     <ProductStyled backgroundColor={backgroundColor}>
@@ -58,7 +53,18 @@ export const Product: React.FC<ProductProps> = ({
               <div style={{ marginBottom: "6px" }}>
                 <WishList />
               </div>
-              <QuickView />
+              <ProductModal
+                {...{
+                  product,
+                  backgroundColor,
+                  priceColor,
+                  productOffer,
+                  promoStatus,
+                  sizeStatus,
+                  textColor,
+                  status,
+                }}
+              />
             </ActionButtonWrapper>
           </div>
         )}
@@ -91,8 +97,6 @@ export const Product: React.FC<ProductProps> = ({
             <CartButton />
           </div>
         </InfoWrapper>
-
-        <Rating />
       </ProductInfo>
     </ProductStyled>
   );

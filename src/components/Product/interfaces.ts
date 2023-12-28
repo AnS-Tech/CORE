@@ -1,4 +1,10 @@
-type status = "" | "Promoção" | "Novidade" | "MaisVendido" | "SemEstoque";
+type status =
+  | ""
+  | "Promoção"
+  | "Novidade"
+  | "MaisVendido"
+  | "SemEstoque"
+  | "EmEstoque";
 type promoStatus = "5" | "10" | "25" | "50";
 type sizeStatus = "small" | "medium" | "large";
 
@@ -8,6 +14,7 @@ export interface Product {
   description: string;
   price: string;
   image: string[];
+  metadata?: any;
 }
 
 export interface ProductProps {
