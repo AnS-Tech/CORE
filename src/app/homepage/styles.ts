@@ -1,9 +1,9 @@
 import styled from "styled-components";
+import { colors } from "src/styles/tokens";
 
 export const Homepage = styled.main`
   padding: 30px 5px;
   height: inherit;
-
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 16px;

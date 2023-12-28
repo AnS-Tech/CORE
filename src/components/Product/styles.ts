@@ -5,7 +5,7 @@ import {
   ProductPropsStyled,
 } from "./interfaces";
 import Image from "next/image";
-import { colors, size, theme } from "src/styles/tokens";
+import { colors, size } from "src/styles/tokens";
 
 export const ProductStyled = styled.div<ProductPropsStyled>`
   ${({ backgroundColor }) => css`
@@ -18,8 +18,8 @@ export const ProductStyled = styled.div<ProductPropsStyled>`
 export const ProductImageWrapper = styled.div`
   padding-inline: 5px;
   position: relative;
-  width: 350px;
-  height: 350px;
+  width: 96.5%;
+  height: 280px;
 `;
 
 export const ProductImage = styled(Image)`

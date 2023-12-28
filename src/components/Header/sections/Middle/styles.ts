@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   width: 100%;
-  background-color: ${colors.white};
+  background: ${colors.vivendaColors.c3} 5%;
   height: 92px;
   display: flex;
   align-items: center;
@@ -33,7 +33,7 @@ export const Body = styled.div`
     font-style: normal;
     font-weight: 500;
     line-height: 38px;
-    color: ${colors.grayScale900};
+    color: ${colors.vivendaColors.c2};
 
     white-space: nowrap;
   }
@@ -63,7 +63,7 @@ export const SearchComponent = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-
+  background-color: ${colors.white};
   color: ${colors.grayScale900};
 
   width: 100%;
@@ -79,8 +79,8 @@ export const SearchComponent = styled.div`
   }
   #button {
     border-radius: 0px 6px 6px 0px;
-    border: 3px solid ${colors.success};
-    background-color: ${colors.success};
+    border: none;
+    background-color: ${colors.vivendaColors.c7};
   }
 `;
 

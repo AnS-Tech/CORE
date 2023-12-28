@@ -1,8 +1,9 @@
+import { colors } from "src/styles/tokens";
 import styled from "styled-components";
 
 export const Container = styled.div`
   width: 100%;
-  background-color: #333333;
+  background-color: ${colors.vivendaColors.c6};
   height: 60px;
 
   @media (max-width: 920px) {
