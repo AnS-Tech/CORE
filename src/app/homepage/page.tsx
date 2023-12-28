@@ -2,51 +2,30 @@
 
 import { Layout } from "src/components/Layout";
 import { Homepage } from "./styles";
+import { useQuery } from "@tanstack/react-query";
 import { Product } from "src/components";
 
 export default function Page() {
-  const Products = [
-    {
-      index: 1,
-      productName: "Rosa do Deserto",
-      productPrice: "90.99",
-    },
-    {
-      index: 2,
-      productName: "Rosa do Deserto",
-      productPrice: "90.99",
-    },
-    {
-      index: 3,
-      productName: "Rosa do Deserto",
-      productPrice: "90.99",
-    },
-    {
-      index: 4,
-      productName: "Rosa do Deserto",
-      productPrice: "90.99",
-    },
-    {
-      index: 5,
-      productName: "Rosa do Deserto",
-      productPrice: "90.99",
-    },
-    {
-      index: 6,
-      productName: "Rosa do Deserto",
-      productPrice: "90.99",
-    },
-  ];
+  const getProducts = async () => {
+    const response = await fetch(
+      `${process.env.NEXT_PUBLIC_BASE_URL}/api/get-products`
+    );
+    const data = await response.json();
+    return data;
+  };
+
+  const { data: products, isLoading } = useQuery(["products"], getProducts);
+
   return (
     <Layout>
       <Homepage>
-        {Products.map((products) => (
-          <Product
-            productName={products.productName}
-            productPrice={products.productPrice}
-            key={products.index}
-          />
-        ))}
+        {isLoading || products == undefined ? (
+          <div>Loading...</div>
+        ) : (
+          products.map((product) => (
+            <Product {...{ product }} key={product.index} />
+          ))
+        )}
       </Homepage>
     </Layout>
   );

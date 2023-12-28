@@ -2,7 +2,6 @@ import { css, styled } from "styled-components";
 import {
   ProductNameProps,
   ProductPriceProps,
-  ProductProps,
   ProductPropsStyled,
 } from "./interfaces";
 import Image from "next/image";
@@ -17,13 +16,16 @@ export const ProductStyled = styled.div<ProductPropsStyled>`
   `}
 `;
 export const ProductImageWrapper = styled.div`
-  display: flex;
-  justify-content: center;
+  padding-inline: 5px;
   position: relative;
+  width: 350px;
+  height: 350px;
 `;
 
 export const ProductImage = styled(Image)`
-  padding: 5px;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 `;
 
 export const ActionButtonWrapper = styled.div`
@@ -53,9 +55,9 @@ export const ProductName = styled.p<ProductNameProps>`
 export const ProductPrice = styled.h3<ProductPriceProps>`
   display: inline-block;
   ${({ priceColor, sizeStatus }) => css`
-    font-size: ${size.priceSize.fontSize[sizeStatus]}
-    font-weight: ${size.priceSize.fontWeight[sizeStatus]}
-    line-height: ${size.priceSize.lineHeight[sizeStatus]}
+    font-size: ${size.priceSize.fontSize[sizeStatus]};
+    font-weight: ${size.priceSize.fontWeight[sizeStatus]};
+    line-height: ${size.priceSize.lineHeight[sizeStatus]};
     color: ${priceColor};
   `}
 `;
