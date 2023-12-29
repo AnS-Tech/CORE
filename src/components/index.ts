@@ -12,7 +12,7 @@ import { LoadingSpin } from "./LoadingSpin";
 import { Tag } from "./Tag";
 import { WishList } from "./WishList";
 import { Rating } from "./Rating";
-import { QuickView } from "./QuickView";
+import { EyeButton } from "./EyeButton";
 
 export {
   Button,
@@ -29,5 +29,5 @@ export {
   Tag,
   WishList,
   Rating,
-  QuickView,
+  EyeButton,
 };

@@ -22,7 +22,7 @@ import {
 import product5n from "../../styles/images/Product-5n.png";
 import { Tag } from "../Tag";
 import { WishList } from "../WishList";
-import { QuickView } from "../QuickView";
+import { EyeButton } from "../EyeButton";
 import { BigCartButton } from "../BigCartButton";
 import { Rating } from "../Rating";
 
@@ -53,7 +53,7 @@ export const BigProduct: React.FC<ProductProps> = ({
         <BigActionButtonWrapper>
           <WishList />
           <BigCartButton children={"Adicionar ao Carrinho"} />
-          <QuickView />
+          <EyeButton />
         </BigActionButtonWrapper>
       </ProductImageWrapper>
       <BigProductInfo>

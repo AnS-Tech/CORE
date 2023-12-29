@@ -17,7 +17,7 @@ import { Tag } from "../Tag";
 import { useState } from "react";
 import { CartButton } from "../CartButton";
 import { WishList } from "../WishList";
-import { ProductModal } from "../ProductModal";
+import { QuickView } from "../QuickView";
 import { verifyStock } from "./utils";
 
 export const Product: React.FC<ProductProps> = ({
@@ -56,7 +56,7 @@ export const Product: React.FC<ProductProps> = ({
               <div style={{ marginBottom: "6px" }}>
                 <WishList />
               </div>
-              <ProductModal
+              <QuickView
                 {...{
                   product,
                   backgroundColor,
