@@ -15,15 +15,19 @@ export const ProductStyled = styled.div<ProductPropsStyled>`
     border: 1px solid ${colors.white};
     border-radius: 8px;
     padding-bottom: 15px;
+
+    &:hover {
+      box-shadow: 2px 2px 3px ${colors.vivendaColors.c6}40;
+    }
   `}
 `;
 export const ProductImageWrapper = styled.div`
   padding-inline: 5px;
   position: relative;
-  height: 280px;
+  height: 200px;
   border-radius: 8px 8px 0 0;
   @media (max-width: 920px) {
-    height: 350px;
+    height: 250px;
   }
 `;
 
@@ -32,6 +36,7 @@ export const ProductImage = styled(Image)`
   height: 100%;
   border-radius: 8px 8px 0 0;
   object-fit: cover;
+  cursor: pointer;
 `;
 
 export const ActionButtonWrapper = styled.div`
