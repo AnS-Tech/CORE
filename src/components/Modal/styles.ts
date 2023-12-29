@@ -1,3 +1,4 @@
+import { colors } from "src/styles/tokens";
 import styled from "styled-components";
 
 export const ModalOverlay = styled.div<{ isOpen: boolean }>`
@@ -18,16 +19,27 @@ export const ModalContainer = styled.div`
   transform: translate(-50%, -50%);
   background: white;
   padding: 20px;
-  border-radius: 8px;
+  border-radius: 4px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   z-index: 1001;
 `;
 
-export const CloseButton = styled.button`
+export const CloseButton = styled.div`
+  width: 25px;
+  height: 25px;
+
   position: absolute;
   top: 10px;
   right: 10px;
-  background: none;
-  border: none;
+
   cursor: pointer;
+
+  font-size: 20px;
+
+  #close-button-modal {
+    color: ${colors.vivendaColors.c6};
+    :hover {
+      color: ${colors.vivendaColors.c5};
+    }
+  }
 `;
