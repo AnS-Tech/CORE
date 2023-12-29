@@ -4,8 +4,12 @@ import { Input } from "src/components/Input";
 import { Button } from "src/components/Button";
 import { CiSearch } from "react-icons/ci";
 import { BsHandbag } from "react-icons/bs";
-import { GoHeart } from "react-icons/go";
 import { GiHamburgerMenu } from "react-icons/gi";
+import { colors } from "src/styles/tokens";
+import { FaHeart } from "react-icons/fa";
+import { BsFillHandbagFill } from "react-icons/bs";
+
+
 
 export const Middle = () => {
   return (
@@ -18,9 +22,13 @@ export const Middle = () => {
           <Button size="small">Pesquisar</Button>
         </S.SearchComponent>
         <S.UserServices>
-          <GoHeart className="icon" />
+          <FaHeart className="icon" color={colors.vivendaColors.c5} />
           <S.Devider />
-          <BsHandbag id="bagIcon" className="icon" />
+          <BsFillHandbagFill
+            id="bagIcon"
+            className="icon"
+            color={colors.vivendaColors.c7}
+          />
           <S.InfoCart>
             <span>Carrino</span>
             <span>R$ 129,90</span>

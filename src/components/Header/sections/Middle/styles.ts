@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   width: 100%;
-  background-color: ${colors.white};
+  background: ${colors.vivendaColors.c3} 5%;
   height: 92px;
   display: flex;
   align-items: center;
@@ -22,21 +22,6 @@ export const Body = styled.div`
     display: none;
   }
 
-  #logo {
-    flex-wrap: nowrap;
-  }
-
-  #logo h1 {
-    display: inline-block;
-    font-family: Poppins;
-    font-size: 32px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: 38px;
-    color: ${colors.grayScale900};
-
-    white-space: nowrap;
-  }
   @media (max-width: 920px) {
     #hamburguer {
       display: initial;
@@ -47,23 +32,13 @@ export const Body = styled.div`
       cursor: pointer;
     }
   }
-  @media (max-width: 1024px) {
-    #logo h1 {
-      display: none;
-    }
-    @media (max-width: 1250px) {
-      #logo h1 {
-        font-size: 28px;
-      }
-    }
-  }
 `;
 
 export const SearchComponent = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-
+  background-color: ${colors.white};
   color: ${colors.grayScale900};
 
   width: 100%;
@@ -79,15 +54,19 @@ export const SearchComponent = styled.div`
   }
   #button {
     border-radius: 0px 6px 6px 0px;
-    border: 3px solid ${colors.success};
-    background-color: ${colors.success};
+    border: none;
+    background-color: ${colors.vivendaColors.c7};
+  }
+
+  @media (max-width: 920px) {
+    display: none;
   }
 `;
 
 export const Devider = styled.div`
   width: 1px;
   height: 24px;
-  background-color: ${colors.grayScale100};
+  background-color: ${colors.vivendaColors.c6}20;
 `;
 
 export const UserServices = styled.div`
@@ -110,12 +89,8 @@ export const UserServices = styled.div`
     cursor: pointer;
   }
 
-  @media (max-width: 720px) {
-    width: auto;
-    .icon:first-child,
-    div {
-      display: none;
-    }
+  @media (max-width: 920px) {
+    display: none;
   }
 `;
 

@@ -1,9 +1,12 @@
+import { colors } from "src/styles/tokens";
 import styled from "styled-components";
 
 export const Container = styled.div`
   width: 100%;
-  background-color: #333333;
+  background-color: ${colors.vivendaColors.c6};
   height: 60px;
+  display: flex;
+  justify-content: center;
 
   @media (max-width: 920px) {
     display: none;
@@ -13,7 +16,6 @@ export const Container = styled.div`
 export const Body = styled.div`
   width: 96%;
   max-width: 1320px;
-
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -23,7 +25,7 @@ export const MenuList = styled.ul`
   display: flex;
   align-items: center;
   gap: 32px;
-
+  padding: 0;
   list-style-type: none;
 `;
 

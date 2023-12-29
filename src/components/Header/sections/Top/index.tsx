@@ -12,10 +12,11 @@ export const Top = () => {
       <S.Body>
         <S.LeftSide>
           <CiLocationOn size={18} color="#666" />
-          <span>Local: Macaiba-Rio Grande do Norte, Brasil</span>
+          <span>Local: Macaiba - Rio Grande do Norte, Brasil</span>
         </S.LeftSide>
         <S.RightSide>
-          <LanguageSelector />
+          {/* <LanguageSelector /> */}
+          PT-BR
         </S.RightSide>
       </S.Body>
     </S.Container>

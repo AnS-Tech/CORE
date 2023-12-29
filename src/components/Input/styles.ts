@@ -9,7 +9,7 @@ export const InputStyled = styled.input<InputStyledProps>`
       border: 1px solid;
       border-color: ${colors[status]};
       border-radius: 6px;
-      padding: 10px 16px;
+      /* padding: 10px 16px; */
 
       &:focus {
         outline: none;
@@ -25,6 +25,7 @@ export const InputContainer = styled.div`
 `;
 
 export const InputWrapper = styled.div`
+
   position: relative;
   width: 100%;
   display: flex;

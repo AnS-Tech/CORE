@@ -1,8 +1,14 @@
 import { isEmpty } from "src/utils/isEmpty";
 
-export const verifyStock = (stock) => {
-  const withoutStock = {
-    status: "SemEstoque",
+interface StockReturn {
+  status: "Sem Estoque" | "Em Estoque";
+  value: number;
+  withStock: boolean;
+}
+
+export const verifyStock = (stock): StockReturn => {
+  const withoutStock: StockReturn = {
+    status: "Sem Estoque",
     value: 0,
     withStock: false,
   };
@@ -17,8 +23,8 @@ export const verifyStock = (stock) => {
   }
 
   return {
-    status: "EmEstoque",
+    status: "Em Estoque",
     value: stockNum,
     withStock: true,
-  };
+  } as StockReturn;
 };

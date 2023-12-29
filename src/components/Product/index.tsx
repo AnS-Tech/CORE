@@ -18,6 +18,7 @@ import { useState } from "react";
 import { CartButton } from "../CartButton";
 import { WishList } from "../WishList";
 import { ProductModal } from "../ProductModal";
+import { verifyStock } from "./utils";
 
 export const Product: React.FC<ProductProps> = ({
   backgroundColor = colors.white,
@@ -33,6 +34,8 @@ export const Product: React.FC<ProductProps> = ({
   const [showActionButton, setShowActionButton] = useState<boolean>();
 
   productOffer = nProductPrice - nProductPrice * (parseInt(promoStatus) / 100);
+
+  const stock = verifyStock(product?.metadata?.estoque);
 
   return (
     <ProductStyled backgroundColor={backgroundColor}>
@@ -97,6 +100,8 @@ export const Product: React.FC<ProductProps> = ({
             <CartButton />
           </div>
         </InfoWrapper>
+
+        <Tag status={stock.status} />
       </ProductInfo>
     </ProductStyled>
   );

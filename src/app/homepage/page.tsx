@@ -3,7 +3,8 @@
 import { Layout } from "src/components/Layout";
 import { Homepage } from "./styles";
 import { useQuery } from "@tanstack/react-query";
-import { Product } from "src/components";
+import { LoadingSpin, Product } from "src/components";
+import { colors } from "src/styles/tokens";
 
 export default function Page() {
   const getProducts = async () => {
@@ -20,11 +21,39 @@ export default function Page() {
     <Layout>
       <Homepage>
         {isLoading || products == undefined ? (
-          <div>Loading...</div>
+          <div className="content-loading">
+            <LoadingSpin sizeMultiplicator={3} />
+          </div>
         ) : (
-          products.map((product) => (
-            <Product {...{ product }} key={product.index} />
-          ))
+          <>
+            <h1
+              style={{
+                color: colors.vivendaColors.c6,
+              }}
+            >
+              Produtos
+            </h1>
+            <div className="list">
+              {products.map((product) => (
+                <Product {...{ product }} key={product.index} />
+              ))}
+              {products.map((product) => (
+                <Product {...{ product }} key={product.index} />
+              ))}
+              {products.map((product) => (
+                <Product {...{ product }} key={product.index} />
+              ))}
+              {products.map((product) => (
+                <Product {...{ product }} key={product.index} />
+              ))}
+              {products.map((product) => (
+                <Product {...{ product }} key={product.index} />
+              ))}
+              {products.map((product) => (
+                <Product {...{ product }} key={product.index} />
+              ))}
+            </div>
+          </>
         )}
       </Homepage>
     </Layout>

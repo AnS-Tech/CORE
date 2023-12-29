@@ -4,8 +4,6 @@ import styled from "styled-components";
 export const MainFooterStyled = styled.div`
   width: 96%;
   max-width: 1320px;
-  /* padding: 60px 2% 60px 2%; */
-
   display: flex;
   align-items: center;
   justify-content: center;

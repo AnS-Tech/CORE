@@ -1,31 +1,26 @@
 import Link from "next/link";
 import * as S from "./styles";
 
-export const MenuContent: Array<MenuBottonProps> = [
+export const menuContent: Array<MenuBottonProps> = [
   {
     index: 1,
     href: "/",
-    menu: "Flores",
+    menu: "Home",
   },
   {
     index: 2,
     href: "/",
-    menu: "Buquês",
+    menu: "Favoritos",
   },
   {
     index: 3,
     href: "/",
-    menu: "Ocasiões",
+    menu: "Carrinho",
   },
   {
     index: 4,
     href: "/",
-    menu: "Ofertas",
-  },
-  {
-    index: 5,
-    href: "/",
-    menu: "Monte seu Arranjo",
+    menu: "Sobre Nós",
   },
 ];
 

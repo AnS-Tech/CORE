@@ -9,6 +9,7 @@ interface Colors {
   Novidade: string;
   MaisVendido: string;
   SemEstoque: string;
+  EmEstoque: string;
   border: string;
   pink: string;
   beige: string;
@@ -19,6 +20,15 @@ interface Colors {
   grayScale100: string;
   grayScale700: string;
   grayScale900: string;
+  vivendaColors: {
+    c1: string;
+    c2: string;
+    c3: string;
+    c4: string;
+    c5: string;
+    c6: string;
+    c7: string;
+  };
 }
 
 export const colors: Colors = {
@@ -31,7 +41,8 @@ export const colors: Colors = {
   Promoção: "#EA4B48",
   Novidade: "#FF8A00",
   MaisVendido: "#2388FF",
-  SemEstoque: "#1A1A1A",
+  SemEstoque: "#3c3028",
+  EmEstoque: "#89934c",
   border: "#E6E6E6",
   pink: "#f139ee",
   lightPink: "#d5919f",
@@ -42,6 +53,16 @@ export const colors: Colors = {
   grayScale100: "#E6E6E6",
   grayScale700: "#4D4D4D",
   grayScale900: "#1A1A1A",
+
+  vivendaColors: {
+    c1: "#365028",
+    c2: "#697928",
+    c3: "#f4ebd8",
+    c4: "#d5bd9c",
+    c5: "#f137aa",
+    c6: "#3c3028",
+    c7: "#89934c",
+  },
 };
 
 export const theme = {

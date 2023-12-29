@@ -6,7 +6,13 @@ export const Layout = ({ children }) => {
   return (
     <S.Container>
       <Header />
-      <div>{children}</div>
+      <div
+        style={{
+          flex: 1,
+        }}
+      >
+        {children}
+      </div>
       <Footer />
     </S.Container>
   );
