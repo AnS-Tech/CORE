@@ -3,13 +3,10 @@ import * as S from "./styles";
 import { Input } from "src/components/Input";
 import { Button } from "src/components/Button";
 import { CiSearch } from "react-icons/ci";
-import { BsHandbag } from "react-icons/bs";
-import { GiHamburgerMenu } from "react-icons/gi";
 import { colors } from "src/styles/tokens";
 import { FaHeart } from "react-icons/fa";
 import { BsFillHandbagFill } from "react-icons/bs";
-
-
+import { HamburgerMenu } from "src/components/MenuHamburger";
 
 export const Middle = () => {
   return (
@@ -34,7 +31,7 @@ export const Middle = () => {
             <span>R$ 129,90</span>
           </S.InfoCart>
         </S.UserServices>
-        <GiHamburgerMenu id="hamburguer" />
+        <HamburgerMenu />
       </S.Body>
     </S.Container>
   );

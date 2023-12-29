@@ -5,21 +5,21 @@ export const menuContent: Array<MenuBottonProps> = [
   {
     index: 1,
     href: "/",
-    menu: "Home",
+    menu: "Inicio",
   },
   {
     index: 2,
-    href: "/",
+    href: "/favoritos",
     menu: "Favoritos",
   },
   {
     index: 3,
-    href: "/",
+    href: "/carrinho",
     menu: "Carrinho",
   },
   {
     index: 4,
-    href: "/",
+    href: "/sobre",
     menu: "Sobre Nós",
   },
 ];
