@@ -17,21 +17,6 @@ export const Body = styled.div`
   align-items: center;
   justify-content: space-between;
   gap: 15px;
-
-  #hamburguer {
-    display: none;
-  }
-
-  @media (max-width: 920px) {
-    #hamburguer {
-      display: initial;
-
-      font-size: 26px;
-
-      color: ${colors.grayScale700};
-      cursor: pointer;
-    }
-  }
 `;
 
 export const SearchComponent = styled.div`
