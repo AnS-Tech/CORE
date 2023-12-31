@@ -12,7 +12,16 @@ import {
   QuickViewInforContent,
   QuickViewProductName,
   ProductImage,
+  StockWrapper,
+  ProductPrice,
+  Line,
+  InfoContainer,
+  ModalText,
+  CTAContainer,
 } from "./styles";
+import { Tag } from "../Tag";
+import { BigCartButton } from "../BigCartButton";
+import { WishList } from "../WishList";
 
 export const QuickView = ({
   backgroundColor = colors.white,
@@ -21,9 +30,10 @@ export const QuickView = ({
   promoStatus = "5",
   priceColor = colors.black,
   productOffer = null,
-  sizeStatus = null,
+  sizeStatus = "large",
   product,
 }: ProductProps) => {
+  const nProductPrice = parseFloat(product.price);
   const stock = verifyStock(product.metadata?.estoque);
 
   const [isModalOpen, setModalOpen] = useState(false);
@@ -50,7 +60,36 @@ export const QuickView = ({
             />
           </QuickViewImageWrapper>
           <QuickViewInforContent>
-            <QuickViewProductName>{product.name}</QuickViewProductName>
+            <InfoContainer>
+              <QuickViewProductName>{product.name}</QuickViewProductName>
+
+              <StockWrapper>
+                <Tag status={stock.status} />
+                {stock.value !== 0 && (
+                  <ModalText>
+                    <strong>Estoque:</strong> {stock.value}
+                  </ModalText>
+                )}
+              </StockWrapper>
+              <ProductPrice>
+                {nProductPrice.toLocaleString("pt-BR", {
+                  style: "currency",
+                  currency: "BRL",
+                })}
+              </ProductPrice>
+              <Line />
+            </InfoContainer>
+            <InfoContainer>
+              <ModalText>
+                <strong>Descrição:</strong>
+              </ModalText>
+              <ModalText>{product.description}</ModalText>
+              <Line />
+            </InfoContainer>
+            <CTAContainer>
+              <BigCartButton children={"Adicionar ao Carrinho"} />
+              <WishList />
+            </CTAContainer>
           </QuickViewInforContent>
         </QuickViewContainer>
       </Modal>
