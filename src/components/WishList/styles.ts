@@ -12,7 +12,7 @@ export const WishListContainer = styled.button<WishListContainerProps>`
   justify-content: center;
   width: 43px;
   height: 43px;
-  border-radius: 2rem;
+  border-radius: 50%;
 
   background-color: ${colors.white};
   border: none;

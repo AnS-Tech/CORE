@@ -5,8 +5,9 @@ import { Button } from "src/components/Button";
 import { CiSearch } from "react-icons/ci";
 import { colors } from "src/styles/tokens";
 import { FaHeart } from "react-icons/fa";
-import { BsFillHandbagFill } from "react-icons/bs";
+import { IoCart } from "react-icons/io5";
 import { HamburgerMenu } from "src/components/MenuHamburger";
+import Link from "next/link";
 
 export const Middle = () => {
   return (
@@ -19,13 +20,20 @@ export const Middle = () => {
           <Button size="small">Pesquisar</Button>
         </S.SearchComponent>
         <S.UserServices>
-          <FaHeart className="icon" color={colors.vivendaColors.c5} />
+          <Link href={"/favoritos"}>
+            <FaHeart className="icon" color={colors.vivendaColors.c5} />
+          </Link>
+
           <S.Devider />
-          <BsFillHandbagFill
-            id="bagIcon"
-            className="icon"
-            color={colors.vivendaColors.c7}
-          />
+
+          <Link href={"/carrinho"}>
+            <IoCart
+              id="bagIcon"
+              className="icon"
+              color={colors.vivendaColors.c7}
+            />
+          </Link>
+
           <S.InfoCart>
             <span>Carrino</span>
             <span>R$ 129,90</span>
