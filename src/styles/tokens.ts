@@ -126,4 +126,17 @@ export const size = {
       large: 36,
     },
   },
+
+  desktop: 1300,
+  tablet: 770,
+  mobile: 550,
+  smallMobile: 374,
+
+  s1: "0.775rem",
+  s2: "0.875rem",
+  s3: "0.9375rem",
+  s4: "1rem",
+  s5: "1.125rem",
+  s6: "1.25rem",
+  s7: "1.5rem",
 };

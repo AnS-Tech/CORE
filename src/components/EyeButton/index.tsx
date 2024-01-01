@@ -1,6 +1,6 @@
 import { EyeButtonProps } from "./interfaces";
-import { EyeButtonStyled } from "./styles";
 import { AiOutlineEye } from "react-icons/ai";
+import { EyeButtonStyled } from "./styles";
 
 export const EyeButton: React.FC<EyeButtonProps> = ({ onClick = () => {} }) => {
   return (

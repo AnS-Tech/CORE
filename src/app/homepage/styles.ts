@@ -13,28 +13,29 @@ export const Homepage = styled.main`
   }
 
   .list {
-    padding: 0px 0 100px 0;
+    padding: 0px 5px 100px 5px;
     height: inherit;
     display: grid;
-    grid-template-columns: repeat(5, minmax(0, 1fr));
+    grid-template-columns: repeat(6, minmax(0, 1fr));
     gap: 5px;
 
     @media (max-width: 1300px) {
-      grid-template-columns: repeat(4, minmax(0, 1fr));
+      grid-template-columns: repeat(5, minmax(0, 1fr));
     }
 
     @media (max-width: 1140px) {
-      grid-template-columns: repeat(3, minmax(0, 1fr));
+      grid-template-columns: repeat(4, minmax(0, 1fr));
     }
 
     @media (max-width: 770px) {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      padding: 0px 5px 30px 5px;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
     }
     @media (max-width: 550px) {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    @media (max-width: 374px) {
       grid-template-columns: repeat(1, minmax(0, 1fr));
-      padding: 0px 5px 30px 5px;
-      gap: 20px;
     }
   }
 

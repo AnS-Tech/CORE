@@ -25,12 +25,12 @@ export const CartButton: React.FC<CartButtonProps> = ({
         setClickButton(!clickButton);
       }}
     >
-      {children}
+      <div className="children-div-button">{children}</div>
       <CartIcon
         src={whiteCartIcon}
         alt={`${whiteCartIcon}`}
-        width={20}
-        height={20}
+        width={15}
+        height={15}
       />
     </CartContainerSelected>
   ) : (
@@ -42,8 +42,8 @@ export const CartButton: React.FC<CartButtonProps> = ({
       }}
       cartContainerColor={cartContainerColor}
     >
-      {children}
-      <CartIcon src={cartButton} alt={`${cartButton}`} width={20} height={20} />
+      <div className="children-div-button">{children}</div>
+      <CartIcon src={cartButton} alt={`${cartButton}`} width={15} height={15} />
     </CartContainer>
   );
 };

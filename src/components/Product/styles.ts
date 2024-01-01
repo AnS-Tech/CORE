@@ -14,19 +14,27 @@ export const ProductStyled = styled.div<ProductPropsStyled>`
     background-color: ${backgroundColor};
     border: 1px solid ${colors.white};
     border-radius: 8px;
-    padding-bottom: 15px;
 
     &:hover {
-      box-shadow: 2px 2px 3px ${colors.vivendaColors.c6}40;
+      .actions-product-card-div {
+        opacity: 1;
+        right: 0.8rem;
+      }
+    }
+
+    @media (min-width: 950px) {
+      &:hover {
+        box-shadow: 2px 2px 3px ${colors.vivendaColors.c6}40;
+      }
     }
   `}
 `;
 export const ProductImageWrapper = styled.div`
-  padding-inline: 5px;
   position: relative;
-  height: 200px;
+  height: 180px;
   border-radius: 8px 8px 0 0;
-  @media (max-width: 920px) {
+
+  @media (max-width: 374px) {
     height: 250px;
   }
 `;
@@ -40,21 +48,30 @@ export const ProductImage = styled(Image)`
 `;
 
 export const ActionButtonWrapper = styled.div`
+  display: flex;
   flex-direction: column;
+  gap: 6px;
+  position: absolute;
+  top: 0.8rem;
+  right: 0rem;
+  opacity: 0;
+  transition: all 0.25s ease-in-out;
 `;
 
 export const ProductInfo = styled.div`
   position: relative;
-  padding: 0 12px;
+  padding: 10px 8px;
 `;
 
 export const InfoWrapper = styled.div`
-  padding: 20px 0 0 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 `;
 
 export const ProductName = styled.p<ProductNameProps>`
   ${({ textColor, sizeStatus }) => css`
-    font-size: ${size.textSize.fontSize[sizeStatus]}
+    font-size: ${size.s1};
     font-style: normal;
     font-weight: 400;
     line-height: 15px;
@@ -62,16 +79,30 @@ export const ProductName = styled.p<ProductNameProps>`
     margin: 0;
     height: 20px;
     width: calc(100% - 43px);
-
+    overflow: hidden;
+    white-space: nowrap;
     text-overflow: ellipsis;
-   
+
+    @media (min-width: 950px) {
+      &:hover {
+        overflow: visible;
+        white-space: normal;
+      }
+    }
+
+    @media (max-width: 950px) {
+      &:active {
+        overflow: visible;
+        white-space: normal;
+      }
+    }
   `}
 `;
 
 export const ProductPrice = styled.h3<ProductPriceProps>`
   display: inline-block;
   ${({ priceColor, sizeStatus }) => css`
-    font-size: ${size.priceSize.fontSize[sizeStatus]};
+    font-size: ${size.s3};
     font-weight: ${size.priceSize.fontWeight[sizeStatus]};
     line-height: ${size.priceSize.lineHeight[sizeStatus]};
     color: ${colors.vivendaColors.c6};
