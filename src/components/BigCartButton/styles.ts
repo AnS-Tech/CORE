@@ -4,7 +4,7 @@ import { CartButtonProps } from "../CartButton/interfaces";
 import { CartContainer } from "../CartButton/styles";
 
 export const BigCartContainer = styled(CartContainer)<CartButtonProps>`
-  width: 371px;
+  flex-grow: 1;
   justify-content: center;
   align-items: center;
   gap: 12px;

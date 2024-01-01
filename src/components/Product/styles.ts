@@ -17,8 +17,10 @@ export const ProductStyled = styled.div<ProductPropsStyled>`
 
     &:hover {
       .actions-product-card-div {
-        opacity: 1;
         right: 0.8rem;
+        .button-action-card-product {
+          opacity: 1;
+        }
       }
     }
 
@@ -48,14 +50,17 @@ export const ProductImage = styled(Image)`
 `;
 
 export const ActionButtonWrapper = styled.div`
+  .button-action-card-product {
+    transition: all 0.25s ease-in-out;
+    opacity: 0;
+  }
+  transition: all 0.25s ease-in-out;
+  top: 0.8rem;
+  right: 0rem;
+  position: absolute;
   display: flex;
   flex-direction: column;
   gap: 6px;
-  position: absolute;
-  top: 0.8rem;
-  right: 0rem;
-  opacity: 0;
-  transition: all 0.25s ease-in-out;
 `;
 
 export const ProductInfo = styled.div`
