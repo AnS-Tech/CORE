@@ -17,7 +17,7 @@ export const BigCartButton: React.FC<CartButtonProps> = ({
         setClickButton(!clickButton);
       }}
     >
-      {children}
+      <div className="big-cart-button-children">{children}</div>
       <BsHandbag width={20} height={20} id="bag-icon" />
     </BigCartContainer>
   );

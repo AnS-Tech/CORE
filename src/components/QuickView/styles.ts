@@ -114,10 +114,16 @@ export const InfoContainer = styled.div`
   display: flex;
   flex-direction: column;
   gap: 10px;
+
+  .description-quickview {
+    max-height: 100px;
+    overflow: auto;
+  }
 `;
 
 export const CTAContainer = styled.div`
   display: flex;
+  flex-direction: column;
   position: absolute;
   bottom: 0;
   width: 100%;
