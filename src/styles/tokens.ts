@@ -18,6 +18,7 @@ interface Colors {
   white: string;
   grayScale50: string;
   grayScale100: string;
+  grayScale300: string;
   grayScale700: string;
   grayScale900: string;
   vivendaColors: {
@@ -51,6 +52,7 @@ export const colors: Colors = {
   beige: "#f4ebd8",
   grayScale50: "#F2F2F2",
   grayScale100: "#E6E6E6",
+  grayScale300: "#989898",
   grayScale700: "#4D4D4D",
   grayScale900: "#1A1A1A",
 

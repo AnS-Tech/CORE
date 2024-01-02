@@ -4,6 +4,7 @@ import { CartButtonProps } from "../CartButton/interfaces";
 import { CartContainer } from "../CartButton/styles";
 
 export const BigCartContainer = styled(CartContainer)<CartButtonProps>`
+  height: 34px;
   flex-grow: 1;
   justify-content: center;
   align-items: center;
@@ -26,4 +27,10 @@ export const BigCartContainer = styled(CartContainer)<CartButtonProps>`
       }
     `}
   `}
+
+  @media (max-width: 530px) {
+    .big-cart-button-children {
+      display: none;
+    }
+  }
 `;
