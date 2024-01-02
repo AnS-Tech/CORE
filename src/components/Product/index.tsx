@@ -12,9 +12,7 @@ import {
   ProductStyled,
   WrapperTag,
 } from "./styles";
-
 import { Tag } from "../Tag";
-import { useState } from "react";
 import { CartButton } from "../CartButton";
 import { WishList } from "../WishList";
 import { QuickView } from "../QuickView";
@@ -31,7 +29,6 @@ export const Product: React.FC<ProductProps> = ({
   product,
 }) => {
   let nProductPrice = parseFloat(product.price);
-  const [showActionButton, setShowActionButton] = useState<boolean>();
 
   productOffer = nProductPrice - nProductPrice * (parseInt(promoStatus) / 100);
 
@@ -39,10 +36,7 @@ export const Product: React.FC<ProductProps> = ({
 
   return (
     <ProductStyled backgroundColor={backgroundColor}>
-      <ProductImageWrapper
-        onMouseEnter={() => setShowActionButton(true)}
-        onMouseLeave={() => setShowActionButton(false)}
-      >
+      <ProductImageWrapper>
         <ProductImage
           src={product.image[0]}
           alt={product.name}
@@ -50,34 +44,29 @@ export const Product: React.FC<ProductProps> = ({
           objectFit="cover"
         />
         <WrapperTag>{<Tag {...{ status, promoStatus }} />}</WrapperTag>
-        {showActionButton && (
-          <div style={{ position: "absolute", top: "0.8rem", right: "0.8rem" }}>
-            <ActionButtonWrapper>
-              <div style={{ marginBottom: "6px" }}>
-                <WishList />
-              </div>
-              <QuickView
-                {...{
-                  product,
-                  backgroundColor,
-                  priceColor,
-                  productOffer,
-                  promoStatus,
-                  sizeStatus,
-                  textColor,
-                  status,
-                }}
-              />
-            </ActionButtonWrapper>
-          </div>
-        )}
+
+        <ActionButtonWrapper className="actions-product-card-div">
+          <WishList />
+
+          <QuickView
+            {...{
+              product,
+              backgroundColor,
+              priceColor,
+              productOffer,
+              promoStatus,
+              sizeStatus,
+              textColor,
+              status,
+            }}
+          />
+        </ActionButtonWrapper>
       </ProductImageWrapper>
       <ProductInfo>
+        <ProductName sizeStatus={sizeStatus} textColor={textColor}>
+          {product.name}
+        </ProductName>
         <InfoWrapper>
-          <ProductName sizeStatus={sizeStatus} textColor={textColor}>
-            {product.name}
-          </ProductName>
-
           <ProductPrice {...{ sizeStatus, priceColor }}>
             {nProductPrice.toLocaleString("pt-BR", {
               style: "currency",
@@ -94,11 +83,7 @@ export const Product: React.FC<ProductProps> = ({
             )}
           </ProductPrice>
 
-          <div
-            style={{ position: "absolute", bottom: "2.2rem", right: "1rem" }}
-          >
-            <CartButton />
-          </div>
+          <CartButton>Comprar</CartButton>
         </InfoWrapper>
 
         <Tag status={stock.status} />

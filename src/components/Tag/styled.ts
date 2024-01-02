@@ -1,4 +1,4 @@
-import { colors } from "src/styles/tokens";
+import { colors, size } from "src/styles/tokens";
 import { css, styled } from "styled-components";
 
 interface TagStyledProps {
@@ -11,6 +11,7 @@ export const TagStyled = styled.span<TagStyledProps>`
   justify-content: center;
   align-items: center;
   gap: 4px;
+  font-size: ${size.s1};
 
   border-radius: 4px;
   color: ${colors.white};

@@ -23,16 +23,7 @@ import { Tag } from "../Tag";
 import { BigCartButton } from "../BigCartButton";
 import { WishList } from "../WishList";
 
-export const QuickView = ({
-  backgroundColor = colors.white,
-  textColor = colors.grayScale700,
-  status = null,
-  promoStatus = "5",
-  priceColor = colors.black,
-  productOffer = null,
-  sizeStatus = "large",
-  product,
-}: ProductProps) => {
+export const QuickView = ({ product }: ProductProps) => {
   const nProductPrice = parseFloat(product.price);
   const stock = verifyStock(product.metadata?.estoque);
 
@@ -87,8 +78,10 @@ export const QuickView = ({
               <Line />
             </InfoContainer>
             <CTAContainer>
-              <BigCartButton children={"Adicionar ao Carrinho"} />
-              <WishList />
+              <div className="container">
+                <BigCartButton children={"Adicionar ao Carrinho"} />
+                <WishList className="-quickview" />
+              </div>
             </CTAContainer>
           </QuickViewInforContent>
         </QuickViewContainer>

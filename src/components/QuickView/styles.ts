@@ -1,24 +1,47 @@
 import styled from "styled-components";
-import { colors, theme } from "src/styles/tokens";
+import { colors, size, theme } from "src/styles/tokens";
 import Image from "next/image";
+
+const sizesModal = {
+  small: "240px",
+  medium: "300px",
+  large: "350px",
+};
 
 export const QuickViewContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 20px;
-
+  gap: 10px;
   width: 100%;
   max-width: 1320px;
   max-height: 100%;
+
+  @media (max-width: 770px) {
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  @media (max-width: 350px) {
+    gap: 5px;
+  }
 `;
 
 export const QuickViewImageWrapper = styled.div`
-  width: 350px;
-  height: 350px;
-
+  width: ${sizesModal.large};
+  height: ${sizesModal.large};
   position: relative;
   border-radius: 8px;
+
+  @media (max-width: 525px) {
+    width: ${sizesModal.medium};
+    height: ${sizesModal.medium};
+  }
+
+  @media (max-width: 350px) {
+    width: ${sizesModal.small};
+    height: ${sizesModal.small};
+  }
 `;
 
 export const ProductImage = styled(Image)`
@@ -28,22 +51,35 @@ export const ProductImage = styled(Image)`
 `;
 
 export const QuickViewInforContent = styled.div`
+  display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
+  width: ${sizesModal.large};
+  height: ${sizesModal.large};
+  position: relative;
 
-  width: 350px;
-  min-height: 350px;
+  @media (max-width: 525px) {
+    width: ${sizesModal.medium};
+    height: ${sizesModal.medium};
+  }
+
+  @media (max-width: 350px) {
+    width: ${sizesModal.small};
+    height: ${sizesModal.medium};
+  }
 `;
 
 export const QuickViewProductName = styled.h1`
-  font-size: 22px;
+  width: 85%;
+  font-size: ${size.s4};
   font-style: normal;
   font-weight: 600;
-  line-height: 35px;
   color: ${colors.vivendaColors.c6};
   text-overflow: ellipsis;
-  flex-shrink: 1;
+  margin: 0;
+
+  @media (max-width: 770px) {
+    font-size: ${size.s3} !important;
+  }
 `;
 
 export const StockWrapper = styled.div`
@@ -51,33 +87,46 @@ export const StockWrapper = styled.div`
   justify-content: flex-start;
   align-items: center;
   gap: 4px;
-
   font-size: 14px;
 `;
 
 export const ModalText = styled.p`
   color: ${colors.vivendaColors.c6};
+  font-size: ${size.s1};
+  margin: 0;
 `;
 
 export const ProductPrice = styled.h3`
   color: ${colors.vivendaColors.c6};
+  margin: 0;
 `;
 
 export const Line = styled.div`
   width: 96%;
   height: 2px;
   background-color: ${colors.grayScale100};
+  margin-bottom: 10px;
 `;
 
-export const InfoContainer = styled.div``;
+export const InfoContainer = styled.div`
+  font-size: ${size.s1};
+  overflow: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+`;
 
 export const CTAContainer = styled.div`
   display: flex;
-  gap: 4px;
-  padding: 15px 0px;
-
-  * {
-    flex-shrink: 1;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  .container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    justify-content: space-between;
   }
 `;
 
