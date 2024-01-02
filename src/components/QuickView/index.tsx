@@ -83,7 +83,7 @@ export const QuickView = ({ product }: ProductProps) => {
               <div className="container">
                 <Quantity product={product} />
                 <BigCartButton children={"Adicionar ao Carrinho"} />
-                <WishList className="-quickview" />
+                <WishList className="wish-list-quickview" />
               </div>
             </CTAContainer>
           </QuickViewInforContent>
