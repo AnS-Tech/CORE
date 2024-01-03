@@ -142,3 +142,8 @@ export const size = {
   s6: "1.25rem",
   s7: "1.5rem",
 };
+
+export const breakpoints = {
+  tablet: "770px",
+  mobileLarge: "425px",
+};

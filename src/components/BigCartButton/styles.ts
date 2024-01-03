@@ -1,4 +1,4 @@
-import { colors, theme } from "src/styles/tokens";
+import { breakpoints, colors, size, theme } from "src/styles/tokens";
 import styled, { css } from "styled-components";
 import { CartButtonProps } from "../CartButton/interfaces";
 import { CartContainer } from "../CartButton/styles";
