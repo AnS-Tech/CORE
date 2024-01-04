@@ -1,6 +1,5 @@
 "use client";
 
-import { colors } from "src/styles/tokens";
 import { ProductProps } from "../Product/interfaces";
 import { verifyStock } from "../Product/utils";
 import { Modal } from "../Modal";
@@ -22,6 +21,7 @@ import {
 import { Tag } from "../Tag";
 import { BigCartButton } from "../BigCartButton";
 import { WishList } from "../WishList";
+import { Quantity } from "../Quantity";
 
 export const QuickView = ({ product }: ProductProps) => {
   const nProductPrice = parseFloat(product.price);
@@ -74,13 +74,16 @@ export const QuickView = ({ product }: ProductProps) => {
               <ModalText>
                 <strong>Descrição:</strong>
               </ModalText>
-              <ModalText>{product.description}</ModalText>
-              <Line />
+              <ModalText className="description-quickview">
+                {product.description}
+              </ModalText>
             </InfoContainer>
             <CTAContainer>
+              <Line />
               <div className="container">
+                <Quantity product={product} />
                 <BigCartButton children={"Adicionar ao Carrinho"} />
-                <WishList className="-quickview" />
+                <WishList className="wish-list-quickview" />
               </div>
             </CTAContainer>
           </QuickViewInforContent>
