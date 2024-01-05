@@ -27,4 +27,10 @@ export const BigCartContainer = styled(CartContainer)<CartButtonProps>`
       }
     `}
   `}
+
+  @media (max-width: 530px) {
+    .big-cart-button-children {
+      display: none;
+    }
+  }
 `;
