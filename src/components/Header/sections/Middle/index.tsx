@@ -8,6 +8,7 @@ import { FaHeart } from "react-icons/fa";
 import { IoCart } from "react-icons/io5";
 import { HamburgerMenu } from "src/components/MenuHamburger";
 import Link from "next/link";
+import { DrawerCart } from "src/components/DrawerCart";
 
 export const Middle = () => {
   return (
@@ -26,13 +27,7 @@ export const Middle = () => {
 
           <S.Devider />
 
-          <Link href={"/carrinho"}>
-            <IoCart
-              id="bagIcon"
-              className="icon"
-              color={colors.vivendaColors.c7}
-            />
-          </Link>
+          <DrawerCart />
 
           <S.InfoCart>
             <span>Carrino</span>
