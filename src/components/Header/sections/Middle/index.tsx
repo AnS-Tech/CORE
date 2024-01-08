@@ -5,7 +5,6 @@ import { Button } from "src/components/Button";
 import { CiSearch } from "react-icons/ci";
 import { colors } from "src/styles/tokens";
 import { FaHeart } from "react-icons/fa";
-import { IoCart } from "react-icons/io5";
 import { HamburgerMenu } from "src/components/MenuHamburger";
 import Link from "next/link";
 import { DrawerCart } from "src/components/DrawerCart";

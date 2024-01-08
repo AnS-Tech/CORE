@@ -1,16 +1,15 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Drawer } from "../Drawer";
 import Link from "next/link";
 import { IoCart } from "react-icons/io5";
 import { colors } from "src/styles/tokens";
 import * as S from "./styles";
-import { ProductProps } from "../Product/interfaces";
-import { useQuery } from "@tanstack/react-query";
-import { LoadingSpin } from "../LoadingSpin";
 import { DrawerProduct } from "../DrawerProduct";
+import { Product } from "../Product/interfaces";
 
-export const DrawerCart = ({ product }: ProductProps) => {
+export const DrawerCart = () => {
   const [drawerOpen, setDrawerOpen] = useState(false);
+  const [totalPrice, setTotalPrice] = useState(0);
 
   const handleDrawerOpen = () => {
     setDrawerOpen(true);
@@ -20,18 +19,21 @@ export const DrawerCart = ({ product }: ProductProps) => {
     setDrawerOpen(false);
   };
 
-  const nProductPrice = 1000;
+  const [cartProducts, setCartProducts] = useState<Array<Product>>([]);
 
-  // get products apenas para vizualização de produtos em tela
-  const getProducts = async () => {
-    const response = await fetch(
-      `${process.env.NEXT_PUBLIC_BASE_URL}/api/get-products`
+  useEffect(() => {
+    const storedProducts: Array<Product> = JSON.parse(
+      localStorage.getItem("products") || "[]"
     );
-    const data = await response.json();
-    return data;
-  };
+    setCartProducts(storedProducts);
 
-  const { data: products, isLoading } = useQuery(["products"], getProducts);
+    if (cartProducts && cartProducts.length > 0) {
+      setTotalPrice(
+        cartProducts.reduce((acc, product) => acc + (product.price || 0), 0)
+      );
+    }
+  }, []);
+
   return (
     <div>
       <Link href={"#"} onClick={handleDrawerOpen}>
@@ -42,34 +44,28 @@ export const DrawerCart = ({ product }: ProductProps) => {
         <S.DrawerCartContainer>
           <S.TopDescriptionContent>
             <p>
-              Seu carrinho tem <strong>{5} itens</strong>
+              Seu carrinho tem <strong>{cartProducts.length} itens</strong>
             </p>
           </S.TopDescriptionContent>
           <S.Line />
           <S.DrawerCartItemWrapper>
-            {isLoading || products == undefined ? (
-              <div className="content-loading">
-                <LoadingSpin sizeMultiplicator={3} />
-              </div>
-            ) : (
-              <div>
-                {products.map((product) => (
-                  <DrawerProduct {...{ product }} key={product.index} />
-                ))}
-              </div>
-            )}
+            {cartProducts?.map((product) => (
+              <DrawerProduct {...{ product }} key={product.id} />
+            ))}
           </S.DrawerCartItemWrapper>
           <S.Line />
           <S.DrawerCartCTAContainer>
-            <div>
-              <p>Total:</p>
-            </div>
-            <S.ProductPrice>
-              {nProductPrice.toLocaleString("pt-BR", {
-                style: "currency",
-                currency: "BRL",
-              })}
-            </S.ProductPrice>
+            <S.CTATotalPriceContainer>
+              <S.TotalContext>
+                <p>Total:</p>
+              </S.TotalContext>
+              <S.ProductPrice>
+                {totalPrice.toLocaleString("pt-BR", {
+                  style: "currency",
+                  currency: "BRL",
+                })}
+              </S.ProductPrice>
+            </S.CTATotalPriceContainer>
             <S.CallToAction>Finalizar compra</S.CallToAction>
           </S.DrawerCartCTAContainer>
         </S.DrawerCartContainer>

@@ -3,8 +3,6 @@ import { Quantity } from "../Quantity";
 import * as S from "./styles";
 
 export const DrawerProduct = ({ product }: ProductProps) => {
-  const nProductPrice = parseFloat(product.price);
-
   return (
     <S.DrawerCartItem>
       <S.DrawerCartImageWrapper>
@@ -19,7 +17,7 @@ export const DrawerProduct = ({ product }: ProductProps) => {
         <S.TitleContainer>{product.name}</S.TitleContainer>
         <S.QuantityItensContainer>
           <S.ProductPrice>
-            {nProductPrice.toLocaleString("pt-BR", {
+            {product.price.toLocaleString("pt-BR", {
               style: "currency",
               currency: "BRL",
             })}

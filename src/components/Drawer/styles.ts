@@ -42,7 +42,7 @@ const slideOut = keyframes`
 
 export const DrawerOverlay = styled.div<{ isOpen: boolean }>`
   display: ${(props) => (props.isOpen ? "block" : "none")};
-  animation: ${(props) => (props.isOpen ? fadeIn : fadeOut)} 0.5s ease-in-out;
+  animation: ${(props) => (props.isOpen ? fadeIn : fadeOut)} 0.25s ease-in-out;
   position: fixed;
   top: 0;
   left: 0;
@@ -59,11 +59,11 @@ export const DrawerContainer = styled.div<{ isOpen: boolean }>`
   z-index: 1000;
 
   width: 428px;
-  height: 100%;
+  height: 99.9vh;
   background-color: ${colors.beige};
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 
-  animation: ${(props) => (props.isOpen ? slideIn : slideOut)} 0.5s ease-in-out;
+  animation: ${(props) => (props.isOpen ? slideIn : slideOut)} 0.25s ease-in-out;
 `;
 
 export const CloseButton = styled.button`

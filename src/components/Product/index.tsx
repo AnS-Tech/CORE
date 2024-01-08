@@ -1,5 +1,5 @@
 import { colors } from "src/styles/tokens";
-import { ProductProps } from "./interfaces";
+import { Product as ProductI, ProductProps } from "./interfaces";
 import {
   ActionButtonWrapper,
   InfoWrapper,
@@ -17,8 +17,10 @@ import { CartButton } from "../CartButton";
 import { WishList } from "../WishList";
 import { QuickView } from "../QuickView";
 import { verifyStock } from "./utils";
+import { useEffect, useState } from "react";
+import { isEmpty } from "src/utils/isEmpty";
 
-export const Product: React.FC<ProductProps> = ({
+export const Product = ({
   backgroundColor = colors.white,
   textColor = colors.grayScale700,
   status = null,
@@ -27,12 +29,40 @@ export const Product: React.FC<ProductProps> = ({
   productOffer = null,
   sizeStatus = null,
   product,
-}) => {
-  let nProductPrice = parseFloat(product.price);
-
-  productOffer = nProductPrice - nProductPrice * (parseInt(promoStatus) / 100);
+}: ProductProps) => {
+  productOffer = product.price - product.price * (parseInt(promoStatus) / 100);
 
   const stock = verifyStock(product?.metadata?.estoque);
+
+  const [isActive, setIsActive] = useState(false);
+
+  const handleVerifyIsActive = (storedProducts: Array<ProductI>) => {
+    const findStoredProduct = storedProducts.find(
+      (element) => element.id === product.id
+    );
+
+    setIsActive(!isEmpty(findStoredProduct));
+  };
+
+  const addProductToProducts = () => {
+    const storedProducts: Array<ProductI> = JSON.parse(
+      localStorage.getItem("products") || "[]"
+    );
+
+    const updateProducts = [...storedProducts, product];
+
+    handleVerifyIsActive(updateProducts);
+
+    localStorage.setItem("products", JSON.stringify(updateProducts));
+  };
+
+  useEffect(() => {
+    const storedProducts: Array<ProductI> = JSON.parse(
+      localStorage.getItem("products") || "[]"
+    );
+
+    handleVerifyIsActive(storedProducts);
+  }, []);
 
   return (
     <ProductStyled backgroundColor={backgroundColor}>
@@ -68,14 +98,14 @@ export const Product: React.FC<ProductProps> = ({
         </ProductName>
         <InfoWrapper>
           <ProductPrice {...{ sizeStatus, priceColor }}>
-            {nProductPrice.toLocaleString("pt-BR", {
+            {product.price.toLocaleString("pt-BR", {
               style: "currency",
               currency: "BRL",
             })}
             &nbsp;
             {status == "Promoção" && (
               <ProductPriceDotted {...{ sizeStatus, priceColor }}>
-                {nProductPrice.toLocaleString("pt-BR", {
+                {product.price.toLocaleString("pt-BR", {
                   style: "currency",
                   currency: "BRL",
                 })}
@@ -83,7 +113,9 @@ export const Product: React.FC<ProductProps> = ({
             )}
           </ProductPrice>
 
-          <CartButton>Comprar</CartButton>
+          <CartButton {...{ isActive }} onClick={addProductToProducts}>
+            Comprar
+          </CartButton>
         </InfoWrapper>
 
         <Tag status={stock.status} />

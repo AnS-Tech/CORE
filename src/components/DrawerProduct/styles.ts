@@ -3,12 +3,19 @@ import { colors, size } from "src/styles/tokens";
 import styled from "styled-components";
 
 export const DrawerCartItem = styled.div`
-  width: 100%;
+  width: 98%;
   height: 104px;
 
   display: inline-flex;
 
   gap: 15px;
+
+  border-radius: 8px;
+  box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.5);
+
+  &:hover {
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+  }
 `;
 
 export const DrawerCartImageWrapper = styled.div`
@@ -26,7 +33,7 @@ export const ProductImage = styled(Image)`
 `;
 
 export const InfoContainer = styled.div`
-  width: 60%;
+  width: 70%;
   height: inherit;
 
   display: flex;
@@ -47,6 +54,12 @@ export const QuantityItensContainer = styled.div`
 
   align-items: center;
   justify-content: space-between;
+
+  padding-bottom: 5px;
+
+  div:nth-child(2) {
+    border: 1px solid ${colors.grayScale300}30;
+  }
 `;
 
 export const ProductPrice = styled.h3`

@@ -15,5 +15,6 @@ export function isEmpty(value) {
     return true;
   }
 
+
   return false;
 }
