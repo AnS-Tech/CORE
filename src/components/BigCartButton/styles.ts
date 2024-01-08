@@ -1,4 +1,4 @@
-import { breakpoints, colors, size, theme } from "src/styles/tokens";
+import { colors } from "src/styles/tokens";
 import styled, { css } from "styled-components";
 import { CartButtonProps } from "../CartButton/interfaces";
 import { CartContainer } from "../CartButton/styles";
@@ -16,17 +16,6 @@ export const BigCartContainer = styled(CartContainer)<CartButtonProps>`
       color: ${colors.white};
     }
   }
-
-  ${({ clickButton, cartContainerColor }) => css`
-    ${clickButton &&
-    css`
-      background-color: ${colors.success};
-      color: ${colors.white};
-      &:hover {
-        background-color: ${theme.dark.green};
-      }
-    `}
-  `}
 
   @media (max-width: 530px) {
     .big-cart-button-children {

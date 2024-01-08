@@ -22,7 +22,7 @@ export const Default: Story = {
       id: "1",
       description: "Product Description",
       name: "Product Name",
-      price: "1000",
+      price: 1000,
       image: ["https://picsum.photos/500/500"],
     },
   },
