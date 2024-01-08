@@ -36,8 +36,7 @@ export const BigProduct: React.FC<ProductProps> = ({
   sizeStatus = null,
   product,
 }) => {
-  let nProductPrice = parseFloat(product.price);
-  productOffer = nProductPrice - nProductPrice * (parseInt(promoStatus) / 100);
+  productOffer = product.price - product.price * (parseInt(promoStatus) / 100);
 
   return (
     <BigProductStyled backgroundColor={backgroundColor}>
@@ -63,7 +62,7 @@ export const BigProduct: React.FC<ProductProps> = ({
           </ProductName>
           {status !== "Promoção" ? (
             <ProductPrice {...{ sizeStatus, priceColor }}>
-              {nProductPrice.toLocaleString("pt-BR", {
+              {product.price.toLocaleString("pt-BR", {
                 style: "currency",
                 currency: "BRL",
               })}
@@ -76,7 +75,7 @@ export const BigProduct: React.FC<ProductProps> = ({
               })}
               &nbsp;
               <ProductPriceDotted {...{ sizeStatus, priceColor }}>
-                {nProductPrice.toLocaleString("pt-BR", {
+                {product.price.toLocaleString("pt-BR", {
                   style: "currency",
                   currency: "BRL",
                 })}
