@@ -24,7 +24,6 @@ import { WishList } from "../WishList";
 import { Quantity } from "../Quantity";
 
 export const QuickView = ({ product }: ProductProps) => {
-  const nProductPrice = parseFloat(product.price);
   const stock = verifyStock(product.metadata?.estoque);
 
   const [isModalOpen, setModalOpen] = useState(false);
@@ -63,7 +62,7 @@ export const QuickView = ({ product }: ProductProps) => {
                 )}
               </StockWrapper>
               <ProductPrice>
-                {nProductPrice.toLocaleString("pt-BR", {
+                {product.price.toLocaleString("pt-BR", {
                   style: "currency",
                   currency: "BRL",
                 })}

@@ -1,13 +1,16 @@
 import Image from "next/image";
 import { colors, size, theme } from "src/styles/tokens";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import { CartButtonProps } from "./interfaces";
 
 export const CartContainer = styled.button<CartButtonProps>`
-  background-color: ${colors.grayScale100};
+  ${({ isActive }) => css`
+    background-color: ${isActive ? colors.success : colors.grayScale100};
+  `}
   display: flex;
   align-items: center;
   justify-content: center;
+  gap: 4px;
   height: 32px;
   border-radius: 5px;
   font-size: ${size.s1};
@@ -44,30 +47,6 @@ export const CartContainer = styled.button<CartButtonProps>`
 
     border-radius: 2rem;
     width: 32px;
-  }
-`;
-
-export const CartContainerSelected = styled(CartContainer)`
-  background-color: ${colors.success};
-
-  @media (max-width: 945px) {
-    &:active {
-      background-color: ${theme.dark.green};
-    }
-
-    .children-div-button {
-      display: none;
-    }
-
-    img {
-      margin: 0;
-    }
-  }
-
-  @media (min-width: 950px) {
-    &:hover {
-      background-color: ${theme.dark.green};
-    }
   }
 `;
 
