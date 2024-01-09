@@ -27,11 +27,12 @@ export const DrawerCart = () => {
     );
     setCartProducts(storedProducts);
 
-    if (cartProducts && cartProducts.length > 0) {
-      setTotalPrice(
-        cartProducts.reduce((acc, product) => acc + (product.price || 0), 0)
-      );
-    }
+    setTotalPrice(
+      cartProducts.reduce(
+        (acc, product) => acc + (product.price || 0),
+        totalPrice
+      )
+    );
   }, []);
 
   return (
