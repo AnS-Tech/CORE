@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { WishListContainer } from "../WishList/styles";
 import { colors } from "src/styles/tokens";
 
 export const EyeButtonStyled = styled.button`

@@ -1,5 +1,6 @@
 import { ProductProps } from "../Product/interfaces";
 import { Quantity } from "../Quantity";
+import { QuickView } from "../QuickView";
 import * as S from "./styles";
 
 export const DrawerProduct = ({ product }: ProductProps) => {
@@ -11,6 +12,11 @@ export const DrawerProduct = ({ product }: ProductProps) => {
           alt={product.name}
           layout="fill"
           objectFit="cover"
+        />
+        <QuickView
+          {...{
+            product,
+          }}
         />
       </S.DrawerCartImageWrapper>
       <S.InfoContainer>

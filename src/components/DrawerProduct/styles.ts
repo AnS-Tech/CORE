@@ -23,6 +23,19 @@ export const DrawerCartImageWrapper = styled.div`
   height: 104px;
   position: relative;
   border-radius: 8px;
+
+  &:hover {
+    #eye-icon {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 100%;
+      height: 100%;
+
+      z-index: 1001;
+      color: transparent;
+    }
+  }
 `;
 
 export const ProductImage = styled(Image)`
