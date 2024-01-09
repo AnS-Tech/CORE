@@ -28,10 +28,7 @@ export const DrawerCart = () => {
     setCartProducts(storedProducts);
 
     setTotalPrice(
-      cartProducts.reduce(
-        (acc, product) => acc + (product.price || 0),
-        totalPrice
-      )
+      cartProducts.reduce((acc, product) => acc + (product.price || 0), 0)
     );
   }, []);
 
