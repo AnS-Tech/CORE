@@ -1,17 +1,20 @@
-import { useState } from "react";
-import { WishIcon, WishListContainer } from "./styles";
-import heart from "src/styles/svgs/heart.svg";
+import { WishListContainer } from "./styles";
+import { FaRegHeart } from "react-icons/fa";
+import { WishListContainerProps } from "./interfaces";
 
-export const WishList = ({ className = "" }) => {
-  const [wishSelected, setWishSelected] = useState(false);
-
+export const WishList = ({
+  onClick = () => {},
+  wishSelected = false,
+  ...rest
+}: WishListContainerProps) => {
   return (
     <WishListContainer
-      wishSelected={wishSelected}
-      onClick={() => setWishSelected(!wishSelected)}
-      className={`button-action-card-product${className}`}
+      onClick={onClick}
+      className={`button-action-card-produc`}
+      {...{ wishSelected }}
+      {...rest}
     >
-      <WishIcon src={heart} width={20} height={20} alt={"Icone de favoritos"} />
+      <FaRegHeart id="heart-icon" />
     </WishListContainer>
   );
 };
