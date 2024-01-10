@@ -86,7 +86,6 @@ export const Product = ({
     );
 
     isEmpty(favoriteProducts) && localStorage.removeItem("favorites");
-
   }, [removeFavoriteProductsToFavorite]);
 
   const addProductToProducts = () => {
@@ -105,6 +104,12 @@ export const Product = ({
     const storedProducts: Array<ProductI> = JSON.parse(
       localStorage.getItem("products") || "[]"
     );
+
+    const favoriteProducts: Array<ProductI> = JSON.parse(
+      localStorage.getItem("favorites") || "[]"
+    );
+
+    handleVerifyWishSelected(favoriteProducts);
 
     handleVerifyIsActive(storedProducts);
   }, []);
