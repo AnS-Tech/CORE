@@ -1,10 +1,6 @@
-import Image from "next/image";
 import { colors } from "src/styles/tokens";
 import styled, { css } from "styled-components";
-
-interface WishListContainerProps {
-  wishSelected: boolean;
-}
+import { WishListContainerProps } from "./interfaces";
 
 export const WishListContainer = styled.button<WishListContainerProps>`
   display: flex;
@@ -26,8 +22,8 @@ export const WishListContainer = styled.button<WishListContainerProps>`
 
   ${({ wishSelected }) => css`
     background-color: ${wishSelected ? colors.success : colors.white};
-    color: ${wishSelected ? colors.white : colors.grayScale900};
+    #heart-icon {
+      color: ${wishSelected ? colors.white : colors.grayScale900};
+    }
   `}
 `;
-
-export const WishIcon = styled(Image)``;

@@ -35,6 +35,7 @@ export const Product = ({
   const stock = verifyStock(product?.metadata?.estoque);
 
   const [isActive, setIsActive] = useState(false);
+  const [wishSelected, setWishSelected] = useState(false);
 
   const handleVerifyIsActive = (storedProducts: Array<ProductI>) => {
     const findStoredProduct = storedProducts.find(
@@ -43,6 +44,49 @@ export const Product = ({
 
     setIsActive(!isEmpty(findStoredProduct));
   };
+
+  const handleVerifyWishSelected = (favoritedProducts: Array<ProductI>) => {
+    const findFavoritedProduct = favoritedProducts.find(
+      (item) => item.id === product.id
+    );
+
+    setWishSelected(!isEmpty(findFavoritedProduct));
+  };
+
+  const addFavoriteProductsToFavorite = () => {
+    const favoriteProducts: Array<ProductI> = JSON.parse(
+      localStorage.getItem("favorites") || "[]"
+    );
+
+    const updateFavorites = [...favoriteProducts, product];
+
+    handleVerifyWishSelected(updateFavorites);
+
+    localStorage.setItem("favorites", JSON.stringify(updateFavorites));
+    console.log("Adicionado...");
+  };
+
+  const removeFavoriteProductsToFavorite = (productToRemove: ProductI) => {
+    const favoriteProducts: Array<ProductI> = JSON.parse(
+      localStorage.getItem("favorites") || "[]"
+    );
+
+    const updatedFavorites = favoriteProducts.filter(
+      (product) => product.id !== productToRemove.id
+    );
+
+    localStorage.setItem("favorites", JSON.stringify(updatedFavorites));
+
+    setWishSelected(!wishSelected);
+  };
+
+  useEffect(() => {
+    const favoriteProducts: Array<ProductI> = JSON.parse(
+      localStorage.getItem("favorites") || "[]"
+    );
+
+    isEmpty(favoriteProducts) && localStorage.removeItem("favorites");
+  }, [removeFavoriteProductsToFavorite]);
 
   const addProductToProducts = () => {
     const storedProducts: Array<ProductI> = JSON.parse(
@@ -61,6 +105,12 @@ export const Product = ({
       localStorage.getItem("products") || "[]"
     );
 
+    const favoriteProducts: Array<ProductI> = JSON.parse(
+      localStorage.getItem("favorites") || "[]"
+    );
+
+    handleVerifyWishSelected(favoriteProducts);
+
     handleVerifyIsActive(storedProducts);
   }, []);
 
@@ -76,7 +126,14 @@ export const Product = ({
         <WrapperTag>{<Tag {...{ status, promoStatus }} />}</WrapperTag>
 
         <ActionButtonWrapper className="actions-product-card-div">
-          <WishList />
+          <WishList
+            {...{ wishSelected }}
+            onClick={
+              wishSelected
+                ? () => removeFavoriteProductsToFavorite(product)
+                : addFavoriteProductsToFavorite
+            }
+          />
 
           <QuickView
             {...{

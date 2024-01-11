@@ -9,6 +9,8 @@ import { colors, size } from "src/styles/tokens";
 
 export const ProductStyled = styled.div<ProductPropsStyled>`
   ${({ backgroundColor }) => css`
+    width: 100%;
+
     display: inline-flex;
     flex-direction: column;
     background-color: ${backgroundColor};
@@ -106,7 +108,7 @@ export const ProductName = styled.p<ProductNameProps>`
 
 export const ProductPrice = styled.h3<ProductPriceProps>`
   display: inline-block;
-  ${({ priceColor, sizeStatus }) => css`
+  ${({ sizeStatus }) => css`
     font-size: ${size.s3};
     font-weight: ${size.priceSize.fontWeight[sizeStatus]};
     line-height: ${size.priceSize.lineHeight[sizeStatus]};

@@ -1,9 +1,9 @@
 "use client";
 
-import { ProductProps } from "../Product/interfaces";
+import { Product as ProductI, ProductProps } from "../Product/interfaces";
 import { verifyStock } from "../Product/utils";
 import { Modal } from "../Modal";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { EyeButton } from "../EyeButton";
 import {
   QuickViewContainer,
@@ -22,9 +22,63 @@ import { Tag } from "../Tag";
 import { BigCartButton } from "../BigCartButton";
 import { WishList } from "../WishList";
 import { Quantity } from "../Quantity";
+import { isEmpty } from "src/utils/isEmpty";
 
 export const QuickView = ({ product }: ProductProps) => {
   const stock = verifyStock(product.metadata?.estoque);
+
+  const [wishSelected, setWishSelected] = useState(false);
+
+  const handleVerifyWishSelected = (favoritedProducts: Array<ProductI>) => {
+    const findFavoritedProduct = favoritedProducts.find(
+      (item) => item.id === product.id
+    );
+
+    setWishSelected(!isEmpty(findFavoritedProduct));
+  };
+
+  const addFavoriteProductsToFavorite = () => {
+    const favoriteProducts: Array<ProductI> = JSON.parse(
+      localStorage.getItem("favorites") || "[]"
+    );
+
+    const updateFavorites = [...favoriteProducts, product];
+
+    handleVerifyWishSelected(updateFavorites);
+
+    localStorage.setItem("favorites", JSON.stringify(updateFavorites));
+    console.log("Adicionado...");
+  };
+
+  const removeFavoriteProductsToFavorite = (productToRemove: ProductI) => {
+    const favoriteProducts: Array<ProductI> = JSON.parse(
+      localStorage.getItem("favorites") || "[]"
+    );
+
+    const updatedFavorites = favoriteProducts.filter(
+      (product) => product.id !== productToRemove.id
+    );
+
+    localStorage.setItem("favorites", JSON.stringify(updatedFavorites));
+
+    setWishSelected(!wishSelected);
+  };
+
+  useEffect(() => {
+    const favoriteProducts: Array<ProductI> = JSON.parse(
+      localStorage.getItem("favorites") || "[]"
+    );
+
+    isEmpty(favoriteProducts) && localStorage.removeItem("favorites");
+  }, [removeFavoriteProductsToFavorite]);
+
+  useEffect(() => {
+    const favoriteProducts: Array<ProductI> = JSON.parse(
+      localStorage.getItem("favorites") || "[]"
+    );
+
+    handleVerifyWishSelected(favoriteProducts);
+  }, []);
 
   const [isModalOpen, setModalOpen] = useState(false);
 
@@ -82,7 +136,15 @@ export const QuickView = ({ product }: ProductProps) => {
               <div className="container">
                 <Quantity product={product} />
                 <BigCartButton children={"Adicionar ao Carrinho"} />
-                <WishList className="wish-list-quickview" />
+                <WishList
+                  {...{ wishSelected }}
+                  onClick={
+                    wishSelected
+                      ? () => removeFavoriteProductsToFavorite(product)
+                      : addFavoriteProductsToFavorite
+                  }
+                  className="wish-list-quickview"
+                />
               </div>
             </CTAContainer>
           </QuickViewInforContent>

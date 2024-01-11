@@ -1,48 +1,39 @@
 "use client";
 
-import { Layout, LoadingSpin, Product } from "src/components";
+import { Layout, Product } from "src/components";
 import { Favorite } from "./styles";
-import { useQuery } from "@tanstack/react-query";
 import { colors } from "src/styles/tokens";
+import { useEffect, useState } from "react";
+import { Product as ProductI } from "src/components/Product/interfaces";
 
 export default function Page() {
-  // get products apenas para vizualização de produtos em tela
-  const getProducts = async () => {
-    const response = await fetch(
-      `${process.env.NEXT_PUBLIC_BASE_URL}/api/get-products`
-    );
-    const data = await response.json();
-    return data;
-  };
+  const [favoritedProducts, setFavoritedProducts] = useState<Array<ProductI>>(
+    []
+  );
 
-  const { data: products, isLoading } = useQuery(["products"], getProducts);
+  useEffect(() => {
+    const favoritedProducts: Array<ProductI> = JSON.parse(
+      localStorage.getItem("favorites" || "[]")
+    );
+
+    setFavoritedProducts(favoritedProducts);
+  }, []);
 
   return (
     <Layout>
       <Favorite>
-        {isLoading || products == undefined ? (
-          <div className="content-loading">
-            <LoadingSpin sizeMultiplicator={3} />
-          </div>
-        ) : (
-          <>
-            <h1
-              style={{
-                color: colors.vivendaColors.c6,
-              }}
-            >
-              Favoritos
-            </h1>
-            <div className="list">
-              {products.map((product) => (
-                <Product {...{ product }} key={product.index} />
-              ))}
-              {products.map((product) => (
-                <Product {...{ product }} key={product.index} />
-              ))}
-            </div>
-          </>
-        )}
+        <h1
+          style={{
+            color: colors.vivendaColors.c6,
+          }}
+        >
+          Favoritos
+        </h1>
+        <div className="list">
+          {favoritedProducts?.map((product) => (
+            <Product {...{ product }} key={product.id} />
+          ))}
+        </div>
       </Favorite>
     </Layout>
   );

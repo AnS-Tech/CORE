@@ -18,6 +18,12 @@ export const EyeButtonStyled = styled.button`
   border: none;
   cursor: pointer;
 
+  &:hover {
+    #eye-icon {
+      color: ${colors.grayScale50};
+    }
+  }
+
   @media (min-width: 950px) {
     &:hover {
       background-color: ${colors.success};
