@@ -170,7 +170,11 @@ export const Product = ({
             )}
           </ProductPrice>
 
-          <CartButton {...{ isActive }} onClick={addProductToProducts}>
+          <CartButton
+            disabled={stock.value < 1}
+            {...{ isActive }}
+            onClick={addProductToProducts}
+          >
             Comprar
           </CartButton>
         </InfoWrapper>
