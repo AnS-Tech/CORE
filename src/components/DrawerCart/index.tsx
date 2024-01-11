@@ -26,13 +26,13 @@ export const DrawerCart = () => {
       localStorage.getItem("products") || "[]"
     );
     setCartProducts(storedProducts);
-
-    if (cartProducts && cartProducts.length > 0) {
-      setTotalPrice(
-        cartProducts.reduce((acc, product) => acc + (product.price || 0), 0)
-      );
-    }
   }, []);
+
+  useEffect(() => {
+    setTotalPrice(
+      cartProducts.reduce((acc, product) => acc + (product.price || 0), 0)
+    );
+  }, [cartProducts]);
 
   return (
     <div>
