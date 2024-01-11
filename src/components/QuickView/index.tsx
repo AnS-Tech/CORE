@@ -25,6 +25,7 @@ import { Quantity } from "../Quantity";
 import { isEmpty } from "src/utils/isEmpty";
 
 export const QuickView = ({ product }: ProductProps) => {
+  
   const stock = verifyStock(product.metadata?.estoque);
 
   const [wishSelected, setWishSelected] = useState(false);
