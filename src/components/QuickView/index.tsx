@@ -135,7 +135,10 @@ export const QuickView = ({ product }: ProductProps) => {
               <Line />
               <div className="container">
                 <Quantity product={product} />
-                <BigCartButton children={"Adicionar ao Carrinho"} />
+                <BigCartButton
+                  disabled={stock.value < 1}
+                  children={"Adicionar ao Carrinho"}
+                />
                 <WishList
                   {...{ wishSelected }}
                   onClick={

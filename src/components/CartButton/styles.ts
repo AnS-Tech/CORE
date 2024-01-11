@@ -1,5 +1,4 @@
-import Image from "next/image";
-import { colors, size, theme } from "src/styles/tokens";
+import { colors, size } from "src/styles/tokens";
 import styled, { css } from "styled-components";
 import { CartButtonProps } from "./interfaces";
 
@@ -22,6 +21,16 @@ export const CartContainer = styled.button<CartButtonProps>`
   cursor: pointer;
   img {
     margin-left: 0.5rem;
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    background: ${colors.grayScale100};
+
+    &:hover {
+      background: ${colors.grayScale100};
+      color: ${colors.grayScale900};
+    }
   }
 
   @media (min-width: 950px) {
@@ -49,5 +58,3 @@ export const CartContainer = styled.button<CartButtonProps>`
     width: 32px;
   }
 `;
-
-export const CartIcon = styled(Image)``;

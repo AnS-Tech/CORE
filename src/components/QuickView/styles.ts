@@ -187,4 +187,14 @@ export const BigCartContainer = styled.button`
   &:hover {
     background-color: ${theme.dark.green};
   }
+
+  &:disabled {
+    cursor: not-allowed;
+    background: ${colors.grayScale100};
+
+    &:hover {
+      background: ${colors.grayScale100};
+      color: ${colors.grayScale900};
+    }
+  }
 `;
