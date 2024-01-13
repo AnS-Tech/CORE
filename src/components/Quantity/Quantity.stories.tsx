@@ -18,6 +18,9 @@ export const Default: Story = {
       name: "Product Name",
       price: 1000,
       image: ["https://picsum.photos/500/500"],
+      metadata: {
+        estoque: "10",
+      },
     },
   },
 };

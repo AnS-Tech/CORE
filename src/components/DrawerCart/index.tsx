@@ -5,7 +5,7 @@ import { IoCart } from "react-icons/io5";
 import { colors } from "src/styles/tokens";
 import * as S from "./styles";
 import { DrawerProduct } from "../DrawerProduct";
-import { Product } from "../Product/interfaces";
+import { ProductInterface } from "src/interfaces/product";
 
 export const DrawerCart = () => {
   const [drawerOpen, setDrawerOpen] = useState(false);
@@ -19,10 +19,10 @@ export const DrawerCart = () => {
     setDrawerOpen(false);
   };
 
-  const [cartProducts, setCartProducts] = useState<Array<Product>>([]);
+  const [cartProducts, setCartProducts] = useState<Array<ProductInterface>>([]);
 
   useEffect(() => {
-    const storedProducts: Array<Product> = JSON.parse(
+    const storedProducts: Array<ProductInterface> = JSON.parse(
       localStorage.getItem("products") || "[]"
     );
     setCartProducts(storedProducts);

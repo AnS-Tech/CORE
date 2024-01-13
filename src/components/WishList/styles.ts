@@ -1,8 +1,8 @@
 import { colors } from "src/styles/tokens";
 import styled, { css } from "styled-components";
-import { WishListContainerProps } from "./interfaces";
+import { WishListContainerStyledProps } from "./interfaces";
 
-export const WishListContainer = styled.button<WishListContainerProps>`
+export const WishListContainer = styled.button<WishListContainerStyledProps>`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -20,10 +20,10 @@ export const WishListContainer = styled.button<WishListContainerProps>`
     }
   }
 
-  ${({ wishSelected }) => css`
-    background-color: ${wishSelected ? colors.success : colors.white};
+  ${({ isFavorited }) => css`
+    background-color: ${isFavorited ? colors.success : colors.white};
     #heart-icon {
-      color: ${wishSelected ? colors.white : colors.grayScale900};
+      color: ${isFavorited ? colors.white : colors.grayScale900};
     }
   `}
 `;

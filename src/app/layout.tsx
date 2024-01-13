@@ -55,11 +55,15 @@ export default function RootLayout({
             boxSizing: "border-box",
           }}
         >
-          <ProductContextProvider>
-            {isClient ? children : <LoadingPage />}
-          </ProductContextProvider>
-          <ReactQueryDevtools initialIsOpen={false} />
-          <GlobalStyles />
+          {isClient ? (
+            <ProductContextProvider>
+              {children}
+              <ReactQueryDevtools initialIsOpen={false} />
+              <GlobalStyles />
+            </ProductContextProvider>
+          ) : (
+            <></>
+          )}
         </body>
       </html>
     </QueryClientProvider>

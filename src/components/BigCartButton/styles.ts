@@ -1,9 +1,9 @@
 import { colors } from "src/styles/tokens";
-import styled, { css } from "styled-components";
-import { CartButtonProps } from "../CartButton/interfaces";
+import styled from "styled-components";
 import { CartContainer } from "../CartButton/styles";
+import { BigCartButtonPropsStyled } from "./interface";
 
-export const BigCartContainer = styled(CartContainer)<CartButtonProps>`
+export const BigCartContainer = styled(CartContainer)<BigCartButtonPropsStyled>`
   height: 34px;
   flex-grow: 1;
   justify-content: center;

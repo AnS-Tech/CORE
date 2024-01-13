@@ -4,15 +4,14 @@ import { Layout, Product } from "src/components";
 import { Favorite } from "./styles";
 import { colors } from "src/styles/tokens";
 import { useEffect, useState } from "react";
-import { Product as ProductI } from "src/components/Product/interfaces";
-
+import { ProductInterface } from "src/interfaces/product";
 export default function Page() {
-  const [favoritedProducts, setFavoritedProducts] = useState<Array<ProductI>>(
-    []
-  );
+  const [favoritedProducts, setFavoritedProducts] = useState<
+    Array<ProductInterface>
+  >([]);
 
   useEffect(() => {
-    const favoritedProducts: Array<ProductI> = JSON.parse(
+    const favoritedProducts: Array<ProductInterface> = JSON.parse(
       localStorage.getItem("favorites" || "[]")
     );
 

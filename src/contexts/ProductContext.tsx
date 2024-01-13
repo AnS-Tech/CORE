@@ -1,6 +1,12 @@
 "use client";
 
-import { createContext, useCallback, useContext, useState } from "react";
+import {
+  createContext,
+  useCallback,
+  useContext,
+  useEffect,
+  useState,
+} from "react";
 import {
   CartItemInterface,
   ProductInterface,
@@ -11,26 +17,13 @@ import { defaultValuesProductContext } from "src/constants/produtcContext";
 export const ProductContext = createContext({ ...defaultValuesProductContext });
 
 export const ProductContextProvider = ({ children }) => {
-  const localStorageProducts =
-    localStorage.getItem("@VivendaNatureza:products") || "[]";
-  const localStorageFavorites =
-    localStorage.getItem("@VivendaNatureza:favorites") || "[]";
-  const localStorageCart =
-    localStorage.getItem("@VivendaNatureza:cart") || "[]";
-
-  const [products, setProducts] = useState<ProductInterface[]>(
-    JSON.parse(localStorageProducts)
-  );
-  const [favorites, setFavorites] = useState<ProductInterface[]>(
-    JSON.parse(localStorageFavorites)
-  );
-  const [cart, setCart] = useState<CartItemInterface[]>(
-    JSON.parse(localStorageCart)
-  );
+  const [products, setProducts] = useState<ProductInterface[]>();
+  const [favorites, setFavorites] = useState<ProductInterface[]>();
+  const [cart, setCart] = useState<CartItemInterface[]>();
 
   const addToCart = useCallback<ProductContextInterface["addToCart"]>(
     (product: ProductInterface) => {
-      const searchProduct = cart.find((item) => item.id === product.id);
+      const searchProduct = cart.find((item) => item?.id === product.id);
 
       if (searchProduct) {
         const newArrayToSetCart = cart.map((item) =>
@@ -63,10 +56,12 @@ export const ProductContextProvider = ({ children }) => {
 
   const removeFromCart = useCallback<ProductContextInterface["removeFromCart"]>(
     (product: ProductInterface) => {
-      const searchProduct = cart.find((item) => item.id === product.id);
+      const searchProduct = cart.find((item) => item?.id === product.id);
 
       if (searchProduct?.quantity === 1) {
-        const newArrayToSetCart = cart.filter((item) => item.id !== product.id);
+        const newArrayToSetCart = cart.filter(
+          (item) => item?.id !== product.id
+        );
 
         setCart(newArrayToSetCart);
 
@@ -79,7 +74,9 @@ export const ProductContextProvider = ({ children }) => {
       }
 
       const newArrayToSetCart = cart.map((item) =>
-        item.id === product.id ? { ...item, quantity: item.quantity - 1 } : item
+        item?.id === product.id
+          ? { ...item, quantity: item.quantity - 1 }
+          : item
       );
 
       setCart(newArrayToSetCart);
@@ -94,6 +91,10 @@ export const ProductContextProvider = ({ children }) => {
 
   const addToFavorites = useCallback<ProductContextInterface["addToFavorites"]>(
     (product: ProductInterface) => {
+      if (favorites.find((item) => item.id === product.id)) {
+        return;
+      }
+
       const newArrayToSetFavorites = [...favorites, product];
 
       setFavorites(newArrayToSetFavorites);
@@ -103,7 +104,7 @@ export const ProductContextProvider = ({ children }) => {
         JSON.stringify(newArrayToSetFavorites)
       );
     },
-    []
+    [favorites, setFavorites]
   );
 
   const removeFromFavorites = useCallback<
@@ -137,6 +138,31 @@ export const ProductContextProvider = ({ children }) => {
     },
     [setProducts, products]
   );
+
+  useEffect(() => {
+    const localStorageProducts =
+      localStorage.getItem("@VivendaNatureza:products") || "[]";
+    const localStorageFavorites =
+      localStorage.getItem("@VivendaNatureza:favorites") || "[]";
+    const localStorageCart =
+      localStorage.getItem("@VivendaNatureza:cart") || "[]";
+
+    console.log({
+      localStorageProducts,
+      localStorageFavorites,
+      localStorageCart,
+    });
+
+    setProducts(JSON.parse(localStorageProducts));
+    setFavorites(JSON.parse(localStorageFavorites));
+    setCart(JSON.parse(localStorageCart));
+  }, []);
+
+  console.log({
+    products,
+    favorites,
+    cart,
+  });
 
   return (
     <ProductContext.Provider
