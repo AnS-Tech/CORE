@@ -11,9 +11,22 @@ import { defaultValuesProductContext } from "src/constants/produtcContext";
 export const ProductContext = createContext({ ...defaultValuesProductContext });
 
 export const ProductContextProvider = ({ children }) => {
-  const [products, setProducts] = useState<ProductInterface[]>();
-  const [favorites, setFavorites] = useState<ProductInterface[]>();
-  const [cart, setCart] = useState<CartItemInterface[]>();
+  const localStorageProducts =
+    localStorage.getItem("@VivendaNatureza:products") || "[]";
+  const localStorageFavorites =
+    localStorage.getItem("@VivendaNatureza:favorites") || "[]";
+  const localStorageCart =
+    localStorage.getItem("@VivendaNatureza:cart") || "[]";
+
+  const [products, setProducts] = useState<ProductInterface[]>(
+    JSON.parse(localStorageProducts)
+  );
+  const [favorites, setFavorites] = useState<ProductInterface[]>(
+    JSON.parse(localStorageFavorites)
+  );
+  const [cart, setCart] = useState<CartItemInterface[]>(
+    JSON.parse(localStorageCart)
+  );
 
   const addToCart = useCallback<ProductContextInterface["addToCart"]>(
     (product: ProductInterface) => {
