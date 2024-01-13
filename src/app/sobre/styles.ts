@@ -11,17 +11,43 @@ export const About = styled.main`
   }
   h1,
   h2,
+  h3,
+  h4,
   p {
     margin: 0;
     color: ${colors.grayScale900};
   }
+
+  @media (max-width: 1390px) {
+    width: 96%;
+    margin: 0 auto;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+  }
+
+  @media (max-width: 1300px) {
+    h2 {
+      font-size: 1.3em;
+    }
+    p {
+      font-size: 0.9em;
+    }
+  }
 `;
 
-export const AboutUs = styled.section``;
+export const AboutUs = styled.section`
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+`;
 
 export const AboutTitleContainer = styled.div`
   width: 100%;
-  padding: 20px 0 100px;
+  padding: 20px 0 40px;
 
   display: inline-flex;
   flex-direction: column;
@@ -34,7 +60,7 @@ export const SessionAboutContainer = styled.div`
   width: 100%;
 
   display: flex;
-  gap: 20px;
+  gap: 60px;
 
   flex: 1;
 `;
@@ -49,12 +75,10 @@ export const SessionAboutDescriptionsWrapper = styled.div`
 
   div:first-child {
     justify-content: stretch;
-    padding-top: 50px;
   }
 
   div:last-child {
     justify-content: flex-end;
-    padding-bottom: 50px;
   }
 `;
 
@@ -82,4 +106,55 @@ export const FirstSessionAboutImage = styled(Image)`
   height: 100%;
 
   object-fit: cover;
+`;
+
+export const Featured = styled.section`
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 40px;
+  padding: 100px 0;
+
+  p {
+    font-size: 0.8rem;
+    text-align: center;
+  }
+`;
+
+export const FeaturedTopContainer = styled.div`
+  display: inline-flex;
+  flex-direction: column;
+
+  align-items: center;
+  justify-content: center;
+  h2 {
+    font-size: 1.9em;
+  }
+  p {
+    max-width: 500px;
+  }
+`;
+
+export const FeaturedBottonContainer = styled.div`
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+`;
+
+export const FeaturedComponentWrapper = styled.div`
+  flex: 1;
+
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+  justify-content: center;
+
+  :first-child {
+    color: ${colors.grayScale900};
+    font-size: 3em;
+  }
 `;

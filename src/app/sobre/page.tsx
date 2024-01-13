@@ -4,8 +4,40 @@ import { Layout } from "src/components";
 import * as S from "./styles";
 import Image from "next/image";
 import { colors } from "src/styles/tokens";
+import { LiaShippingFastSolid } from "react-icons/lia";
+import { FeaturedContentComponent } from "./content";
+import { GiGreenhouse } from "react-icons/gi";
+import { FaHandHoldingDollar } from "react-icons/fa6";
+import { ReactNode } from "react";
 
 export default function Page() {
+  interface FeaturedProps {
+    index: number;
+    icon: ReactNode;
+    title: string;
+    description: string;
+  }
+  const FeaturedContent: Array<FeaturedProps> = [
+    {
+      index: 1,
+      icon: <LiaShippingFastSolid />,
+      title: "Entregas em todo o Brasil",
+      description: "Entregamos em todo o território nacional",
+    },
+    {
+      index: 2,
+      icon: <GiGreenhouse />,
+      title: "Produção própria",
+      description:
+        "Directamente das nossas estufas, duram sete, dez ou mesmo quinze dias!",
+    },
+    {
+      index: 3,
+      icon: <FaHandHoldingDollar />,
+      title: "Reembolso Garantido",
+      description: "7 dias para arrependimento",
+    },
+  ];
   return (
     <Layout>
       <S.About>
@@ -94,6 +126,25 @@ export default function Page() {
             </S.SessionAboutDescriptionsWrapper>
           </S.SessionAboutContainer>
         </S.AboutUs>
+        <S.Featured>
+          <S.FeaturedTopContainer>
+            <h2>Porquê a Vivenda Natureza?</h2>
+            <p>
+              Entregamos plantas frescas ao domicílio, diretamente das nossas
+              estufas de produção. Entragamos para todo o Brasil.
+            </p>
+          </S.FeaturedTopContainer>
+          <S.FeaturedBottonContainer>
+            {FeaturedContent.map((featured) => (
+              <FeaturedContentComponent
+                key={featured.title}
+                icon={featured.icon}
+                title={featured.title}
+                description={featured.description}
+              />
+            ))}
+          </S.FeaturedBottonContainer>
+        </S.Featured>
       </S.About>
     </Layout>
   );
