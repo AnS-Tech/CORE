@@ -1,31 +1,28 @@
 import { colors } from "src/styles/tokens";
 import styled, { keyframes } from "styled-components";
 
-const fadeIn = keyframes`
+const fadeInOverlay = keyframes`
   from {
     opacity: 0;
-    transform: scale(0.8);
   }
   to {
     opacity: 1;
-    transform: scale(1);
   }
 `;
 
-const fadeOut = keyframes`
+const fadeOutOverlay = keyframes`
   from {
     opacity: 1;
-    transform: scale(1);
   }
   to {
     opacity: 0;
-    transform: scale(0.8);
   }
 `;
 
 export const ModalOverlay = styled.div<{ isOpen: boolean }>`
   display: ${(props) => (props.isOpen ? "block" : "none")};
-  animation: ${(props) => (props.isOpen ? fadeIn : fadeOut)} 0.3s ease-in-out;
+  animation: ${(props) => (props.isOpen ? fadeInOverlay : fadeOutOverlay)} 0.25s
+    ease-in-out;
   position: fixed;
   top: 0;
   left: 0;

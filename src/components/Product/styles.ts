@@ -17,12 +17,15 @@ export const ProductStyled = styled.div<ProductPropsStyled>`
     border: 1px solid ${colors.white};
     border-radius: 8px;
 
+    .actions-product-card-div {
+      transition: all 0.25s ease-in-out;
+      opacity: 0;
+    }
+
     &:hover {
       .actions-product-card-div {
         right: 0.8rem;
-        .button-action-card-product {
-          opacity: 1;
-        }
+        opacity: 1;
       }
     }
 
@@ -52,10 +55,6 @@ export const ProductImage = styled(Image)`
 `;
 
 export const ActionButtonWrapper = styled.div`
-  .button-action-card-product {
-    transition: all 0.25s ease-in-out;
-    opacity: 0;
-  }
   transition: all 0.25s ease-in-out;
   top: 0.8rem;
   right: 0rem;
