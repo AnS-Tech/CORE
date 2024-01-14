@@ -32,6 +32,8 @@ export async function GET(request: NextRequest) {
 
     return NextResponse.json(formattedProducts);
   } catch (err) {
-    return NextResponse.json([]);
+    return NextResponse.json({
+      err,
+    });
   }
 }
