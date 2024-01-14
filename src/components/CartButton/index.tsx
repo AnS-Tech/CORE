@@ -11,7 +11,7 @@ export const CartButton: React.FC<CartButtonProps> = ({
   product,
   ...rest
 }) => {
-  const { cart, addToCart } = useProductContext();
+  const { cart, addToCart, setIsCartOpen } = useProductContext();
 
   const stock = verifyStock(product.metadata?.estoque);
 
@@ -34,7 +34,10 @@ export const CartButton: React.FC<CartButtonProps> = ({
       {...{ isActive }}
       {...rest}
       disabled={stock.value < 1}
-      onClick={() => addToCart(product)}
+      onClick={() => {
+        addToCart(product);
+        setIsCartOpen(true);
+      }}
     >
       <div className="children-div-button">{children}</div>
       <IoCart fontSize="18px" />

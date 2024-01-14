@@ -4,10 +4,17 @@ export const defaultValuesProductContext: ProductContextInterface = {
   products: [],
   favorites: [],
   cart: [],
+  isCartOpen: false,
   addToCart: () => {
     return {};
   },
   removeFromCart: () => {
+    return {};
+  },
+  plusOneToCart: () => {
+    return {};
+  },
+  minusOneToCart: () => {
     return {};
   },
   addToFavorites: () => {
@@ -17,6 +24,9 @@ export const defaultValuesProductContext: ProductContextInterface = {
     return {};
   },
   addProductToList: () => {
+    return {};
+  },
+  setIsCartOpen: () => {
     return {};
   },
 };

@@ -13,22 +13,24 @@ import {
   ProductContextInterface,
 } from "src/interfaces/product";
 import { defaultValuesProductContext } from "src/constants/produtcContext";
+import { isEmpty } from "src/utils/isEmpty";
 
 export const ProductContext = createContext({ ...defaultValuesProductContext });
 
 export const ProductContextProvider = ({ children }) => {
-  const [products, setProducts] = useState<ProductInterface[]>();
-  const [favorites, setFavorites] = useState<ProductInterface[]>();
-  const [cart, setCart] = useState<CartItemInterface[]>();
+  const [products, setProducts] = useState<ProductInterface[]>([]);
+  const [favorites, setFavorites] = useState<ProductInterface[]>([]);
+  const [cart, setCart] = useState<CartItemInterface[]>([]);
+  const [isCartOpen, setIsCartOpen] = useState(false);
 
   const addToCart = useCallback<ProductContextInterface["addToCart"]>(
     (product: ProductInterface) => {
       const searchProduct = cart.find((item) => item?.id === product.id);
 
-      if (searchProduct) {
+      if (searchProduct && searchProduct.quantity <= 0) {
         const newArrayToSetCart = cart.map((item) =>
           item.id === product.id
-            ? { ...item, quantity: item.quantity + 1 }
+            ? { ...item, quantity: (item.quantity = 1) }
             : item
         );
 
@@ -39,6 +41,8 @@ export const ProductContextProvider = ({ children }) => {
           JSON.stringify(newArrayToSetCart)
         );
 
+        return;
+      } else if (searchProduct && searchProduct.quantity > 0) {
         return;
       }
 
@@ -58,9 +62,31 @@ export const ProductContextProvider = ({ children }) => {
     (product: ProductInterface) => {
       const searchProduct = cart.find((item) => item?.id === product.id);
 
-      if (searchProduct?.quantity === 1) {
-        const newArrayToSetCart = cart.filter(
-          (item) => item?.id !== product.id
+      if (isEmpty(searchProduct) || searchProduct.quantity < 1) {
+        return;
+      }
+
+      const newArrayToSetCart = cart.filter((item) => item?.id !== product.id);
+
+      setCart(newArrayToSetCart);
+
+      localStorage.setItem(
+        "@VivendaNatureza:cart",
+        JSON.stringify(newArrayToSetCart)
+      );
+    },
+    [cart, setCart]
+  );
+
+  const plusOneToCart = useCallback<ProductContextInterface["plusOneToCart"]>(
+    (product: ProductInterface) => {
+      const searchProduct = cart.find((item) => item?.id === product.id);
+
+      if (searchProduct) {
+        const newArrayToSetCart = cart.map((item) =>
+          item.id === product.id
+            ? { ...item, quantity: item.quantity + 1 }
+            : item
         );
 
         setCart(newArrayToSetCart);
@@ -72,19 +98,41 @@ export const ProductContextProvider = ({ children }) => {
 
         return;
       }
+    },
+    [cart, setCart]
+  );
 
-      const newArrayToSetCart = cart.map((item) =>
-        item?.id === product.id
-          ? { ...item, quantity: item.quantity - 1 }
-          : item
-      );
+  const minusOneToCart = useCallback<ProductContextInterface["minusOneToCart"]>(
+    (product: ProductInterface) => {
+      const searchProduct = cart.find((item) => item?.id === product.id);
 
-      setCart(newArrayToSetCart);
+      if (searchProduct && searchProduct.quantity > 1) {
+        const newArrayToSetCart = cart.map((item) =>
+          item.id === product.id
+            ? { ...item, quantity: item.quantity - 1 }
+            : item
+        );
 
-      localStorage.setItem(
-        "@VivendaNatureza:cart",
-        JSON.stringify(newArrayToSetCart)
-      );
+        setCart(newArrayToSetCart);
+
+        localStorage.setItem(
+          "@VivendaNatureza:cart",
+          JSON.stringify(newArrayToSetCart)
+        );
+
+        return;
+      } else if (searchProduct && searchProduct.quantity === 1) {
+        const newArrayToSetCart = cart.filter(
+          (item) => item?.id !== product.id
+        );
+
+        setCart(newArrayToSetCart);
+
+        localStorage.setItem(
+          "@VivendaNatureza:cart",
+          JSON.stringify(newArrayToSetCart)
+        );
+      }
     },
     [cart, setCart]
   );
@@ -147,22 +195,10 @@ export const ProductContextProvider = ({ children }) => {
     const localStorageCart =
       localStorage.getItem("@VivendaNatureza:cart") || "[]";
 
-    console.log({
-      localStorageProducts,
-      localStorageFavorites,
-      localStorageCart,
-    });
-
     setProducts(JSON.parse(localStorageProducts));
     setFavorites(JSON.parse(localStorageFavorites));
     setCart(JSON.parse(localStorageCart));
   }, []);
-
-  console.log({
-    products,
-    favorites,
-    cart,
-  });
 
   return (
     <ProductContext.Provider
@@ -170,11 +206,15 @@ export const ProductContextProvider = ({ children }) => {
         products,
         favorites,
         cart,
+        isCartOpen,
         addToCart,
         removeFromCart,
+        plusOneToCart,
+        minusOneToCart,
         addToFavorites,
         removeFromFavorites,
         addProductToList,
+        setIsCartOpen,
       }}
     >
       {children}
