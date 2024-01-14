@@ -5,9 +5,9 @@ import styled from "styled-components";
 export const DrawerCartItem = styled.div`
   width: 98%;
   height: 104px;
-
+  background-color: ${colors.white};
   display: inline-flex;
-
+  border: 1px solid ${colors.grayScale300}30;
   gap: 15px;
 
   border-radius: 8px;

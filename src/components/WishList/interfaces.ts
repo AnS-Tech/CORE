@@ -1,5 +1,10 @@
+import { ProductInterface } from "src/interfaces/product";
+
 export interface WishListContainerProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  onClick?: () => void;
-  wishSelected?: boolean;
+  product: ProductInterface;
+}
+
+export interface WishListContainerStyledProps {
+  isFavorited: boolean;
 }

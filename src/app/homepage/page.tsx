@@ -37,21 +37,6 @@ export default function Page() {
               {products.map((product) => (
                 <Product {...{ product }} key={product.index} />
               ))}
-              {products.map((product) => (
-                <Product {...{ product }} key={product.index} />
-              ))}
-              {products.map((product) => (
-                <Product {...{ product }} key={product.index} />
-              ))}
-              {products.map((product) => (
-                <Product {...{ product }} key={product.index} />
-              ))}
-              {products.map((product) => (
-                <Product {...{ product }} key={product.index} />
-              ))}
-              {products.map((product) => (
-                <Product {...{ product }} key={product.index} />
-              ))}
             </div>
           </>
         )}

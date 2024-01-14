@@ -8,33 +8,31 @@ import Image from "next/image";
 import { colors, size } from "src/styles/tokens";
 
 export const ProductStyled = styled.div<ProductPropsStyled>`
-  ${({ backgroundColor }) => css`
-    width: 100%;
+  width: 100%;
 
-    display: inline-flex;
-    flex-direction: column;
-    background-color: ${backgroundColor};
-    border: 1px solid ${colors.white};
-    border-radius: 8px;
+  display: inline-flex;
+  flex-direction: column;
+  background-color: ${colors.white};
+  border: 1px solid ${colors.white};
+  border-radius: 8px;
 
+  .actions-product-card-div {
+    transition: all 0.25s ease-in-out;
+    opacity: 0;
+  }
+
+  &:hover {
     .actions-product-card-div {
-      transition: all 0.25s ease-in-out;
-      opacity: 0;
+      right: 0.8rem;
+      opacity: 1;
     }
+  }
 
+  @media (min-width: 950px) {
     &:hover {
-      .actions-product-card-div {
-        right: 0.8rem;
-        opacity: 1;
-      }
+      box-shadow: 2px 2px 3px ${colors.vivendaColors.c6}40;
     }
-
-    @media (min-width: 950px) {
-      &:hover {
-        box-shadow: 2px 2px 3px ${colors.vivendaColors.c6}40;
-      }
-    }
-  `}
+  }
 `;
 export const ProductImageWrapper = styled.div`
   position: relative;
@@ -46,12 +44,14 @@ export const ProductImageWrapper = styled.div`
   }
 `;
 
-export const ProductImage = styled(Image)`
+export const ProductImage = styled(Image)<{ haveStock: boolean }>`
   width: 100%;
   height: 100%;
   border-radius: 8px 8px 0 0;
   object-fit: cover;
   cursor: pointer;
+
+  filter: ${({ haveStock }) => (haveStock ? "none" : "grayscale(100%)")};
 `;
 
 export const ActionButtonWrapper = styled.div`
@@ -76,43 +76,37 @@ export const InfoWrapper = styled.div`
 `;
 
 export const ProductName = styled.p<ProductNameProps>`
-  ${({ textColor, sizeStatus }) => css`
-    font-size: ${size.s1};
-    font-style: normal;
-    font-weight: 400;
-    line-height: 15px;
-    color: ${colors.vivendaColors.c6};
-    margin: 0;
-    height: 20px;
-    width: calc(100% - 43px);
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
+  font-size: ${size.s1};
+  font-style: normal;
+  font-weight: 400;
+  line-height: 15px;
+  color: ${colors.vivendaColors.c6};
+  margin: 0;
+  height: 20px;
+  width: calc(100% - 43px);
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 
-    @media (min-width: 950px) {
-      &:hover {
-        overflow: visible;
-        white-space: normal;
-      }
+  @media (min-width: 950px) {
+    &:hover {
+      overflow: visible;
+      white-space: normal;
     }
+  }
 
-    @media (max-width: 950px) {
-      &:active {
-        overflow: visible;
-        white-space: normal;
-      }
+  @media (max-width: 950px) {
+    &:active {
+      overflow: visible;
+      white-space: normal;
     }
-  `}
+  }
 `;
 
 export const ProductPrice = styled.h3<ProductPriceProps>`
   display: inline-block;
-  ${({ sizeStatus }) => css`
-    font-size: ${size.s3};
-    font-weight: ${size.priceSize.fontWeight[sizeStatus]};
-    line-height: ${size.priceSize.lineHeight[sizeStatus]};
-    color: ${colors.vivendaColors.c6};
-  `}
+  font-size: ${size.s3};
+  color: ${colors.vivendaColors.c6};
 `;
 
 export const ProductPriceDotted = styled(ProductPrice)<ProductPriceProps>`

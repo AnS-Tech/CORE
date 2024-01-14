@@ -3,21 +3,10 @@
 import { Layout, Product } from "src/components";
 import { Favorite } from "./styles";
 import { colors } from "src/styles/tokens";
-import { useEffect, useState } from "react";
-import { Product as ProductI } from "src/components/Product/interfaces";
+import { useProductContext } from "src/contexts/ProductContext";
 
 export default function Page() {
-  const [favoritedProducts, setFavoritedProducts] = useState<Array<ProductI>>(
-    []
-  );
-
-  useEffect(() => {
-    const favoritedProducts: Array<ProductI> = JSON.parse(
-      localStorage.getItem("favorites" || "[]")
-    );
-
-    setFavoritedProducts(favoritedProducts);
-  }, []);
+  const { favorites } = useProductContext();
 
   return (
     <Layout>
@@ -30,7 +19,7 @@ export default function Page() {
           Favoritos
         </h1>
         <div className="list">
-          {favoritedProducts?.map((product) => (
+          {favorites?.map((product) => (
             <Product {...{ product }} key={product.id} />
           ))}
         </div>

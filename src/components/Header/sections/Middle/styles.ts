@@ -81,14 +81,17 @@ export const UserServices = styled.div`
 
 export const InfoCart = styled.div`
   height: inherit;
-
   display: flex;
-  flex-direction: column;
-  align-items: start;
-  gap: 7px;
+  align-items: center;
 
-  font-size: 11px;
-  font-weight: 300;
-  line-height: 11px;
-  color: ${colors.grayScale900};
+  :hover {
+    text-decoration: underline;
+    cursor: pointer;
+  }
+
+  .total-cart-price {
+    font-size: 14px;
+    font-weight: 700;
+    color: ${colors.vivendaColors.c6};
+  }
 `;

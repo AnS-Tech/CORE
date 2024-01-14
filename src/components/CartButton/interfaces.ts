@@ -1,5 +1,11 @@
+import { ProductInterface } from "src/interfaces/product";
+
 export interface CartButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   children?: React.ReactNode;
-  isActive?: boolean;
+  product: ProductInterface;
+}
+
+export interface CartButtonContainerStyledProps {
+  isActive: boolean;
 }
