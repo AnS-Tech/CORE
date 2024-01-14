@@ -5,6 +5,7 @@ export const defaultValuesProductContext: ProductContextInterface = {
   favorites: [],
   cart: [],
   isCartOpen: false,
+  searchValues: null,
   addToCart: () => {
     return {};
   },
@@ -27,6 +28,9 @@ export const defaultValuesProductContext: ProductContextInterface = {
     return {};
   },
   setIsCartOpen: () => {
+    return {};
+  },
+  setSearchValues: () => {
     return {};
   },
 };

@@ -7,6 +7,7 @@ import {
 } from "react-icons/ri";
 import { DownFooterStyled, PaymentContainer } from "./styles";
 import Link from "next/link";
+import { colors } from "src/styles/tokens";
 
 export const DownFooter = () => {
   return (
@@ -14,9 +15,17 @@ export const DownFooter = () => {
       <span>Vivenda Natureza © 2023. All Rights Reserved</span>
 
       <div>
-        <strong>(84) 99999-9999</strong> Ou{" "}
+        <strong>(84) 9 9174-5274</strong> Ou{" "}
         <strong>
-          <Link href="/">Proxy@gmail.com</Link>
+          <Link
+            href="/"
+            style={{
+              color: "#d8d3cf",
+              textDecoration: "none",
+            }}
+          >
+            Proxy@gmail.com
+          </Link>
         </strong>
       </div>
       <PaymentContainer>

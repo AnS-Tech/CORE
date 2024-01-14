@@ -22,6 +22,10 @@ export const ProductContextProvider = ({ children }) => {
   const [favorites, setFavorites] = useState<ProductInterface[]>([]);
   const [cart, setCart] = useState<CartItemInterface[]>([]);
   const [isCartOpen, setIsCartOpen] = useState(false);
+  const [searchValues, setSearchValues] = useState<{
+    value: string;
+    products: ProductInterface[];
+  }>();
 
   const addToCart = useCallback<ProductContextInterface["addToCart"]>(
     (product: ProductInterface) => {
@@ -207,6 +211,7 @@ export const ProductContextProvider = ({ children }) => {
         favorites,
         cart,
         isCartOpen,
+        searchValues,
         addToCart,
         removeFromCart,
         plusOneToCart,
@@ -215,6 +220,7 @@ export const ProductContextProvider = ({ children }) => {
         removeFromFavorites,
         addProductToList,
         setIsCartOpen,
+        setSearchValues,
       }}
     >
       {children}

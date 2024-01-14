@@ -1,5 +1,6 @@
 import Link from "next/link";
 import * as S from "./styles";
+import { useProductContext } from "src/contexts/ProductContext";
 
 export const menuContent: Array<MenuBottonProps> = [
   {
@@ -25,8 +26,18 @@ export const menuContent: Array<MenuBottonProps> = [
 ];
 
 export const BContent: React.FC<MenuBottonProps> = ({ href, index, menu }) => {
+  const { setSearchValues } = useProductContext();
+
   return (
-    <S.MenuOption key={index}>
+    <S.MenuOption
+      key={index}
+      onClick={() => {
+        setSearchValues((prevState) => ({
+          ...prevState,
+          value: "",
+        }));
+      }}
+    >
       <Link href={href}>{menu}</Link>
     </S.MenuOption>
   );
