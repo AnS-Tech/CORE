@@ -7,9 +7,11 @@ import { LoadingSpin, Product } from "src/components";
 import { colors } from "src/styles/tokens";
 import { useProductContext } from "src/contexts/ProductContext";
 import { isEmpty } from "src/utils/isEmpty";
+import { useEffect, useState } from "react";
 
 export default function Page() {
   const { addProductToList, searchValues } = useProductContext();
+  const [fakeLoadingSearch, setFakeLoadingSearch] = useState(false);
   const getProducts = async () => {
     const response = await fetch(
       `${process.env.NEXT_PUBLIC_BASE_URL}/api/get-products`
@@ -21,10 +23,17 @@ export default function Page() {
 
   const { data: products, isLoading } = useQuery(["products"], getProducts);
 
+  useEffect(() => {
+    setFakeLoadingSearch(true);
+    setTimeout(() => {
+      setFakeLoadingSearch(false);
+    }, 1000);
+  }, [searchValues.value]);
+
   return (
     <Layout>
       <Homepage>
-        {isLoading || products == undefined ? (
+        {isLoading || fakeLoadingSearch || products == undefined ? (
           <div className="content-loading">
             <LoadingSpin sizeMultiplicator={3} />
           </div>
@@ -40,8 +49,8 @@ export default function Page() {
                 : "Produtos"}
             </h1>
             <div className="list">
-              {isEmpty(searchValues?.value) 
-                ? products.map((product) => (
+              {isEmpty(searchValues?.value)
+                ? products?.map((product) => (
                     <Product {...{ product }} key={product.id} />
                   ))
                 : searchValues?.products?.map((product) => (
