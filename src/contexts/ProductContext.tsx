@@ -25,7 +25,10 @@ export const ProductContextProvider = ({ children }) => {
   const [searchValues, setSearchValues] = useState<{
     value: string;
     products: ProductInterface[];
-  }>();
+  }>({
+    value: "",
+    products: [],
+  });
 
   const addToCart = useCallback<ProductContextInterface["addToCart"]>(
     (product: ProductInterface) => {
