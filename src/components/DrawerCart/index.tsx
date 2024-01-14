@@ -35,7 +35,7 @@ export const DrawerCart = () => {
       <Drawer
         isOpen={isCartOpen}
         onClose={handleDrawerClose}
-        withOverlay={false}
+        withOverlay={true}
       >
         <S.DrawerCartContainer>
           <S.TopDescriptionContent>

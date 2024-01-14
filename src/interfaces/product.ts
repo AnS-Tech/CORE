@@ -19,6 +19,10 @@ export interface ProductContextInterface {
   cart: CartItemInterface[];
   favorites: ProductInterface[];
   isCartOpen: boolean;
+  searchValues: {
+    value: string;
+    products: ProductInterface[];
+  };
   addToCart: (product: ProductInterface) => void;
   removeFromCart: (product: ProductInterface) => void;
   plusOneToCart: (product: ProductInterface) => void;
@@ -27,4 +31,10 @@ export interface ProductContextInterface {
   removeFromFavorites: (product: ProductInterface) => void;
   addProductToList: (product: ProductInterface) => void;
   setIsCartOpen: Dispatch<SetStateAction<boolean>>;
+  setSearchValues: Dispatch<
+    SetStateAction<{
+      value: string;
+      products: ProductInterface[];
+    }>
+  >;
 }

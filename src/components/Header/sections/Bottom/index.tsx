@@ -17,7 +17,9 @@ export const Bottom = () => {
 
         <S.CallNow>
           <FaPhoneVolume />
-          <Link href="tel:+5584991745274">84 9 9174-5274</Link>
+          <Link href="https://wa.me/5584991745274" target="_blank">
+            84 9 9174-5274
+          </Link>
         </S.CallNow>
       </S.Body>
     </S.Container>
