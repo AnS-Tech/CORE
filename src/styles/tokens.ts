@@ -59,10 +59,10 @@ export const colors: Colors = {
   vivendaColors: {
     c1: "#365028",
     c2: "#697928",
-    c3: "#f4ebd8",
+    c3: "#F3F6EA",
     c4: "#d5bd9c",
-    c5: "#f137aa",
-    c6: "#3c3028",
+    c5: "#D72D96",
+    c6: "#365028",
     c7: "#89934c",
   },
 };
