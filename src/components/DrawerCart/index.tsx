@@ -1,55 +1,51 @@
 import { useEffect, useState } from "react";
 import { Drawer } from "../Drawer";
-import Link from "next/link";
 import { IoCart } from "react-icons/io5";
 import { colors } from "src/styles/tokens";
 import * as S from "./styles";
 import { DrawerProduct } from "../DrawerProduct";
-import { Product } from "../Product/interfaces";
+import { useProductContext } from "src/contexts/ProductContext";
+import { getTotalPrice } from "src/utils/getProductContextTotals";
 
 export const DrawerCart = () => {
-  const [drawerOpen, setDrawerOpen] = useState(false);
-  const [totalPrice, setTotalPrice] = useState(0);
+  const [totalPrice, setTotalPrice] = useState("R$ 0,00");
+  const { cart, isCartOpen, setIsCartOpen } = useProductContext();
 
   const handleDrawerOpen = () => {
-    setDrawerOpen(true);
+    setIsCartOpen(true);
   };
 
   const handleDrawerClose = () => {
-    setDrawerOpen(false);
+    setIsCartOpen(false);
   };
 
-  const [cartProducts, setCartProducts] = useState<Array<Product>>([]);
-
   useEffect(() => {
-    const storedProducts: Array<Product> = JSON.parse(
-      localStorage.getItem("products") || "[]"
-    );
-    setCartProducts(storedProducts);
-  }, []);
-
-  useEffect(() => {
-    setTotalPrice(
-      cartProducts.reduce((acc, product) => acc + (product.price || 0), 0)
-    );
-  }, [cartProducts]);
+    setTotalPrice(getTotalPrice(cart));
+  }, [cart]);
 
   return (
     <div>
-      <Link href={"#"} onClick={handleDrawerOpen}>
-        <IoCart id="bagIcon" className="icon" color={colors.vivendaColors.c7} />
-      </Link>
+      <IoCart
+        id="bagIcon"
+        className="icon"
+        color={colors.vivendaColors.c7}
+        onClick={handleDrawerOpen}
+      />
 
-      <Drawer isOpen={drawerOpen} onClose={handleDrawerClose}>
+      <Drawer
+        isOpen={isCartOpen}
+        onClose={handleDrawerClose}
+        withOverlay={true}
+      >
         <S.DrawerCartContainer>
           <S.TopDescriptionContent>
             <p>
-              Seu carrinho tem <strong>{cartProducts.length} itens</strong>
+              Seu carrinho tem <strong>{cart?.length} itens</strong>
             </p>
           </S.TopDescriptionContent>
           <S.Line />
           <S.DrawerCartItemWrapper>
-            {cartProducts?.map((product) => (
+            {cart?.map((product) => (
               <DrawerProduct {...{ product }} key={product.id} />
             ))}
           </S.DrawerCartItemWrapper>
@@ -59,12 +55,7 @@ export const DrawerCart = () => {
               <S.TotalContext>
                 <p>Total:</p>
               </S.TotalContext>
-              <S.ProductPrice>
-                {totalPrice.toLocaleString("pt-BR", {
-                  style: "currency",
-                  currency: "BRL",
-                })}
-              </S.ProductPrice>
+              <S.ProductPrice>{totalPrice}</S.ProductPrice>
             </S.CTATotalPriceContainer>
             <S.CallToAction>Finalizar compra</S.CallToAction>
           </S.DrawerCartCTAContainer>

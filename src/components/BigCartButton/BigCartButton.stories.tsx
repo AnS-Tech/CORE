@@ -13,5 +13,15 @@ type Story = StoryObj<typeof meta>;
 export const Default: Story = {
   args: {
     children: "Adicionar ao carrinho",
+    product: {
+      id: "1",
+      description: "Product Description",
+      name: "Product Name",
+      price: 1000,
+      image: ["https://picsum.photos/500/500"],
+      metadata: {
+        estoque: "10",
+      },
+    },
   },
 };

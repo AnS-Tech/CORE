@@ -4,7 +4,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { useEffect, useState } from "react";
 import { LoadingPage } from "src/components";
-import { AuthContextProvider } from "src/contexts/AuthContext";
+import { ProductContextProvider } from "src/contexts/ProductContext";
 import GlobalStyles from "src/styles/globalStyles";
 
 export default function RootLayout({
@@ -55,11 +55,15 @@ export default function RootLayout({
             boxSizing: "border-box",
           }}
         >
-          <AuthContextProvider>
-            {isClient ? children : <LoadingPage />}
-            <ReactQueryDevtools initialIsOpen={false} />
-            <GlobalStyles />
-          </AuthContextProvider>
+          {isClient ? (
+            <ProductContextProvider>
+              {children}
+              <ReactQueryDevtools initialIsOpen={false} />
+              <GlobalStyles />
+            </ProductContextProvider>
+          ) : (
+            <></>
+          )}
         </body>
       </html>
     </QueryClientProvider>

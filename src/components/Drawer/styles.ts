@@ -1,69 +1,33 @@
 import { colors } from "src/styles/tokens";
-import styled, { keyframes } from "styled-components";
+import styled from "styled-components";
 
-const fadeIn = keyframes`
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-
-  }
-`;
-
-const fadeOut = keyframes`
-  from {
-    opacity: 1;
-
-  }
-  to {
-    opacity: 0;
-
-  }
-`;
-
-const slideIn = keyframes`
-  from {
-    transform: translateX(100%);
-  }
-  to {
-    transform: translateX(0);
-  }
-`;
-
-const slideOut = keyframes`
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(100%);
-  }
-`;
-
-export const DrawerOverlay = styled.div<{ isOpen: boolean }>`
-  display: ${(props) => (props.isOpen ? "block" : "none")};
-  animation: ${(props) => (props.isOpen ? fadeIn : fadeOut)} 0.25s ease-in-out;
+export const DrawerOverlay = styled.div<{
+  isOpen: boolean;
+  withOverlay: boolean;
+}>`
+  transition: all 0.25s ease-in-out;
+  z-index: ${(props) => (props.isOpen && props.withOverlay ? "1000" : "-1")};
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
   background: rgba(0, 0, 0, 0.5);
-  z-index: 1000;
 `;
 
 export const DrawerContainer = styled.div<{ isOpen: boolean }>`
+  transition: all 0.25s ease-in-out;
   position: fixed;
   top: 0;
   right: ${(props) => (props.isOpen ? "0" : "-428px")};
   z-index: 1000;
-
   width: 428px;
-  height: 99.9vh;
+  height: 100%;
   background-color: ${colors.beige};
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-
-  animation: ${(props) => (props.isOpen ? slideIn : slideOut)} 0.25s ease-in-out;
+  ::-webkit-scrollbar {
+    width: 35px;
+  }
 `;
 
 export const CloseButton = styled.button`

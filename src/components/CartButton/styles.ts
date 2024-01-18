@@ -1,8 +1,8 @@
 import { colors, size } from "src/styles/tokens";
 import styled, { css } from "styled-components";
-import { CartButtonProps } from "./interfaces";
+import { CartButtonContainerStyledProps } from "./interfaces";
 
-export const CartContainer = styled.button<CartButtonProps>`
+export const CartContainer = styled.button<CartButtonContainerStyledProps>`
   ${({ isActive }) => css`
     background-color: ${isActive ? colors.success : colors.grayScale100};
   `}
@@ -25,7 +25,7 @@ export const CartContainer = styled.button<CartButtonProps>`
 
   &:disabled {
     cursor: not-allowed;
-    background: ${colors.grayScale100};
+    opacity: 0.5;
 
     &:hover {
       background: ${colors.grayScale100};

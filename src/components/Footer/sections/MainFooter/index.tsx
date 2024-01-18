@@ -4,14 +4,12 @@ import {
   MainContentFooter,
   MainFooterStyled,
 } from "./styles";
-import Link from "next/link";
 
 export const MainFooter = () => {
   return (
     <MainFooterStyled>
       <MainContentFooter>
         <Logo />
-
         <ContentMainFooter></ContentMainFooter>
       </MainContentFooter>
     </MainFooterStyled>

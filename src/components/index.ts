@@ -1,7 +1,6 @@
 import { Button } from "./Button";
 import { Input } from "./Input";
 import { BigCartButton } from "./BigCartButton";
-import { BigProduct } from "./BigProduct";
 import { CartButton } from "./CartButton";
 import { Close } from "./Close";
 import { Product } from "./Product";
@@ -18,7 +17,6 @@ export {
   Button,
   Input,
   BigCartButton,
-  BigProduct,
   CartButton,
   Close,
   Product,
