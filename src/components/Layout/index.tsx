@@ -9,6 +9,8 @@ export const Layout = ({ children }) => {
       <div
         style={{
           flex: 1,
+          maxWidth: "1320px",
+          width: "100%",
         }}
       >
         {children}
