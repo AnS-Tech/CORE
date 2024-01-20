@@ -1,4 +1,4 @@
-export function isEmpty(value) {
+export function isEmpty(value: any) {
   if (typeof value === "undefined") {
     return true;
   }
@@ -14,7 +14,6 @@ export function isEmpty(value) {
   if (typeof value === "object" && Object.keys(value).length === 0) {
     return true;
   }
-
 
   return false;
 }
