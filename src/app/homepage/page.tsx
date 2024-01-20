@@ -8,6 +8,7 @@ import { colors } from "src/styles/tokens";
 import { useProductContext } from "src/contexts/ProductContext";
 import { isEmpty } from "src/utils/isEmpty";
 import { useEffect, useState } from "react";
+import { Carrossel } from "src/components/Carrossel";
 
 export default function Page() {
   const { addProductToList, searchValues } = useProductContext();
@@ -39,6 +40,7 @@ export default function Page() {
           </div>
         ) : (
           <>
+            <Carrossel />
             <h1
               style={{
                 color: colors.vivendaColors.c6,
