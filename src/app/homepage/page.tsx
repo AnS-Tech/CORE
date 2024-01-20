@@ -9,6 +9,7 @@ import { useProductContext } from "src/contexts/ProductContext";
 import { isEmpty } from "src/utils/isEmpty";
 import { useEffect, useState } from "react";
 import { Carrossel } from "src/components/Carrossel";
+import { ProductInterface } from "src/interfaces/product";
 
 export default function Page() {
   const { addProductToList, searchValues } = useProductContext();
@@ -52,10 +53,10 @@ export default function Page() {
             </h1>
             <div className="list">
               {isEmpty(searchValues?.value)
-                ? products?.map((product) => (
+                ? products?.map((product: ProductInterface) => (
                     <Product {...{ product }} key={product.id} />
                   ))
-                : searchValues?.products?.map((product) => (
+                : searchValues?.products?.map((product: ProductInterface) => (
                     <Product {...{ product }} key={product.id} />
                   ))}
             </div>

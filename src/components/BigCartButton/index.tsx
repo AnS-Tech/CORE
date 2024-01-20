@@ -15,7 +15,7 @@ export const BigCartButton: React.FC<BigCartButtonProps> = ({
 
   const stock = verifyStock(product.metadata?.estoque);
 
-  const handleVerifyCartSelected = (cartProducts) => {
+  const handleVerifyCartSelected = (cartProducts: Array<any>) => {
     const findCartProduct = cartProducts.find((item) => item.id === product.id);
 
     const isCartSelected =

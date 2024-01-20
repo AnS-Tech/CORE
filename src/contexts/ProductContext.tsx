@@ -17,7 +17,7 @@ import { isEmpty } from "src/utils/isEmpty";
 
 export const ProductContext = createContext({ ...defaultValuesProductContext });
 
-export const ProductContextProvider = ({ children }) => {
+export const ProductContextProvider = ({ children }: any) => {
   const [products, setProducts] = useState<ProductInterface[]>([]);
   const [favorites, setFavorites] = useState<ProductInterface[]>([]);
   const [cart, setCart] = useState<CartItemInterface[]>([]);

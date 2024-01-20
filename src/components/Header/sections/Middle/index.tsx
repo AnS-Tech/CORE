@@ -39,7 +39,7 @@ export const Middle = () => {
     return data;
   };
 
-  const handleChange = (e) => {
+  const handleChange = (e: any) => {
     setSearchValue(e.target.value);
     setSearchValueContext((prevState) => ({
       ...prevState,
