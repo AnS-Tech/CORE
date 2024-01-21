@@ -4,7 +4,7 @@ import { Input } from "src/components/Input";
 import { Button } from "src/components/Button";
 import { CiSearch } from "react-icons/ci";
 import { colors } from "src/styles/tokens";
-import { FaHeart } from "react-icons/fa";
+import { FaRegHeart } from "react-icons/fa6";
 import { HamburgerMenu } from "src/components/MenuHamburger";
 import Link from "next/link";
 import { DrawerCart } from "src/components/DrawerCart";
@@ -39,7 +39,7 @@ export const Middle = () => {
     return data;
   };
 
-  const handleChange = (e) => {
+  const handleChange = (e: any) => {
     setSearchValue(e.target.value);
     setSearchValueContext((prevState) => ({
       ...prevState,
@@ -72,7 +72,7 @@ export const Middle = () => {
         </S.SearchComponent>
         <S.UserServices>
           <Link href={"/favoritos"}>
-            <FaHeart className="icon" color={colors.vivendaColors.c5} />
+            <FaRegHeart className="icon" color={colors.vivendaColors.c5} />
           </Link>
 
           <S.Devider />

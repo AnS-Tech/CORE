@@ -10,7 +10,7 @@ export const Drawer: React.FC<DrawerProps> = ({
   const drawerRef = React.useRef(null);
 
   React.useEffect(() => {
-    const handleClickOutside = (event) => {
+    const handleClickOutside = (event: any) => {
       if (drawerRef.current && !drawerRef.current.contains(event.target)) {
         onClose();
       }

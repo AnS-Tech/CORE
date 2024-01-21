@@ -8,15 +8,9 @@ import { LiaShippingFastSolid } from "react-icons/lia";
 import { FeaturedContentComponent } from "./content";
 import { GiGreenhouse } from "react-icons/gi";
 import { FaHandHoldingDollar } from "react-icons/fa6";
-import { ReactNode } from "react";
+import { FeaturedProps } from "./interfaces";
 
 export default function Page() {
-  interface FeaturedProps {
-    index: number;
-    icon: ReactNode;
-    title: string;
-    description: string;
-  }
   const FeaturedContent: Array<FeaturedProps> = [
     {
       index: 1,
@@ -137,6 +131,7 @@ export default function Page() {
           <S.FeaturedBottonContainer>
             {FeaturedContent.map((featured) => (
               <FeaturedContentComponent
+                index={featured.index}
                 key={featured.title}
                 icon={featured.icon}
                 title={featured.title}

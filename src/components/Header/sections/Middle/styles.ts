@@ -40,7 +40,6 @@ export const SearchComponent = styled.div`
   #button {
     border-radius: 0px 6px 6px 0px;
     border: none;
-    background-color: ${colors.vivendaColors.c7};
   }
 
   @media (max-width: 920px) {

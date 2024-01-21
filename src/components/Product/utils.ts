@@ -6,7 +6,7 @@ interface StockReturn {
   withStock: boolean;
 }
 
-export const verifyStock = (stock): StockReturn => {
+export const verifyStock = (stock: string): StockReturn => {
   const withoutStock: StockReturn = {
     status: "Sem Estoque",
     value: 0,

@@ -6,7 +6,7 @@ import { ButtonStyled } from "./styles";
 export const Button: React.FC<ButtonProps> = ({
   children,
   textColor = colors.white,
-  backgroundColor = colors.lightGreen,
+  backgroundColor = colors.vivendaColors.c6,
   size = "medium",
   loading = false,
   bordered,

@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import { LoadingPage } from "src/components";
 import { ProductContextProvider } from "src/contexts/ProductContext";
 import GlobalStyles from "src/styles/globalStyles";
+import "./global.css";
 
 export default function RootLayout({
   children,
