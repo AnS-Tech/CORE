@@ -5,7 +5,7 @@ import { EyeButtonStyled } from "./styles";
 export const EyeButton: React.FC<EyeButtonProps> = ({ onClick = () => {} }) => {
   return (
     <EyeButtonStyled onClick={onClick} className="button-action-card-product">
-      <AiOutlineEye id="eye-icon" />
+      <AiOutlineEye id="eye-icon" color="black" />
     </EyeButtonStyled>
   );
 };

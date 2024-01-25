@@ -3,9 +3,7 @@ import styled, { css } from "styled-components";
 import { CartButtonContainerStyledProps } from "./interfaces";
 
 export const CartContainer = styled.button<CartButtonContainerStyledProps>`
-  ${({ isActive }) => css`
-    background-color: ${isActive ? colors.success : colors.grayScale100};
-  `}
+  background-color: ${colors.vivendaColors.c5};
   display: flex;
   align-items: center;
   justify-content: center;
@@ -16,7 +14,7 @@ export const CartContainer = styled.button<CartButtonContainerStyledProps>`
   font-style: normal;
   font-weight: 700;
   line-height: 16.8px;
-  color: ${colors.grayScale900};
+  color: ${colors.white};
   border: none;
   cursor: pointer;
   img {
@@ -26,35 +24,11 @@ export const CartContainer = styled.button<CartButtonContainerStyledProps>`
   &:disabled {
     cursor: not-allowed;
     opacity: 0.5;
-
-    &:hover {
-      background: ${colors.grayScale100};
-      color: ${colors.grayScale900};
-    }
   }
 
   @media (min-width: 950px) {
     &:hover {
-      background-color: ${colors.success};
-      color: ${colors.white};
+      outline: 1px solid gray;
     }
-  }
-
-  @media (max-width: 945px) {
-    &:active {
-      background-color: ${colors.success};
-      color: ${colors.white};
-    }
-
-    .children-div-button {
-      display: none;
-    }
-
-    img {
-      margin: 0;
-    }
-
-    border-radius: 2rem;
-    width: 32px;
   }
 `;

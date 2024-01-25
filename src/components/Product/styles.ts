@@ -13,7 +13,7 @@ export const ProductStyled = styled.div<ProductPropsStyled>`
   display: inline-flex;
   flex-direction: column;
   background-color: ${colors.white};
-  border: 1px solid ${colors.white};
+  border: 1px solid ${colors.border};
   border-radius: 8px;
 
   .actions-product-card-div {
@@ -36,7 +36,7 @@ export const ProductStyled = styled.div<ProductPropsStyled>`
 `;
 export const ProductImageWrapper = styled.div`
   position: relative;
-  height: 180px;
+  height: 206px;
   border-radius: 8px 8px 0 0;
 
   @media (max-width: 374px) {
@@ -65,8 +65,12 @@ export const ActionButtonWrapper = styled.div`
 `;
 
 export const ProductInfo = styled.div`
+  width: 100%;
   position: relative;
-  padding: 10px 8px;
+  padding: 12px 13px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
 `;
 
 export const InfoWrapper = styled.div`
@@ -78,20 +82,32 @@ export const InfoWrapper = styled.div`
 export const ProductName = styled.p<ProductNameProps>`
   font-size: ${size.s1};
   font-style: normal;
-  font-weight: 400;
+  font-weight: 600;
   line-height: 15px;
-  color: ${colors.vivendaColors.c6};
+  color: black;
   margin: 0;
   height: 20px;
-  width: calc(100% - 43px);
+  width: calc(100% - 75px);
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
 
+  p {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+
   @media (min-width: 950px) {
     &:hover {
-      overflow: visible;
-      white-space: normal;
+      p {
+        overflow: visible;
+        white-space: normal;
+        background-color: ${colors.white};
+        padding-right: 0.5rem;
+        height: auto;
+        position: absolute;
+      }
     }
   }
 
@@ -106,7 +122,8 @@ export const ProductName = styled.p<ProductNameProps>`
 export const ProductPrice = styled.h3<ProductPriceProps>`
   display: inline-block;
   font-size: ${size.s3};
-  color: ${colors.vivendaColors.c6};
+  color: ${colors.black};
+  font-weight: 700;
 `;
 
 export const ProductPriceDotted = styled(ProductPrice)<ProductPriceProps>`
@@ -120,4 +137,10 @@ export const WrapperTag = styled.div`
   top: 10px;
   left: 15px;
   display: flex;
+`;
+
+export const StockStatus = styled.div`
+  font-style: italic;
+  font-size: 10px;
+  color: #00000054;
 `;

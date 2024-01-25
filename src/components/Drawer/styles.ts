@@ -23,7 +23,7 @@ export const DrawerContainer = styled.div<{ isOpen: boolean }>`
   z-index: 1000;
   width: 428px;
   height: 100%;
-  background-color: ${colors.beige};
+  background-color: ${colors.vivendaColors.c3};
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
   ::-webkit-scrollbar {
     width: 35px;

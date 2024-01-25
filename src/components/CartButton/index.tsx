@@ -40,7 +40,6 @@ export const CartButton: React.FC<CartButtonProps> = ({
       }}
     >
       <div className="children-div-button">{children}</div>
-      <IoCart fontSize="18px" />
     </CartContainer>
   );
 };

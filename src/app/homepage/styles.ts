@@ -16,11 +16,11 @@ export const Homepage = styled.main`
     padding: 0px 5px 100px 5px;
     height: inherit;
     display: grid;
-    grid-template-columns: repeat(6, minmax(0, 1fr));
+    grid-template-columns: repeat(5, minmax(0, 1fr));
     gap: 5px;
 
     @media (max-width: 1300px) {
-      grid-template-columns: repeat(5, minmax(0, 1fr));
+      grid-template-columns: repeat(4, minmax(0, 1fr));
     }
 
     @media (max-width: 1140px) {
