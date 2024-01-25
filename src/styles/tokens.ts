@@ -32,7 +32,7 @@ interface Colors {
   };
 }
 
-export const colors: Colors = {
+export const colors: Colors | any = {
   darkGreen: "#365028",
   lightGreen: "#697928",
   success: "#00B207",

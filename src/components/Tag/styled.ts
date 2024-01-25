@@ -17,6 +17,6 @@ export const TagStyled = styled.span<TagStyledProps>`
   color: ${colors.white};
 
   ${({ status }) => css`
-    background-color: transparent;
+    background-color: ${colors.EmEstoque};
   `}
 `;
