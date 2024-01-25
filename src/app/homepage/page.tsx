@@ -23,7 +23,9 @@ export default function Page() {
     return data;
   };
 
-  const { data: products, isLoading } = useQuery(["products"], getProducts);
+  const { data: products, isLoading } = useQuery(["products"], getProducts, {
+    staleTime: 1000 * 30, // 30 seconds
+  });
 
   useEffect(() => {
     setFakeLoadingSearch(true);
