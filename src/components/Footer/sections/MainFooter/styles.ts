@@ -2,7 +2,7 @@ import { colors } from "src/styles/tokens";
 import styled from "styled-components";
 
 export const MainFooterStyled = styled.div`
-  width: 96%;
+  width: 100%;
   max-width: 1320px;
   display: flex;
   align-items: center;

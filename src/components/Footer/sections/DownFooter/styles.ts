@@ -2,7 +2,7 @@ import { colors } from "src/styles/tokens";
 import styled from "styled-components";
 
 export const DownFooterStyled = styled.div`
-  width: 96%;
+  width: 100%;
   max-width: 1320px;
   padding: 24px 0;
 

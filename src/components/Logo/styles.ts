@@ -2,9 +2,9 @@ import { colors } from "src/styles/tokens";
 import styled from "styled-components";
 
 export const LogoStyled = styled.div`
+  min-width: 342px;
   display: flex;
   align-items: center;
-  justify-content: space-around;
   gap: 8px;
 
   img {
@@ -28,13 +28,13 @@ export const TextLogo = styled.h1`
   color: ${colors.vivendaColors.c7};
   display: inline-block;
   flex-wrap: nowrap;
-  font-size: 32px;
+  font-size: 30px;
   font-style: normal;
   font-weight: 500;
   line-height: 38px;
   white-space: nowrap;
   
-  @media (max-width: 920px) {
+  @media (max-width: 1200px) {
     font-size: 26px;
   }
 

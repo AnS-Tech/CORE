@@ -3,18 +3,19 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   width: 100%;
-  background-color: ${colors.vivendaColors.c6};
   height: 60px;
+  padding: 0 20px;
+  background-color: ${colors.vivendaColors.c6};
   display: flex;
   justify-content: center;
 
-  @media (max-width: 920px) {
+  @media (max-width: 1200px) {
     display: none;
   }
 `;
 
 export const Body = styled.div`
-  width: 96%;
+  width: 100%;
   max-width: 1320px;
   display: flex;
   align-items: center;

@@ -47,6 +47,7 @@ export default function Page() {
             <h1
               style={{
                 color: colors.vivendaColors.c6,
+                margin: 20,
               }}
             >
               {searchValues?.value?.length > 0

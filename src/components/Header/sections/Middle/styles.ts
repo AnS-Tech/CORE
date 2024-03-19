@@ -3,16 +3,18 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   width: 100%;
-  background: ${colors.vivendaColors.c3} 5%;
   height: 92px;
+  padding: 0 20px;
+  background: ${colors.vivendaColors.c3} 5%;
   display: flex;
   align-items: center;
   justify-content: center;
 `;
 
 export const Body = styled.div`
+
   max-width: 1320px;
-  width: 96%;
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -42,7 +44,7 @@ export const SearchComponent = styled.div`
     border: none;
   }
 
-  @media (max-width: 920px) {
+  @media (max-width: 1200px) {
     display: none;
   }
 `;
@@ -73,7 +75,7 @@ export const UserServices = styled.div`
     cursor: pointer;
   }
 
-  @media (max-width: 920px) {
+  @media (max-width: 1200px) {
     display: none;
   }
 `;

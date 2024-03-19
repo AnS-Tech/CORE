@@ -13,7 +13,7 @@ export const Homepage = styled.main`
   }
 
   .list {
-    padding: 0px 5px 100px 5px;
+    padding: 0px 20px 100px 20px;
     height: inherit;
     display: grid;
     grid-template-columns: repeat(5, minmax(0, 1fr));

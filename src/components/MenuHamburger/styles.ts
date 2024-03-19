@@ -22,7 +22,7 @@ export const MenuToggle = styled.div`
     }
   }
 
-  @media (max-width: 920px) {
+  @media (max-width: 1200px) {
     display: flex;
   }
 `;

@@ -19,7 +19,7 @@ export const About = styled.main`
   }
 
   @media (max-width: 1390px) {
-    width: 96%;
+    width: 100%;
     margin: 0 auto;
 
     display: flex;
