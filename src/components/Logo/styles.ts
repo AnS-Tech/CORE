@@ -17,6 +17,7 @@ export const LogoStyled = styled.div`
   }
 
   @media (max-width: 720px) {
+    min-width: unset;
     img {
       width: 48px;
       height: 48px;
